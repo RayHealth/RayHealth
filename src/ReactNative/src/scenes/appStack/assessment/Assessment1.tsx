@@ -13,6 +13,10 @@ const Assessment1: React.FC = () => (
             }>
             Step 2
         </FullWidthButton>
+        <FullWidthButton
+            onPress={() => NavigationService.navigate(APP_STACK_ROUTES.HOME.INDEX)}>
+            Home
+        </FullWidthButton>
     </View>
 );
 
