@@ -1,0 +1,7 @@
+.idea
+node_modules
+dist
+.DS_Store
+.env
+/src/Web/public/cdn-generated/app.js
+/src/Web/public/cdn-generated/vendor.js

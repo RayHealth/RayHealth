@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@reduxShared/*": ["../_store/src/*"],
+            "rxjs": ["../_store/node_modules/rxjs"],
+            "rxjs/*": ["../_store/node_modules/rxjs/*"]
+        },
+        "rootDirs": ["src", "../_store"],
+        "outDir": "build/dist",
+        "module": "esnext",
+        "target": "es2015",
+        "lib": ["es6", "dom", "es2017.object", "es2016.array.include"],
+        "sourceMap": true,
+        "allowJs": false,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "pretty": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+        "skipLibCheck": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": false,
+        "alwaysStrict": true,
+        "strictBindCallApply": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "suppressImplicitAnyIndexErrors": false,
+        "noUnusedLocals": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "exclude": ["android", "ios", "build", "node_modules"],
+    "filesGlob": ["typings/index.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+    "types": ["react", "react-native", "jest"]
+}

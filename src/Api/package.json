@@ -1,0 +1,35 @@
+{
+    "name": "api-server",
+    "version": "0.0.1",
+    "description": "API Server",
+    "main": "./build/dist/Api/src/index.js",
+    "repository": {
+        "url": "https://github.com/stephenkiers/RayHealth"
+    },
+    "author": "Stephen Kiers",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@hapi/joi": "^17.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.16.3",
+        "jwks-rsa": "^1.7.0",
+        "mongoose": "^5.9.2"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.2",
+        "@types/joi": "^14.3.4",
+        "@types/mongoose": "^5.7.1",
+        "@types/node": "^13.7.4",
+        "del-cli": "^3.0.0",
+        "module-alias": "^2.2.2",
+        "nodemon": "^2.0.2",
+        "typescript": "^3.8.2"
+    },
+    "scripts": {
+        "compile-tsc": "del-cli build/dist/ && tsc",
+        "dev:watch": "npm run compile-tsc && tsc --w",
+        "dev:server": "NODE_ENV=development nodemon --inspect -r dotenv/config build/dist/Api/src/index.js 3000",
+        "docker:start-db": "docker run --name ray_health -d -p 127.0.0.1:27017:27017 mongo"
+    }
+}
