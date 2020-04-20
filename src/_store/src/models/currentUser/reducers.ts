@@ -4,6 +4,7 @@ import {
     CurrentUserState,
     defaultCurrentUser,
 } from "./constants";
+import {ASSESSMENT} from "../assessments/constants";
 
 const currentCurrentUserReducer = (
     state: CurrentUserState = defaultCurrentUser,

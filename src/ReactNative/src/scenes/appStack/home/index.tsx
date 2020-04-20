@@ -4,8 +4,6 @@ import {useSelector} from "react-redux";
 import {getCurrentUser} from "@reduxShared/models/currentUser/accessors";
 import {BaseContainerView, PageContainer} from "../styles";
 import SetName from "./SetName";
-import NavigationService from "../../../services/navigationService";
-import {APP_STACK_ROUTES} from "../../router/constants";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 
 const Indent: React.FC = ({children}) => <View style={{marginLeft: 10}}>{children}</View>;

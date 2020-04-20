@@ -7,6 +7,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import Assessment1 from "../appStack/assessment/Assessment1";
 import Assessment2 from "../appStack/assessment/Assessment2";
 import Placeholder from "../appStack/home/placeholder";
+import WhatIsYourTemperature from "../appStack/assessment/whatIsYourTemperature/whatIsYourTemperature";
 
 const BottomTab = createBottomTabNavigator();
 const HomeStackNavigator: React.FC = () => (
@@ -37,6 +38,10 @@ const Stack = createStackNavigator();
 const AppStackNavigator = () => (
     <Stack.Navigator>
         <Stack.Screen name={APP_STACK_ROUTES.HOME.INDEX} component={HomeStackNavigator} />
+        <Stack.Screen
+            name={APP_STACK_ROUTES.ASSESSMENTS.WHAT_IS_YOUR_TEMPERATURE}
+            component={WhatIsYourTemperature}
+        />
         <Stack.Screen
             name={APP_STACK_ROUTES.ASSESSMENTS.STEP_1}
             component={Assessment1}

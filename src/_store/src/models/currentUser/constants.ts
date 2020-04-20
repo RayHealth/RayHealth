@@ -5,6 +5,8 @@ import {
     CurrentUserPermissionToShareAnonymizedDataSuccess,
     CurrentUserPermissionToSharePersonalDataSuccess,
 } from "./actions";
+import {AssessmentInitialize} from "../assessments/actions";
+import {AssessmentUuid} from "../assessments/constants";
 
 export enum CURRENT_USER {
     NAME_SUCCESS = "currentUser/CURRENT_USER_SET_NAME",
@@ -38,4 +40,5 @@ export type CurrentAccountActions =
     | CurrentUserBirthdaySuccess
     | CurrentUserPermissionToSharePersonalDataSuccess
     | CurrentUserPermissionToShareAnonymizedDataSuccess
-    | CurrentUserAcceptTacSuccess;
+    | CurrentUserAcceptTacSuccess
+    | AssessmentInitialize;
