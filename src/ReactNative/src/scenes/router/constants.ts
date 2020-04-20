@@ -3,6 +3,7 @@ export const APP_STACK_ROUTES = {
         INDEX: "home/index",
     },
     ASSESSMENTS: {
-        NEW: "assessments/new",
+        STEP_1: "assessments/STEP_1",
+        STEP_2: "assessments/STEP_2",
     },
 };

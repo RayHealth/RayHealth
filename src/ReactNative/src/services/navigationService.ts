@@ -1,4 +1,5 @@
 import React from "react";
+import {CommonActions} from "@react-navigation/native";
 // import {CommonActions} from "@react-navigation/native";
 //
 // type IRouteSpec<Route extends string, Params extends object | undefined> = {
@@ -8,10 +9,15 @@ import React from "react";
 // export type RouteSpec = IRouteSpec<RouteNamesWithNoParams, undefined>;
 
 const topLevelNavigatorRef: React.RefObject<any> = React.createRef();
-//
-// const navigate = (routeName: RouteNamesWithNoParams) => {
-//     navigateWithParams({routeName, params: undefined});
-// };
+
+const navigate = (routeName: string, params: {[k: string]: any} = {}) => {
+    topLevelNavigatorRef.current.dispatch(
+        CommonActions.navigate({
+            name: routeName,
+            params: params,
+        }),
+    );
+};
 // const navigateWithParams = (routeSpec: RouteSpec) => {
 //     topLevelNavigatorRef.current.dispatch(
 //         CommonActions.navigate({
@@ -39,7 +45,7 @@ const topLevelNavigatorRef: React.RefObject<any> = React.createRef();
 // };
 
 const NavigationService = {
-    // navigate,
+    navigate,
     // navigateWithParams,
     // push,
     // pushWithParams,
