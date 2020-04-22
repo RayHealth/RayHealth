@@ -23,10 +23,10 @@ export const FullWidthButtonTouchableHighlight = styled.TouchableHighlight`
     padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5;
+    border-radius: 5px;
     align-items: center;
 `;
 export const FullWidthButtonText = styled.Text`
-    font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT};
+    font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT}px;
     color: ${STYLE.COLORS.BRANDh};
 `;

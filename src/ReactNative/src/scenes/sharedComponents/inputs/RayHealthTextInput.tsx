@@ -28,5 +28,5 @@ const StyledTextInput = styled.TextInput`
     margin-top: 10px;
     margin-bottom: 10px;
     color: #111;
-    font-size: ${STYLE.FONT_SIZES.INPUT};
+    font-size: ${STYLE.FONT_SIZES.INPUT}px;
 `;
