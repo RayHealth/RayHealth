@@ -13,6 +13,9 @@ const isWebMode = version.client === "web-dev-mode";
 
 const tld = "ray.health";
 const apiDomain = (): string => {
+    // return "https://ray-health-demo.herokuapp.com"
+    return "http://Stephens-MacBook-Pro.local:3000";
+
     if (!isDevMode) return `https://api.${tld}.com`;
     if (isWebMode) return `http://${devServerAddress}:3000`;
     if (isIos) return `http://${devServerAddress}:3000`;

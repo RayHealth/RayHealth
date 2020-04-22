@@ -9,24 +9,24 @@ import {ASSESSMENT} from "./constants";
 import {catchError, filter, map, mergeMap} from "rxjs/operators";
 import {API_ENDPOINT} from "../../services/apiEndpoints";
 import {handleErrorAsObservable} from "../../services/errorObservable";
+import {getAllUnSyncedAssessments} from "./accessors";
 
 const submitAnonymizedAssessmentEpic: AppSharedEpic<
     CompleteAssessment,
     SharedToServerSuccess
 > = (action$: ActionsObservable<CompleteAssessment>, store$, {apiFetch}) =>
     action$.ofType(ASSESSMENT.COMPLETE).pipe(
-        filter(
-            () => {
-                console.log("EPIC");
-                return true;
-            } /*store$.value*/,
-        ),
-        mergeMap((action) =>
-            apiFetch(API_ENDPOINT.V1.ASSESSMENTS.NEW).pipe(
+        filter(() => getAllUnSyncedAssessments(store$.value).length > 0),
+        mergeMap((action) => {
+            const assessments = getAllUnSyncedAssessments(store$.value);
+            console.log(assessments);
+            return apiFetch(API_ENDPOINT.V1.ASSESSMENTS.NEW, {
+                assessments,
+            }).pipe(
                 map(({response}) => sharedToServerSuccess),
                 catchError(handleErrorAsObservable()),
-            ),
-        ),
+            );
+        }),
     );
 
 const assessmentEpics = combineEpics(submitAnonymizedAssessmentEpic);

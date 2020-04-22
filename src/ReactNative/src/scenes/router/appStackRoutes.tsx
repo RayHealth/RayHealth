@@ -18,6 +18,7 @@ const AppStackNavigator = () => {
             <Stack.Screen
                 name={APP_STACK_ROUTES.HOME.INDEX}
                 component={StackWithBottomTabs}
+                options={{headerShown: false}}
             />
             <Stack.Screen
                 name={APP_STACK_ROUTES.ASSESSMENTS.NEW}

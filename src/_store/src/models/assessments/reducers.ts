@@ -6,6 +6,21 @@ import {
     defaultAssessmentsState,
 } from "./constants";
 
+const updateCurrentAssessmentAttribute = (state, key, value): AssessmentState => {
+    if (!state.currentAssessmentUuid) return state;
+    if (!state.assessments[state.currentAssessmentUuid]) return state;
+    return {
+        ...state,
+        assessments: {
+            ...state.assessments,
+            [state.currentAssessmentUuid]: {
+                ...(state.assessments[state.currentAssessmentUuid] as Assessment),
+                [key]: value,
+            },
+        },
+    };
+};
+
 const assessmentReducer = (
     state: AssessmentState = defaultAssessmentsState,
     action: AssessmentActions,
@@ -28,34 +43,17 @@ const assessmentReducer = (
                     },
                 },
             };
+        case ASSESSMENT.GRANT_PERMISSION_TO_SHARE:
+            return updateCurrentAssessmentAttribute(state, "permissionToShare", true);
         case ASSESSMENT.COMPLETE:
-            console.log("REDUCER");
-            if (!state.currentAssessmentUuid) return state;
-            if (!state.assessments[state.currentAssessmentUuid]) return state;
-            return {
-                ...state,
-                currentAssessmentUuid: undefined,
-                assessments: {
-                    ...state.assessments,
-                    [state.currentAssessmentUuid]: {
-                        ...(state.assessments[state.currentAssessmentUuid] as Assessment),
-                        completed: true,
-                    },
-                },
-            };
+            const newState = updateCurrentAssessmentAttribute(state, "completed", true);
+            return {...newState, currentAssessmentUuid: undefined};
         case ASSESSMENT.RECORD_TEMPERATURE:
-            if (!state.currentAssessmentUuid) return state;
-            if (!state.assessments[state.currentAssessmentUuid]) return state;
-            return {
-                ...state,
-                assessments: {
-                    ...state.assessments,
-                    [state.currentAssessmentUuid]: {
-                        ...(state.assessments[state.currentAssessmentUuid] as Assessment),
-                        currentBodyTemperatureCelsius: action.temperatureInCelsius,
-                    },
-                },
-            };
+            return updateCurrentAssessmentAttribute(
+                state,
+                "currentBodyTemperatureCelsius",
+                action.temperatureInCelsius,
+            );
         default:
             return state;
     }

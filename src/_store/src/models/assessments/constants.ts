@@ -1,4 +1,9 @@
-import {AssessmentInitialize, CompleteAssessment, RecordTemperature} from "./actions";
+import {
+    AssessmentInitialize,
+    CompleteAssessment,
+    GrantPermissionToShare,
+    RecordTemperature,
+} from "./actions";
 import {ById} from "../../utils/byIdUtils";
 
 export enum ASSESSMENT {
@@ -49,4 +54,5 @@ export const defaultAssessmentsState = {
 export type AssessmentActions =
     | AssessmentInitialize
     | CompleteAssessment
+    | GrantPermissionToShare
     | RecordTemperature;

@@ -1,7 +1,10 @@
 import {ActionsObservable, combineEpics, StateObservable} from "redux-observable";
 import {fromPromise} from "rxjs/internal-compatibility";
 import {Observable} from "rxjs";
-import apiFetchPromise, {IApiFetchResponse} from "./services/apiFetch";
+import apiFetchPromise, {
+    ApiFetchAttributes,
+    IApiFetchResponse,
+} from "./services/apiFetch";
 import {IAppSharedState} from "./reducers";
 
 import {IEndpointObject} from "./services/apiEndpoints";
@@ -11,14 +14,14 @@ import assessmentEpics from "./models/assessments/epic";
 export type GetAuthorization = () => Promise<string>;
 export const apiFetchBuilder = (getAuthorization: GetAuthorization) => <T>(
     apiConstant: IEndpointObject,
-    body?: {[key: string]: string | number},
+    body?: ApiFetchAttributes,
 ): Observable<IApiFetchResponse<T>> =>
     fromPromise(apiFetchPromise(getAuthorization, apiConstant, body));
 
 export type IAppSharedEpicDependency = {
     apiFetch: <T>(
         api_constant: IEndpointObject,
-        body?: {[key: string]: string | number},
+        body?: ApiFetchAttributes,
     ) => Observable<IApiFetchResponse<T>>;
 };
 

@@ -13,9 +13,12 @@ const HomeIndex: React.FC = () => {
     return (
         <PageContainer>
             <BaseContainerView>
-                <Text>Home: To do list</Text>
+                <Text>LOGO GOES HERE?!?</Text>
             </BaseContainerView>
             <HowAreYouFeeling />
+            <BaseContainerView>
+                <Text>Home: To do list</Text>
+            </BaseContainerView>
             <BaseContainerView>
                 <Text>&bull; Create welcome flow</Text>
                 <Indent>

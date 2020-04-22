@@ -82,10 +82,11 @@ export interface IApiFetchResponse<T> {
     error?: string;
 }
 
+export type ApiFetchAttributes = {[key: string]: string | number | Array<object>};
 const apiFetchPromise = <T>(
     getAuthorization: GetAuthorization,
     apiConstant: IEndpointObject,
-    attributes: {[key: string]: string | number} = {},
+    attributes: ApiFetchAttributes = {},
 ): Promise<IApiFetchResponse<T>> =>
     new Promise(async (resolve, reject) => {
         let url = `${sharedConfig.apiDomain}${apiConstant.path}`;
@@ -98,21 +99,26 @@ const apiFetchPromise = <T>(
         }
         if (attributes !== {} || Object.keys(attributes).length > 0) {
             if (apiConstant.method === API_METHOD.GET) {
-                url += "?";
-                Object.keys(attributes).forEach((key) => {
-                    const value = attributes[key];
-                    if (value) {
-                        if (Array.isArray(value)) {
-                            value.forEach((item) => {
-                                if (item) {
-                                    url += `${key}[]=${item}&`;
-                                }
-                            });
-                        } else {
-                            url += `${key}=${value}&`;
-                        }
-                    }
-                });
+                if (Object.keys(attributes).length > 1) {
+                    console.error("this should be processed outside apiFetch");
+                }
+                // url += "?";
+                // Object.keys(attributes).forEach((key) => {
+                //     const value = attributes[key];
+                //     if (value) {
+                //         if (Array.isArray(value)) {
+                //             value.forEach((item) => {
+                //                 if (item) {
+                //                     url += `${key}[]=${item}&`;
+                //                 }
+                //             });
+                //         } else if (typeof value === "object") {
+                //             console.error("do not send objects via GET");
+                //         } else {
+                //             url += `${key}=${value}&`;
+                //         }
+                //     }
+                // });
             } else {
                 Object.keys(attributes).forEach((key) => {
                     const value = attributes[key];

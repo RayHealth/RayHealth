@@ -7,3 +7,11 @@ export const getCurrentAssessment = (state: IAppSharedState): Assessment | undef
     const uuid = getCurrentAssessmentUuid(state);
     return uuid ? state.assessments.assessments[uuid] : undefined;
 };
+export const getAllUnSyncedAssessments = (state: IAppSharedState): Assessment[] =>
+    (Object.values(state.assessments.assessments) as Assessment[]).filter(
+        (assessment) =>
+            assessment &&
+            assessment.completed &&
+            assessment.permissionToShare &&
+            !assessment.sharedToServer,
+    );
