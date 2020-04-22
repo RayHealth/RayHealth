@@ -6,7 +6,7 @@ import {IFetchErrorResponse} from "./apiFetch";
 
 export type IAppErrorAction = IAppAction;
 
-export const handleErrorAsObservable = ({
+export const handleErrorAsObservable = (callbackAction: IAppAction = NoOp) => ({
     status,
     error,
     response,
@@ -25,9 +25,9 @@ export const handleErrorAsObservable = ({
         console.log("handle404");
     } else if (status === 401) {
         console.log("Why?");
-        return ActionsObservable.of(NoOp);
+        return ActionsObservable.of(callbackAction);
     }
     console.log("handle404");
 
-    return ActionsObservable.of(NoOp);
+    return ActionsObservable.of(callbackAction);
 };

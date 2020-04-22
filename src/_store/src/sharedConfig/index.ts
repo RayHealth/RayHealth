@@ -11,7 +11,7 @@ const isAndroid = version.client === "android";
 const isIos = version.client === "ios";
 const isWebMode = version.client === "web-dev-mode";
 
-const tld = "rayhealth.com";
+const tld = "ray.health";
 const apiDomain = (): string => {
     if (!isDevMode) return `https://api.${tld}.com`;
     if (isWebMode) return `http://${devServerAddress}:3000`;

@@ -18,3 +18,22 @@ export const recordTemperature = (temperatureInCelsius: number): RecordTemperatu
     type: ASSESSMENT.RECORD_TEMPERATURE,
     temperatureInCelsius,
 });
+export interface CompleteAssessment {
+    type: ASSESSMENT.COMPLETE;
+}
+export const completeAssessment: CompleteAssessment = {
+    type: ASSESSMENT.COMPLETE,
+};
+
+export interface SubmitAnonymizedAssessmentToServer {
+    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST;
+}
+export const submitAnonymizedAssessmentToServerRequest: SubmitAnonymizedAssessmentToServer = {
+    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST,
+};
+export interface SubmitAnonymizedAssessmentToServerError {
+    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR;
+}
+export const submitAnonymizedAssessmentToServerError: SubmitAnonymizedAssessmentToServerError = {
+    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR,
+};

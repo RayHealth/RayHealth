@@ -1,3 +1,5 @@
+import assessmentsController from "./controllers/assessments/assessmentsController";
+
 require("module-alias/register");
 const moduleAlias = require("module-alias");
 moduleAlias.addAlias("@reduxShared", __dirname + "/../../_store/src");
@@ -26,6 +28,7 @@ app.get("/", (req, res) =>
         "Are you interested in helping develop ray.health? Find us on Github to get involved.",
     ),
 );
+app.use("/v1/assessments", assessmentsController);
 app.use("/v1/locations", locationsController);
 
 app.listen(port, () => {

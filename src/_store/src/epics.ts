@@ -6,6 +6,7 @@ import {IAppSharedState} from "./reducers";
 
 import {IEndpointObject} from "./services/apiEndpoints";
 import {IAppErrorAction} from "./services/errorObservable";
+import assessmentEpics from "./models/assessments/epic";
 
 export type GetAuthorization = () => Promise<string>;
 export const apiFetchBuilder = (getAuthorization: GetAuthorization) => <T>(
@@ -35,4 +36,4 @@ export type AppSharedEpic<
 ) => Observable<Output | IAppErrorAction>;
 
 // @ts-ignore-next-line
-export const appSharedEpics: AppSharedEpic = <AppSharedEpic>combineEpics();
+export const appSharedEpics: AppSharedEpic = <AppSharedEpic>combineEpics(assessmentEpics);

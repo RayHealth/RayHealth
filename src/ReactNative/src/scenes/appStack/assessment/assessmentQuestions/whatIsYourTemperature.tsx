@@ -16,7 +16,7 @@ import RayHealthTemperatureInput from "../../../sharedComponents/inputs/RayHealt
 const WhatIsYourTemperature = () => {
     const dispatch = useDispatch();
     const [value, setValue] = React.useState<string>("37.5");
-    const onSubmitTempAndShare = useCallback(() => {
+    const onSubmitAndShare = useCallback(() => {
         dispatch(recordTemperature(parseFloat(value)));
     }, [dispatch, value]);
     const onSubmitAndSave = useCallback(() => {
@@ -42,7 +42,7 @@ const WhatIsYourTemperature = () => {
 
             <RayHealthTemperatureInput onChange={setValue} value={value} />
 
-            <BrandFullWidthButton onPress={onSubmitTempAndShare}>
+            <BrandFullWidthButton onPress={onSubmitAndShare}>
                 Submit and share anonymized data with researchers
             </BrandFullWidthButton>
             <SecondaryFullWidthButton onPress={onSubmitAndSave}>

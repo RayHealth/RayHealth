@@ -10,11 +10,11 @@ export interface IEndpointObject {
 
 export const API_ENDPOINT = {
     V1: {
-        ACCOUNT: {
-            LOGIN: {
+        ASSESSMENTS: {
+            NEW: {
                 method: API_TYPE.POST,
-                path: "/v1/account/login",
-                auth: true,
+                path: "/v1/assessment",
+                auth: false,
             },
         },
     },
