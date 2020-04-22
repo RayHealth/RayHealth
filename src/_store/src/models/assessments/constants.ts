@@ -1,12 +1,12 @@
-import {AssessmentInitialize, RecordTemperature} from "./actions";
+import {AssessmentInitialize, CompleteAssessment, RecordTemperature} from "./actions";
 import {ById} from "../../utils/byIdUtils";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
+    GRANT_PERMISSION_TO_SHARE = "assessment/GIVE_PERMISSION_TO_SHARE",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
-    SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST = "assessment/SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST",
-    SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR = "assessment/SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR",
+    SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
 }
 
 export type AssessmentUuid = string;
@@ -14,6 +14,10 @@ export type AssessmentUuid = string;
 export interface Assessment {
     id: AssessmentUuid;
     createdAt: number;
+    permissionToShare: boolean;
+    sharedToServer: boolean;
+    completed?: true;
+
     feelingGood: boolean;
     currentBodyTemperatureCelsius?: number;
     severeDifficultyBreathing?: boolean; //911
@@ -42,4 +46,7 @@ export const defaultAssessmentsState = {
     assessments: {},
 };
 
-export type AssessmentActions = AssessmentInitialize | RecordTemperature;
+export type AssessmentActions =
+    | AssessmentInitialize
+    | CompleteAssessment
+    | RecordTemperature;

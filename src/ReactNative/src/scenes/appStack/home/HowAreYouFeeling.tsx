@@ -4,15 +4,17 @@ import BrandFullWidthButton from "../../sharedComponents/buttons/brandFullWidthB
 import {BaseContainerView} from "../styles";
 import {useDispatch} from "react-redux";
 import {initializeAssessment} from "@reduxShared/models/assessments/actions";
+import {useUuid} from "../../utils/customHooks/useUuid";
 
 const HowAreYouFeeling: React.FC = () => {
     const dispatch = useDispatch();
+    const uuid = useUuid();
     const isFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(true));
-    }, [dispatch]);
+        dispatch(initializeAssessment(uuid, true));
+    }, [dispatch, uuid]);
     const isNotFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(false));
-    }, [dispatch]);
+        dispatch(initializeAssessment(uuid, false));
+    }, [dispatch, uuid]);
     return (
         <BaseContainerView>
             <Text>How are you feeling?</Text>

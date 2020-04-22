@@ -1,14 +1,25 @@
 import {ASSESSMENT, AssessmentUuid} from "./constants";
-import {generateUUID} from "../../utils/uuid";
 
 export interface AssessmentInitialize {
     type: ASSESSMENT.INITIALIZE;
+    uuid: AssessmentUuid;
     feelingGood: boolean;
 }
-export const initializeAssessment = (feelingGood: boolean): AssessmentInitialize => ({
+export const initializeAssessment = (
+    uuid: AssessmentUuid,
+    feelingGood: boolean,
+): AssessmentInitialize => ({
     type: ASSESSMENT.INITIALIZE,
+    uuid,
     feelingGood,
 });
+
+export interface GrantPermissionToShare {
+    type: ASSESSMENT.GRANT_PERMISSION_TO_SHARE;
+}
+export const grantPermissionToShare: GrantPermissionToShare = {
+    type: ASSESSMENT.GRANT_PERMISSION_TO_SHARE,
+};
 
 export interface RecordTemperature {
     type: ASSESSMENT.RECORD_TEMPERATURE;
@@ -25,15 +36,9 @@ export const completeAssessment: CompleteAssessment = {
     type: ASSESSMENT.COMPLETE,
 };
 
-export interface SubmitAnonymizedAssessmentToServer {
-    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST;
+export interface SharedToServerSuccess {
+    type: ASSESSMENT.SHARED_TO_SERVER_SUCCESS;
 }
-export const submitAnonymizedAssessmentToServerRequest: SubmitAnonymizedAssessmentToServer = {
-    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_REQUEST,
-};
-export interface SubmitAnonymizedAssessmentToServerError {
-    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR;
-}
-export const submitAnonymizedAssessmentToServerError: SubmitAnonymizedAssessmentToServerError = {
-    type: ASSESSMENT.SUBMIT_ANONYMIZED_ASSESSMENT_TO_SERVER_ERROR,
+export const sharedToServerSuccess: SharedToServerSuccess = {
+    type: ASSESSMENT.SHARED_TO_SERVER_SUCCESS,
 };

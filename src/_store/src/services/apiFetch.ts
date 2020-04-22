@@ -118,20 +118,20 @@ const apiFetchPromise = <T>(
                 });
             }
         }
-        let fetch_params;
+        let fetchParams;
         if (apiConstant.method !== API_METHOD.GET) {
-            fetch_params = {
+            fetchParams = {
                 method: apiConstant.method,
                 headers: form_headers,
                 body: form_body,
             };
         } else {
-            fetch_params = {
+            fetchParams = {
                 method: apiConstant.method,
                 headers: form_headers,
             };
         }
-        return fetch(url, fetch_params)
+        return fetch(url, fetchParams)
             .then((response) => handleResponse(response))
             .then(
                 (data) => resolve(data),

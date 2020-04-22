@@ -13,7 +13,7 @@ export const API_ENDPOINT = {
         ASSESSMENTS: {
             NEW: {
                 method: API_TYPE.POST,
-                path: "/v1/assessment",
+                path: "/v1/assessments",
                 auth: false,
             },
         },
