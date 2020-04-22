@@ -18,7 +18,6 @@ const WhatIsYourTemperature = () => {
     return (
         <View>
             <Text>That is GREAT!</Text>
-
             <View>
                 <Text>
                     Would you like to record your temperature (in celsius please)?

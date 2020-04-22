@@ -1,16 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {APP_STACK_ROUTES} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeIndex from "../appStack/home";
 import AppTabBar from "./tabBarComponents";
 import {createStackNavigator} from "@react-navigation/stack";
-import Assessment1 from "../appStack/assessment/Assessment1";
-import Assessment2 from "../appStack/assessment/Assessment2";
 import Placeholder from "../appStack/home/placeholder";
-import WhatIsYourTemperature from "../appStack/assessment/whatIsYourTemperature/whatIsYourTemperature";
+import Assessment from "../appStack/assessment/Assessment";
+import {useSelector} from "react-redux";
+import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/accessors";
+import NavigationService from "../../services/navigationService";
+
+const Stack = createStackNavigator();
+const AppStackNavigator = () => {
+    useAssessmentMonitor();
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name={APP_STACK_ROUTES.HOME.INDEX}
+                component={StackWithBottomTabs}
+            />
+            <Stack.Screen
+                name={APP_STACK_ROUTES.ASSESSMENTS.NEW}
+                component={Assessment}
+                options={{headerShown: false}}
+            />
+        </Stack.Navigator>
+    );
+};
+
+export default AppStackNavigator;
 
 const BottomTab = createBottomTabNavigator();
-const HomeStackNavigator: React.FC = () => (
+const StackWithBottomTabs: React.FC = () => (
     <BottomTab.Navigator tabBar={(props) => <AppTabBar {...props} />}>
         <BottomTab.Screen
             name={APP_STACK_ROUTES.HOME.INDEX}
@@ -23,34 +44,19 @@ const HomeStackNavigator: React.FC = () => (
         <BottomTab.Screen
             name={APP_STACK_ROUTES.HOME.PLACEHOLDER}
             component={Placeholder}
-            options={({route}) => {
-                console.log(route);
-                return {
-                    tabBarLabel: "Placeholder",
-                    tabBarAccessibilityLabel: "Placeholder",
-                };
+            options={{
+                tabBarLabel: "Placeholder",
+                tabBarAccessibilityLabel: "Placeholder",
             }}
         />
     </BottomTab.Navigator>
 );
 
-const Stack = createStackNavigator();
-const AppStackNavigator = () => (
-    <Stack.Navigator>
-        <Stack.Screen name={APP_STACK_ROUTES.HOME.INDEX} component={HomeStackNavigator} />
-        <Stack.Screen
-            name={APP_STACK_ROUTES.ASSESSMENTS.WHAT_IS_YOUR_TEMPERATURE}
-            component={WhatIsYourTemperature}
-        />
-        <Stack.Screen
-            name={APP_STACK_ROUTES.ASSESSMENTS.STEP_1}
-            component={Assessment1}
-        />
-        <Stack.Screen
-            name={APP_STACK_ROUTES.ASSESSMENTS.STEP_2}
-            component={Assessment2}
-        />
-    </Stack.Navigator>
-);
-
-export default AppStackNavigator;
+const useAssessmentMonitor = (): void => {
+    const assessmentUuid = useSelector(getCurrentAssessmentUuid);
+    useEffect(() => {
+        if (assessmentUuid) {
+            NavigationService.navigate(APP_STACK_ROUTES.ASSESSMENTS.NEW);
+        }
+    }, [assessmentUuid]);
+};
