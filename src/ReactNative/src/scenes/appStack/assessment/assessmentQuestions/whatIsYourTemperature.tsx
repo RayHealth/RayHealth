@@ -1,6 +1,4 @@
 import * as React from "react";
-import NavigationService from "../../../../services/navigationService";
-import {APP_STACK_ROUTES} from "../../../router/constants";
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import {recordTemperature} from "@reduxShared/models/assessments/actions";
@@ -45,7 +43,7 @@ const WhatIsYourTemperature = () => {
             <RayHealthTemperatureInput onChange={setValue} value={value} />
 
             <BrandFullWidthButton onPress={onSubmitTempAndShare}>
-                Submit and share with researchers
+                Submit and share anonymized data with researchers
             </BrandFullWidthButton>
             <SecondaryFullWidthButton onPress={onSubmitAndSave}>
                 Save for personal only
