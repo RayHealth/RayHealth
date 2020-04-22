@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {Text} from "react-native";
-import FullWidthButton from "../../sharedComponents/buttons/fullWidthButton";
+import BrandFullWidthButton from "../../sharedComponents/buttons/brandFullWidthButton";
 import {BaseContainerView} from "../styles";
 import {useDispatch} from "react-redux";
 import {initializeAssessment} from "@reduxShared/models/assessments/actions";
@@ -16,8 +16,10 @@ const HowAreYouFeeling: React.FC = () => {
     return (
         <BaseContainerView>
             <Text>How are you feeling?</Text>
-            <FullWidthButton onPress={isFeelingGood}>Great</FullWidthButton>
-            <FullWidthButton onPress={isNotFeelingGood}>Not so great</FullWidthButton>
+            <BrandFullWidthButton onPress={isFeelingGood}>Great</BrandFullWidthButton>
+            <BrandFullWidthButton onPress={isNotFeelingGood}>
+                Not so great
+            </BrandFullWidthButton>
         </BaseContainerView>
     );
 };

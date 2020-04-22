@@ -23,7 +23,7 @@ const assessmentReducer = (
                     ...state.assessments,
                     [uuid]: {
                         id: uuid,
-                        date: epoch,
+                        createdAt: epoch,
                         feelingGood: action.feelingGood,
                     },
                 },

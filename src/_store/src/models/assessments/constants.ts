@@ -10,7 +10,7 @@ export type AssessmentUuid = string;
 
 export interface Assessment {
     id: AssessmentUuid;
-    date: number;
+    createdAt: number;
     feelingGood: boolean;
     currentBodyTemperatureCelsius?: number;
     severeDifficultyBreathing?: boolean; //911

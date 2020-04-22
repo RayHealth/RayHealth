@@ -7,15 +7,17 @@ interface RayHealthTextInputProps {
     onChange: (newText: string) => void;
 }
 
-const RayHealthTextInput: React.FC<RayHealthTextInputProps> = ({value, onChange}) => {
+const RayHealthTemperatureInput: React.FC<RayHealthTextInputProps> = ({
+    value,
+    onChange,
+}) => {
     const oc = (text) => {
-        console.log(text);
         onChange(text);
     };
     return <StyledTextInput onChangeText={oc} value={value} />;
 };
 
-export default RayHealthTextInput;
+export default RayHealthTemperatureInput;
 
 const StyledTextInput = styled.TextInput`
     border-width: 1px;

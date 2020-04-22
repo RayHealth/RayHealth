@@ -27,10 +27,10 @@ export const BaseContainerView = styled.View`
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
     color: #000;
     background: #fff;
     border-radius: ${BORDER_RADIUS};
