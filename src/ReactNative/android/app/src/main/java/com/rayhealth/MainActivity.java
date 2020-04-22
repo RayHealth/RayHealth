@@ -1,4 +1,4 @@
-package com.rayhealth;
+package health.ray;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate; // react-navigation-5

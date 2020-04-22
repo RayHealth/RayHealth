@@ -7,7 +7,7 @@ type InitialState = [false, undefined] | [true, State | undefined];
 // https://reactnavigation.org/docs/use-linking/
 const useInitialState = (): InitialState => {
     const {getInitialState} = useLinking(NavigationService.topLevelNavigatorRef, {
-        prefixes: ["https://www.ray.health", "https://ray.health", "com.rayhealth"],
+        prefixes: ["https://www.ray.health", "https://ray.health", "health.ray"],
     });
     const [isReady, setIsReady] = React.useState(false);
     const [initialState, setInitialState] = React.useState<State | undefined>();
