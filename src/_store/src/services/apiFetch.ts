@@ -24,10 +24,12 @@ interface IResponse {
     json: () => Promise<{[key: string]: any}>;
 }
 const handleResponse = (response: IResponse) =>
-    //todo, make await/async
     new Promise((resolve, reject) => {
         if (response.status === 204) {
-            resolve(undefined);
+            resolve({
+                status: response.status,
+                response: undefined,
+            });
         } else {
             Promise.resolve(response.json()).then(
                 (data) => {
@@ -87,12 +89,12 @@ const apiFetchPromise = <T>(
 ): Promise<IApiFetchResponse<T>> =>
     new Promise(async (resolve, reject) => {
         let url = `${sharedConfig.apiDomain}${apiConstant.path}`;
-        const form_headers = new Headers();
-        const form_body = new FormData();
+        const formHeaders = new Headers();
+        const formBody = new FormData();
 
         if (apiConstant.auth !== false) {
             const bearer = await getAuthorization();
-            form_headers.append("Authorization", `Bearer ${bearer}`);
+            formHeaders.append("Authorization", `Bearer ${bearer}`);
         }
         if (attributes !== {} || Object.keys(attributes).length > 0) {
             if (apiConstant.method === API_METHOD.GET) {
@@ -114,7 +116,7 @@ const apiFetchPromise = <T>(
             } else {
                 Object.keys(attributes).forEach((key) => {
                     const value = attributes[key];
-                    form_body.append(key, value ? value : "");
+                    formBody.append(key, value ? value : "");
                 });
             }
         }
@@ -122,15 +124,16 @@ const apiFetchPromise = <T>(
         if (apiConstant.method !== API_METHOD.GET) {
             fetchParams = {
                 method: apiConstant.method,
-                headers: form_headers,
-                body: form_body,
+                headers: formHeaders,
+                body: formBody,
             };
         } else {
             fetchParams = {
                 method: apiConstant.method,
-                headers: form_headers,
+                headers: formHeaders,
             };
         }
+        console.log("ASDFASDF", url, fetchParams);
         return fetch(url, fetchParams)
             .then((response) => handleResponse(response))
             .then(

@@ -5,7 +5,7 @@ const version = require("../../../version.json");
 
 const isDevMode = DO_NOT_IMPORT_isDevMode;
 
-const devServerAddress = "localhost"; // change in webpack.dev too
+const devServerAddress = "localhost";
 
 const isAndroid = version.client === "android";
 const isIos = version.client === "ios";

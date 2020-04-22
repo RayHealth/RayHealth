@@ -1,7 +1,11 @@
 import * as React from "react";
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
-import {recordTemperature} from "@reduxShared/models/assessments/actions";
+import {
+    completeAssessment,
+    grantPermissionToShare,
+    recordTemperature,
+} from "@reduxShared/models/assessments/actions";
 import {
     AssessmentQuestionDescriptionText,
     AssessmentQuestionDescriptionView,
@@ -18,13 +22,16 @@ const WhatIsYourTemperature = () => {
     const [value, setValue] = React.useState<string>("37.5");
     const onSubmitAndShare = useCallback(() => {
         dispatch(recordTemperature(parseFloat(value)));
+        dispatch(grantPermissionToShare);
+        dispatch(completeAssessment);
     }, [dispatch, value]);
     const onSubmitAndSave = useCallback(() => {
         dispatch(recordTemperature(parseFloat(value)));
+        dispatch(completeAssessment);
     }, [dispatch, value]);
     const onSubmitNoTemp = useCallback(() => {
-        dispatch(recordTemperature(parseFloat(value)));
-    }, [dispatch, value]);
+        dispatch(completeAssessment);
+    }, [dispatch]);
 
     return (
         <>

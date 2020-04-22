@@ -14,7 +14,7 @@ export const handleErrorAsObservable = (callbackAction: IAppAction = NoOp) => ({
 }: IFetchErrorResponse): ActionsObservable<IAppErrorAction> => {
     if (sharedConfig.isDevMode) {
         console.log("%cNetwork error!", "background: #f00; color: #fff");
-        console.log(apiConstant.method, apiConstant.path);
+        console.log(apiConstant.method, `${sharedConfig.apiDomain}${apiConstant.path}`);
         // console.log("Headers", error.request.headers);
         console.log("error", error);
         console.log("friendlyMessage", error);
