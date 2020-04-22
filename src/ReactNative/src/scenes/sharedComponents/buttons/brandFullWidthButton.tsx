@@ -15,7 +15,7 @@ export default BrandFullWidthButton;
 
 export const FullWidthButtonTouchableHighlight = styled.TouchableHighlight`
     background-color: ${STYLE.COLORS.BRAND};
-    border-width: 1;
+    border-width: 1px;
     border-color: ${STYLE.COLORS.BRAND};
     padding-top: 15px;
     padding-bottom: 15px;
