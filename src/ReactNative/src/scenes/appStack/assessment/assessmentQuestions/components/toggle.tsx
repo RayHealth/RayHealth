@@ -14,7 +14,9 @@ const Toggle: React.FC<ToggleProps> = ({children, toggleFunc, value}) => {
         toggleFunc(!value);
     }, [toggleFunc, value]);
     return value ? (
-        <ComplimentaryFullWidthButton onPress={onClick}>{children}</BrandFullWidthButton>
+        <ComplimentaryFullWidthButton onPress={onClick}>
+            {children}
+        </ComplimentaryFullWidthButton>
     ) : (
         <LightFullWidthButton onPress={onClick}>{children}</LightFullWidthButton>
     );
