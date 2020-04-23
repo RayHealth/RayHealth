@@ -10,6 +10,7 @@ const addRoutes = (router) => {
 
     // NEW ASSESSMENT
     router.post("/", async (req: Request, res: Response) => {
+        console.log("Save these:");
         console.log(req.body);
         return res.status(204).send();
     });

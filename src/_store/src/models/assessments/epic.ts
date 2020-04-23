@@ -11,7 +11,7 @@ import {API_ENDPOINT} from "../../services/apiEndpoints";
 import {handleErrorAsObservable} from "../../services/errorObservable";
 import {getAllUnSyncedAssessments} from "./accessors";
 
-const submitAnonymizedAssessmentEpic: AppSharedEpic<
+const anonymouslySyncAllUnSyncedAssessmentEpic: AppSharedEpic<
     CompleteAssessment,
     SharedToServerSuccess
 > = (action$: ActionsObservable<CompleteAssessment>, store$, {apiFetch}) =>
@@ -29,5 +29,5 @@ const submitAnonymizedAssessmentEpic: AppSharedEpic<
         }),
     );
 
-const assessmentEpics = combineEpics(submitAnonymizedAssessmentEpic);
+const assessmentEpics = combineEpics(anonymouslySyncAllUnSyncedAssessmentEpic);
 export default assessmentEpics;

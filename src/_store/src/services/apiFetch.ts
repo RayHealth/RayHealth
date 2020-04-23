@@ -1,7 +1,5 @@
 import fetch from "isomorphic-fetch";
-import FormData from "form-data";
 import sharedConfig from "../sharedConfig";
-import {GetAuthorization} from "../epics";
 import {IEndpointObject} from "./apiEndpoints";
 
 export enum API_METHOD {
@@ -84,62 +82,26 @@ export interface IApiFetchResponse<T> {
 
 export type ApiFetchAttributes = {[key: string]: string | number | Array<object>};
 const apiFetchPromise = <T>(
-    getAuthorization: GetAuthorization,
     apiConstant: IEndpointObject,
     attributes: ApiFetchAttributes = {},
 ): Promise<IApiFetchResponse<T>> =>
     new Promise(async (resolve, reject) => {
         let url = `${sharedConfig.apiDomain}${apiConstant.path}`;
-        const formHeaders = new Headers();
-        const formBody = new FormData();
-
-        if (apiConstant.auth !== false) {
-            const bearer = await getAuthorization();
-            formHeaders.append("Authorization", `Bearer ${bearer}`);
-        }
-        if (attributes !== {} || Object.keys(attributes).length > 0) {
-            if (apiConstant.method === API_METHOD.GET) {
-                if (Object.keys(attributes).length > 1) {
-                    console.error("this should be processed outside apiFetch");
-                }
-                // url += "?";
-                // Object.keys(attributes).forEach((key) => {
-                //     const value = attributes[key];
-                //     if (value) {
-                //         if (Array.isArray(value)) {
-                //             value.forEach((item) => {
-                //                 if (item) {
-                //                     url += `${key}[]=${item}&`;
-                //                 }
-                //             });
-                //         } else if (typeof value === "object") {
-                //             console.error("do not send objects via GET");
-                //         } else {
-                //             url += `${key}=${value}&`;
-                //         }
-                //     }
-                // });
-            } else {
-                Object.keys(attributes).forEach((key) => {
-                    const value = attributes[key];
-                    formBody.append(key, value ? value : "");
-                });
-            }
-        }
         let fetchParams;
         if (apiConstant.method !== API_METHOD.GET) {
             fetchParams = {
                 method: apiConstant.method,
-                headers: formHeaders,
-                body: formBody,
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(attributes),
             };
         } else {
             fetchParams = {
                 method: apiConstant.method,
-                headers: formHeaders,
             };
         }
-        console.log("ASDFASDF", url, fetchParams);
         return fetch(url, fetchParams)
             .then((response) => handleResponse(response))
             .then(

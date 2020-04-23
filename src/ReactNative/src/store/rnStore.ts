@@ -4,7 +4,6 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import {apiFetchBuilder, IAppAction, IAppSharedEpicDependency} from "@reduxShared/epics";
 import {appRnReducer, IAppRnState, initialState} from "./rnReducers";
 import {appRnEpics} from "./rnEpics";
-import getAuthorization from "./getAuthorization";
 
 const epicMiddleware = createEpicMiddleware<
     IAppAction,
@@ -13,7 +12,7 @@ const epicMiddleware = createEpicMiddleware<
     IAppSharedEpicDependency
 >({
     dependencies: {
-        apiFetch: apiFetchBuilder(getAuthorization),
+        apiFetch: apiFetchBuilder,
     },
 });
 

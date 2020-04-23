@@ -11,12 +11,10 @@ import {IEndpointObject} from "./services/apiEndpoints";
 import {IAppErrorAction} from "./services/errorObservable";
 import assessmentEpics from "./models/assessments/epic";
 
-export type GetAuthorization = () => Promise<string>;
-export const apiFetchBuilder = (getAuthorization: GetAuthorization) => <T>(
+export const apiFetchBuilder = <T>(
     apiConstant: IEndpointObject,
     body?: ApiFetchAttributes,
-): Observable<IApiFetchResponse<T>> =>
-    fromPromise(apiFetchPromise(getAuthorization, apiConstant, body));
+): Observable<IApiFetchResponse<T>> => fromPromise(apiFetchPromise(apiConstant, body));
 
 export type IAppSharedEpicDependency = {
     apiFetch: <T>(
