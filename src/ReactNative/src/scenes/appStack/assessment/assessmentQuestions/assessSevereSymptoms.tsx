@@ -1,10 +1,10 @@
 import React, {useCallback, useState} from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {
-    AssessmentQuestionDescriptionText,
-    AssessmentQuestionDescriptionView,
-    AssessmentQuestionHeaderText,
-    AssessmentQuestionHeaderView,
+    AssessmentDescriptionText,
+    AssessmentDescriptionView,
+    AssessmentHeaderText,
+    AssessmentHeaderView,
     DividerView,
 } from "./styles";
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
@@ -65,16 +65,16 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
         !lostConsciousness;
     return (
         <>
-            <AssessmentQuestionDescriptionView>
-                <AssessmentQuestionDescriptionText>
+            <AssessmentDescriptionView>
+                <AssessmentDescriptionText>
                     Oh no! Sorry to hear, Let's perform a quick COVID-19 self-assessment.
-                </AssessmentQuestionDescriptionText>
-            </AssessmentQuestionDescriptionView>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
+                </AssessmentDescriptionText>
+            </AssessmentDescriptionView>
+            <AssessmentHeaderView>
+                <AssessmentHeaderText>
                     Are you experiencing any of the following?
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
+                </AssessmentHeaderText>
+            </AssessmentHeaderView>
 
             <Toggle
                 value={severeDifficultyBreathing}

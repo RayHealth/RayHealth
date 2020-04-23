@@ -77,6 +77,15 @@ const assessmentReducer = (
                 chronicHealthConditionsExasperated:
                     action.chronicHealthConditionsExasperated,
             });
+        case ASSESSMENT.SAVE_MILD_SYMPTOMS:
+            return updateCurrentAssessmentAttribute(state, {
+                fever: action.fever,
+                cough: action.cough,
+                shortnessOfBreath: action.shortnessOfBreath,
+                difficultyBreathing: action.difficultyBreathing,
+                soreThroat: action.soreThroat,
+                runnyNose: action.runnyNose,
+            });
         default:
             return state;
     }

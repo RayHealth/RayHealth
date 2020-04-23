@@ -1,10 +1,10 @@
 import * as React from "react";
 import {Linking} from "react-native";
 import {
-    AssessmentQuestionDescriptionText,
-    AssessmentQuestionDescriptionView,
-    AssessmentQuestionHeaderText,
-    AssessmentQuestionHeaderView,
+    AssessmentDescriptionText,
+    AssessmentDescriptionView,
+    AssessmentHeaderText,
+    AssessmentHeaderView,
     DividerView,
 } from "./styles";
 import EmergencyFullWidthButton from "../../../sharedComponents/buttons/emergencyFullWidthButton";
@@ -36,23 +36,23 @@ const Call911: React.FC<Call911Props> = () => {
     }, []);
     return (
         <>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
+            <AssessmentHeaderView>
+                <AssessmentHeaderText>
                     Please call 911 or go directly to your nearest emergency department
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
+                </AssessmentHeaderText>
+            </AssessmentHeaderView>
             <EmergencyFullWidthButton onPress={call911}>
                 Call 911 Immediately
             </EmergencyFullWidthButton>
-            <AssessmentQuestionDescriptionView>
-                <AssessmentQuestionDescriptionText>
+            <AssessmentDescriptionView>
+                <AssessmentDescriptionText>
                     To help health authorities trace any people you may have come into
                     contact with, please share all of your past assessments and location
                     history to keep your community safe.{`\n`}
                     To irrevocably share all of the data collected by the Ray Health app
                     with your regional health authorities, click the green button below.
-                </AssessmentQuestionDescriptionText>
-            </AssessmentQuestionDescriptionView>
+                </AssessmentDescriptionText>
+            </AssessmentDescriptionView>
 
             {!tempPermissionGiven && (
                 <ComplimentaryFullWidthButton onPress={onContinue}>

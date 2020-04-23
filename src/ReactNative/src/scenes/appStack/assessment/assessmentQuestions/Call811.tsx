@@ -1,10 +1,10 @@
 import * as React from "react";
 import {Linking} from "react-native";
 import {
-    AssessmentQuestionDescriptionText,
-    AssessmentQuestionDescriptionView,
-    AssessmentQuestionHeaderText,
-    AssessmentQuestionHeaderView,
+    AssessmentDescriptionText,
+    AssessmentDescriptionView,
+    AssessmentHeaderText,
+    AssessmentHeaderView,
     DividerView,
 } from "./styles";
 import {useDispatch} from "react-redux";
@@ -30,21 +30,21 @@ const Call811: React.FC<Call811Props> = () => {
     }, [dispatch]);
     return (
         <>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
+            <AssessmentHeaderView>
+                <AssessmentHeaderText>
                     Please call 811 to speak with a nurse.
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
+                </AssessmentHeaderText>
+            </AssessmentHeaderView>
             <WarningFullWidthButton onPress={call811}>Call 811</WarningFullWidthButton>
-            <AssessmentQuestionDescriptionView>
-                <AssessmentQuestionDescriptionText>
+            <AssessmentDescriptionView>
+                <AssessmentDescriptionText>
                     To help health authorities trace any people you may have come into
                     contact with, please share all of your past assessments and location
                     history to keep your community safe.{`\n`}
                     To irrevocably share all of the data collected by the Ray Health app
                     with your regional health authorities, click the green button below.
-                </AssessmentQuestionDescriptionText>
-            </AssessmentQuestionDescriptionView>
+                </AssessmentDescriptionText>
+            </AssessmentDescriptionView>
 
             {!tempPermissionGiven && (
                 <ComplimentaryFullWidthButton onPress={onComplete}>

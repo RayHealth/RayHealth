@@ -1,10 +1,6 @@
 import React, {useCallback, useState} from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
-import {
-    AssessmentQuestionHeaderText,
-    AssessmentQuestionHeaderView,
-    DividerView,
-} from "./styles";
+import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import Toggle from "./components/toggle";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
@@ -54,11 +50,11 @@ const AssessWarningSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment})
         !chronicHealthConditionsExasperated;
     return (
         <>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
+            <AssessmentHeaderView>
+                <AssessmentHeaderText>
                     Are you experiencing any of the following?
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
+                </AssessmentHeaderText>
+            </AssessmentHeaderView>
             <Toggle
                 value={shortnessOfBreathAtRest}
                 toggleFunc={setShortnessOfBreathAtRest}>

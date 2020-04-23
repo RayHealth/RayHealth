@@ -5,6 +5,8 @@ import AssessSeverSymptoms from "./assessSevereSymptoms";
 import Call911 from "./Call911";
 import AssessWarningSymptoms from "./assessWarningSymptoms";
 import Call811 from "./Call811";
+import AssessMildSymptoms from "./assessMildSymptoms";
+import YouMustSelfIsolate from "./youMustSelfIsolate";
 
 export interface AssessmentQuestionsProps {
     assessment: Assessment;
@@ -45,6 +47,26 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
         assessment.chronicHealthConditionsExasperated
     ) {
         return <Call811 />;
+    }
+    if (
+        isUndefined(assessment.fever) ||
+        isUndefined(assessment.cough) ||
+        isUndefined(assessment.shortnessOfBreath) ||
+        isUndefined(assessment.difficultyBreathing) ||
+        isUndefined(assessment.soreThroat) ||
+        isUndefined(assessment.runnyNose)
+    ) {
+        return <AssessMildSymptoms assessment={assessment} />;
+    }
+    if (
+        assessment.fever ||
+        assessment.cough ||
+        assessment.shortnessOfBreath ||
+        assessment.difficultyBreathing ||
+        assessment.soreThroat ||
+        assessment.runnyNose
+    ) {
+        return <YouMustSelfIsolate />;
     }
 
     return null;

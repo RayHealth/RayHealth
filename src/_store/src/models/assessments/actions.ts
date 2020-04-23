@@ -14,6 +14,13 @@ export const initializeAssessment = (
     feelingGood,
 });
 
+export interface CancelCurrentAssessment {
+    type: ASSESSMENT.CANCEL_CURRENT;
+}
+export const cancelCurrentAssessment: CancelCurrentAssessment = {
+    type: ASSESSMENT.CANCEL_CURRENT,
+};
+
 export interface GrantPermissionToShare {
     type: ASSESSMENT.GRANT_PERMISSION_TO_SHARE;
 }
@@ -81,10 +88,28 @@ export const saveWarningSymptoms = (
     inabilityToLieDown,
     chronicHealthConditionsExasperated,
 });
-
-export interface CancelCurrentAssessment {
-    type: ASSESSMENT.CANCEL_CURRENT;
+export interface SaveMildSymptoms {
+    type: ASSESSMENT.SAVE_MILD_SYMPTOMS;
+    fever?: boolean;
+    cough?: boolean;
+    shortnessOfBreath?: boolean;
+    difficultyBreathing?: boolean;
+    soreThroat?: boolean;
+    runnyNose?: boolean;
 }
-export const cancelCurrentAssessment: CancelCurrentAssessment = {
-    type: ASSESSMENT.CANCEL_CURRENT,
-};
+export const saveMildSymptoms = (
+    fever?: boolean,
+    cough?: boolean,
+    shortnessOfBreath?: boolean,
+    difficultyBreathing?: boolean,
+    soreThroat?: boolean,
+    runnyNose?: boolean,
+): SaveMildSymptoms => ({
+    type: ASSESSMENT.SAVE_MILD_SYMPTOMS,
+    fever,
+    cough,
+    shortnessOfBreath,
+    difficultyBreathing,
+    soreThroat,
+    runnyNose,
+});

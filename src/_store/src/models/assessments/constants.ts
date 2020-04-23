@@ -4,6 +4,7 @@ import {
     CompleteAssessment,
     GrantPermissionToShare,
     RecordTemperature,
+    SaveMildSymptoms,
     SaveSevereSymptoms,
     SaveWarningSymptoms,
 } from "./actions";
@@ -11,13 +12,14 @@ import {ById} from "../../utils/byIdUtils";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
+    CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
     GRANT_PERMISSION_TO_SHARE = "assessment/GIVE_PERMISSION_TO_SHARE",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
     SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
     SAVE_SEVERE_SYMPTOMS = "assessment/SAVE_SEVERE_SYMPTOMS",
     SAVE_WARNING_SYMPTOMS = "assessment/SAVE_WARNING_SYMPTOMS",
-    CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
+    SAVE_MILD_SYMPTOMS = "assessment/SAVE_MILD_SYMPTOMS",
 }
 
 export type AssessmentUuid = string;
@@ -64,4 +66,5 @@ export type AssessmentActions =
     | GrantPermissionToShare
     | RecordTemperature
     | SaveSevereSymptoms
-    | SaveWarningSymptoms;
+    | SaveWarningSymptoms
+    | SaveMildSymptoms;

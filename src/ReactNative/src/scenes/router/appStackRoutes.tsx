@@ -23,7 +23,7 @@ const AppStackNavigator = () => {
             <Stack.Screen
                 name={APP_STACK_ROUTES.ASSESSMENTS.NEW}
                 component={Assessment}
-                options={{headerShown: false}}
+                options={{headerShown: false, gestureEnabled: false}}
             />
         </Stack.Navigator>
     );

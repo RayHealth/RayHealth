@@ -8,10 +8,10 @@ import {
     recordTemperature,
 } from "@reduxShared/models/assessments/actions";
 import {
-    AssessmentQuestionDescriptionText,
-    AssessmentQuestionDescriptionView,
-    AssessmentQuestionHeaderText,
-    AssessmentQuestionHeaderView,
+    AssessmentDescriptionText,
+    AssessmentDescriptionView,
+    AssessmentHeaderText,
+    AssessmentHeaderView,
     DividerView,
 } from "./styles";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
@@ -40,17 +40,17 @@ const WhatIsYourTemperature = () => {
 
     return (
         <>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
+            <AssessmentHeaderView>
+                <AssessmentHeaderText>
                     Glad to hear you are feeling well!
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
-            <AssessmentQuestionDescriptionView>
-                <AssessmentQuestionDescriptionText>
+                </AssessmentHeaderText>
+            </AssessmentHeaderView>
+            <AssessmentDescriptionView>
+                <AssessmentDescriptionText>
                     Would you like to record your temperature for future records and
                     community tracking?
-                </AssessmentQuestionDescriptionText>
-            </AssessmentQuestionDescriptionView>
+                </AssessmentDescriptionText>
+            </AssessmentDescriptionView>
 
             <RayHealthTemperatureInput onChange={setValue} value={value} />
 
