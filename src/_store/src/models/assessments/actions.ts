@@ -81,3 +81,10 @@ export const saveWarningSymptoms = (
     inabilityToLieDown,
     chronicHealthConditionsExasperated,
 });
+
+export interface CancelCurrentAssessment {
+    type: ASSESSMENT.CANCEL_CURRENT;
+}
+export const cancelCurrentAssessment: CancelCurrentAssessment = {
+    type: ASSESSMENT.CANCEL_CURRENT,
+};

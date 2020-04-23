@@ -2,6 +2,7 @@ import * as React from "react";
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import {
+    cancelCurrentAssessment,
     completeAssessment,
     grantPermissionToShare,
     recordTemperature,
@@ -11,6 +12,7 @@ import {
     AssessmentQuestionDescriptionView,
     AssessmentQuestionHeaderText,
     AssessmentQuestionHeaderView,
+    DividerView,
 } from "./styles";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
@@ -31,6 +33,9 @@ const WhatIsYourTemperature = () => {
     }, [dispatch, value]);
     const onSubmitNoTemp = useCallback(() => {
         dispatch(completeAssessment);
+    }, [dispatch]);
+    const goBack = useCallback(() => {
+        dispatch(cancelCurrentAssessment);
     }, [dispatch]);
 
     return (
@@ -58,6 +63,8 @@ const WhatIsYourTemperature = () => {
             <LightFullWidthButton onPress={onSubmitNoTemp}>
                 Save assessment without temp
             </LightFullWidthButton>
+            <DividerView />
+            <LightFullWidthButton onPress={goBack}>Go back</LightFullWidthButton>
         </>
     );
 };

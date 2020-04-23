@@ -11,7 +11,11 @@ import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondar
 import Toggle from "./components/toggle";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
 import {useDispatch} from "react-redux";
-import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
+import {
+    cancelCurrentAssessment,
+    saveSevereSymptoms,
+} from "@reduxShared/models/assessments/actions";
+import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
 
 const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [severeDifficultyBreathing, setSevereDifficultyBreathing] = useState<boolean>(
@@ -49,6 +53,9 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
         feelingConfused,
         lostConsciousness,
     ]);
+    const goBack = useCallback(() => {
+        dispatch(cancelCurrentAssessment);
+    }, [dispatch]);
 
     const allFalse =
         !severeDifficultyBreathing &&
@@ -94,6 +101,8 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
+            <DividerView />
+            <LightFullWidthButton onPress={goBack}>Go back</LightFullWidthButton>
         </>
     );
 };

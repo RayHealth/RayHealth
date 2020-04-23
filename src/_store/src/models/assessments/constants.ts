@@ -1,5 +1,6 @@
 import {
     AssessmentInitialize,
+    CancelCurrentAssessment,
     CompleteAssessment,
     GrantPermissionToShare,
     RecordTemperature,
@@ -16,6 +17,7 @@ export enum ASSESSMENT {
     SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
     SAVE_SEVERE_SYMPTOMS = "assessment/SAVE_SEVERE_SYMPTOMS",
     SAVE_WARNING_SYMPTOMS = "assessment/SAVE_WARNING_SYMPTOMS",
+    CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
 }
 
 export type AssessmentUuid = string;
@@ -57,6 +59,7 @@ export const defaultAssessmentsState = {
 
 export type AssessmentActions =
     | AssessmentInitialize
+    | CancelCurrentAssessment
     | CompleteAssessment
     | GrantPermissionToShare
     | RecordTemperature

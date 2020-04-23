@@ -5,6 +5,7 @@ import {
     AssessmentState,
     defaultAssessmentsState,
 } from "./constants";
+import {CancelCurrentAssessment} from "./actions";
 
 const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     if (!state.currentAssessmentUuid) return state;
@@ -42,6 +43,15 @@ const assessmentReducer = (
                         feelingGood: action.feelingGood,
                     },
                 },
+            };
+        case ASSESSMENT.CANCEL_CURRENT:
+            if (!state.currentAssessmentUuid) return state;
+            const newAssessments = {...state.assessments};
+            delete newAssessments[state.currentAssessmentUuid];
+            return {
+                ...state,
+                assessments: newAssessments,
+                currentAssessmentUuid: undefined,
             };
         case ASSESSMENT.GRANT_PERMISSION_TO_SHARE:
             return updateCurrentAssessmentAttribute(state, {permissionToShare: true});
