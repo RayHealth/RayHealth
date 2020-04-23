@@ -93,6 +93,15 @@ const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
             </AssessmentCalloutView>
 
             <DividerView />
+
+            <AssessmentDescriptionView>
+                <AssessmentDescriptionText>
+                    To do: {`\n`}
+                    &bull; add form to collect information and submit{`\n`}
+                </AssessmentDescriptionText>
+            </AssessmentDescriptionView>
+
+            <DividerView />
             <LightFullWidthButton onPress={goBack}>
                 Return to previous question.
             </LightFullWidthButton>
