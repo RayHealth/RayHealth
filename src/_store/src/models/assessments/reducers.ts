@@ -6,7 +6,7 @@ import {
     defaultAssessmentsState,
 } from "./constants";
 
-const updateCurrentAssessmentAttribute = (state, key, value): AssessmentState => {
+const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     if (!state.currentAssessmentUuid) return state;
     if (!state.assessments[state.currentAssessmentUuid]) return state;
     return {
@@ -15,7 +15,7 @@ const updateCurrentAssessmentAttribute = (state, key, value): AssessmentState =>
             ...state.assessments,
             [state.currentAssessmentUuid]: {
                 ...(state.assessments[state.currentAssessmentUuid] as Assessment),
-                [key]: value,
+                ...updates,
             },
         },
     };
@@ -44,16 +44,22 @@ const assessmentReducer = (
                 },
             };
         case ASSESSMENT.GRANT_PERMISSION_TO_SHARE:
-            return updateCurrentAssessmentAttribute(state, "permissionToShare", true);
+            return updateCurrentAssessmentAttribute(state, {permissionToShare: true});
         case ASSESSMENT.COMPLETE:
-            const newState = updateCurrentAssessmentAttribute(state, "completed", true);
+            const newState = updateCurrentAssessmentAttribute(state, {completed: true});
             return {...newState, currentAssessmentUuid: undefined};
         case ASSESSMENT.RECORD_TEMPERATURE:
-            return updateCurrentAssessmentAttribute(
-                state,
-                "currentBodyTemperatureCelsius",
-                action.temperatureInCelsius,
-            );
+            return updateCurrentAssessmentAttribute(state, {
+                currentBodyTemperatureCelsius: action.temperatureInCelsius,
+            });
+        case ASSESSMENT.SAVE_SEVERE_SYMPTOMS:
+            return updateCurrentAssessmentAttribute(state, {
+                severeDifficultyBreathing: action.severeDifficultyBreathing,
+                severeChestPain: action.severeChestPain,
+                hardTimeWakingUp: action.hardTimeWakingUp,
+                feelingConfused: action.feelingConfused,
+                lostConsciousness: action.lostConsciousness,
+            });
         default:
             return state;
     }

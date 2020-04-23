@@ -9,6 +9,8 @@ import {
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import Toggle from "./components/toggle";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
+import {useDispatch} from "react-redux";
+import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
 
 const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [severeDifficultyBreathing, setSevereDifficultyBreathing] = useState<boolean>(
@@ -26,13 +28,27 @@ const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =
     const [lostConsciousness, setLostConsciousness] = useState<boolean>(
         !!assessment.lostConsciousness,
     );
-    const onContinue = useCallback(() => {}, [
+
+    const dispatch = useDispatch();
+    const onContinue = useCallback(() => {
+        dispatch(
+            saveSevereSymptoms(
+                severeDifficultyBreathing,
+                severeChestPain,
+                hardTimeWakingUp,
+                feelingConfused,
+                lostConsciousness,
+            ),
+        );
+    }, [
+        dispatch,
         severeDifficultyBreathing,
         severeChestPain,
         hardTimeWakingUp,
         feelingConfused,
         lostConsciousness,
     ]);
+
     const allFalse =
         !severeDifficultyBreathing &&
         !severeChestPain &&

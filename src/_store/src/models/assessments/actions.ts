@@ -42,3 +42,26 @@ export interface SharedToServerSuccess {
 export const sharedToServerSuccess: SharedToServerSuccess = {
     type: ASSESSMENT.SHARED_TO_SERVER_SUCCESS,
 };
+
+export interface SaveSevereSymptoms {
+    type: ASSESSMENT.SAVE_SEVERE_SYMPTOMS;
+    severeDifficultyBreathing: boolean;
+    severeChestPain: boolean;
+    hardTimeWakingUp: boolean;
+    feelingConfused: boolean;
+    lostConsciousness: boolean;
+}
+export const saveSevereSymptoms = (
+    severeDifficultyBreathing: boolean,
+    severeChestPain: boolean,
+    hardTimeWakingUp: boolean,
+    feelingConfused: boolean,
+    lostConsciousness: boolean,
+): SaveSevereSymptoms => ({
+    type: ASSESSMENT.SAVE_SEVERE_SYMPTOMS,
+    severeDifficultyBreathing,
+    severeChestPain,
+    hardTimeWakingUp,
+    feelingConfused,
+    lostConsciousness,
+});
