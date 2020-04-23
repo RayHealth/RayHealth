@@ -60,6 +60,13 @@ const assessmentReducer = (
                 feelingConfused: action.feelingConfused,
                 lostConsciousness: action.lostConsciousness,
             });
+        case ASSESSMENT.SAVE_WARNING_SYMPTOMS:
+            return updateCurrentAssessmentAttribute(state, {
+                shortnessOfBreathAtRest: action.shortnessOfBreathAtRest,
+                inabilityToLieDown: action.inabilityToLieDown,
+                chronicHealthConditionsExasperated:
+                    action.chronicHealthConditionsExasperated,
+            });
         default:
             return state;
     }

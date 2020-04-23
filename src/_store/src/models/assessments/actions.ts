@@ -65,3 +65,19 @@ export const saveSevereSymptoms = (
     feelingConfused,
     lostConsciousness,
 });
+export interface SaveWarningSymptoms {
+    type: ASSESSMENT.SAVE_WARNING_SYMPTOMS;
+    shortnessOfBreathAtRest?: boolean;
+    inabilityToLieDown?: boolean;
+    chronicHealthConditionsExasperated?: boolean;
+}
+export const saveWarningSymptoms = (
+    shortnessOfBreathAtRest?: boolean,
+    inabilityToLieDown?: boolean,
+    chronicHealthConditionsExasperated?: boolean,
+): SaveWarningSymptoms => ({
+    type: ASSESSMENT.SAVE_WARNING_SYMPTOMS,
+    shortnessOfBreathAtRest,
+    inabilityToLieDown,
+    chronicHealthConditionsExasperated,
+});

@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {getCurrentAssessment} from "@reduxShared/models/assessments/accessors";
 import NavigationService from "../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../router/constants";
-import AssessmentQuestions from "./assessmentQuestions/asessmentQuestions";
+import AssessmentQuestions from "./assessmentQuestions/assessmentQuestions";
 
 const AssessmentNew: React.FC = () => {
     const currentAssessment = useSelector(getCurrentAssessment);

@@ -8,11 +8,11 @@ import {
     DividerView,
 } from "./styles";
 import EmergencyFullWidthButton from "../../../sharedComponents/buttons/emergencyFullWidthButton";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
 import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
 import ComplimentaryFullWidthButton from "../../../sharedComponents/buttons/complimenaryFullWidthButton";
+import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
 
 interface Call911Props {}
 const Call911: React.FC<Call911Props> = () => {
@@ -56,9 +56,9 @@ const Call911: React.FC<Call911Props> = () => {
                 </ComplimentaryFullWidthButton>
             )}
             <DividerView />
-            <SecondaryFullWidthButton onPress={goBack}>
+            <LightFullWidthButton onPress={goBack}>
                 I made a mistake, go back
-            </SecondaryFullWidthButton>
+            </LightFullWidthButton>
         </>
     );
 };

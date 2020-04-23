@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react";
-import {AssessmentQuestionsProps} from "./asessmentQuestions";
+import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {
     AssessmentQuestionDescriptionText,
     AssessmentQuestionDescriptionView,
@@ -13,7 +13,7 @@ import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWid
 import {useDispatch} from "react-redux";
 import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
 
-const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
+const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [severeDifficultyBreathing, setSevereDifficultyBreathing] = useState<boolean>(
         !!assessment.severeDifficultyBreathing,
     );
@@ -58,17 +58,16 @@ const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =
         !lostConsciousness;
     return (
         <>
-            <AssessmentQuestionHeaderView>
-                <AssessmentQuestionHeaderText>
-                    Oh no! Sorry to hear.
-                </AssessmentQuestionHeaderText>
-            </AssessmentQuestionHeaderView>
             <AssessmentQuestionDescriptionView>
                 <AssessmentQuestionDescriptionText>
-                    Let's perform a quick COVID-19 self-assessment. Please select any of
-                    the following that apply to you.
+                    Oh no! Sorry to hear, Let's perform a quick COVID-19 self-assessment.
                 </AssessmentQuestionDescriptionText>
             </AssessmentQuestionDescriptionView>
+            <AssessmentQuestionHeaderView>
+                <AssessmentQuestionHeaderText>
+                    Are you experiencing any of the following?
+                </AssessmentQuestionHeaderText>
+            </AssessmentQuestionHeaderView>
 
             <Toggle
                 value={severeDifficultyBreathing}
@@ -99,4 +98,4 @@ const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =
     );
 };
 
-export default AssessSeverSymptoms;
+export default AssessSevereSymptoms;
