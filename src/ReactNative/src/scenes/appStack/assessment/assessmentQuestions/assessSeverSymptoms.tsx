@@ -5,6 +5,7 @@ import {
     AssessmentQuestionDescriptionView,
     AssessmentQuestionHeaderText,
     AssessmentQuestionHeaderView,
+    DividerView,
 } from "./styles";
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import Toggle from "./components/toggle";
@@ -86,7 +87,7 @@ const AssessSeverSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =
             <Toggle value={lostConsciousness} toggleFunc={setLostConsciousness}>
                 I have lost conscienceness
             </Toggle>
-
+            <DividerView />
             {allFalse ? (
                 <SecondaryFullWidthButton onPress={onContinue}>
                     None of the above

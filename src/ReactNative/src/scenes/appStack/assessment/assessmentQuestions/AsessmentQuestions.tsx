@@ -2,6 +2,7 @@ import * as React from "react";
 import {Assessment} from "@reduxShared/models/assessments/constants";
 import WhatIsYourTemperature from "./whatIsYourTemperature";
 import AssessSeverSymptoms from "./assessSeverSymptoms";
+import Call911 from "./Call911";
 
 export interface AssessmentQuestionsProps {
     assessment: Assessment;
@@ -19,6 +20,15 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
         isUndefined(assessment.lostConsciousness)
     ) {
         return <AssessSeverSymptoms assessment={assessment} />;
+    }
+    if (
+        assessment.severeDifficultyBreathing ||
+        assessment.severeChestPain ||
+        assessment.hardTimeWakingUp ||
+        assessment.feelingConfused ||
+        assessment.lostConsciousness
+    ) {
+        return <Call911 />;
     }
     return null;
 };

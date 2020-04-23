@@ -19,3 +19,10 @@ export const AssessmentQuestionDescriptionText = styled.Text`
     font-size: 25px;
     color: ${STYLE.COLORS.BRAND3};
 `;
+
+export const DividerView = styled.View`
+    border-top-width: 1px;
+    border-top-color: ${STYLE.COLORS.BRANDg};
+    margin-top: 10px;
+    margin-bottom: 10px;
+`;
