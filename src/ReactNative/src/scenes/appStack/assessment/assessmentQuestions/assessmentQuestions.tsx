@@ -4,6 +4,7 @@ import WhatIsYourTemperature from "./whatIsYourTemperature";
 import AssessSeverSymptoms from "./assessSevereSymptoms";
 import Call911 from "./Call911";
 import AssessWarningSymptoms from "./assessWarningSymptoms";
+import Call811 from "./Call811";
 
 export interface AssessmentQuestionsProps {
     assessment: Assessment;
@@ -37,6 +38,13 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
         isUndefined(assessment.chronicHealthConditionsExasperated)
     ) {
         return <AssessWarningSymptoms assessment={assessment} />;
+    }
+    if (
+        assessment.shortnessOfBreathAtRest ||
+        assessment.inabilityToLieDown ||
+        assessment.chronicHealthConditionsExasperated
+    ) {
+        return <Call811 />;
     }
 
     return null;

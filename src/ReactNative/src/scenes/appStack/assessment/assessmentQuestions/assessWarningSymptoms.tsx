@@ -81,8 +81,9 @@ const AssessWarningSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment})
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
+            <DividerView />
             <LightFullWidthButton onPress={goBack}>
-                I made a mistake, go back
+                Return to previous question.
             </LightFullWidthButton>
         </>
     );

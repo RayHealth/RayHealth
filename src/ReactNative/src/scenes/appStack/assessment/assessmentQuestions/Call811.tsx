@@ -7,43 +7,35 @@ import {
     AssessmentQuestionHeaderView,
     DividerView,
 } from "./styles";
-import EmergencyFullWidthButton from "../../../sharedComponents/buttons/emergencyFullWidthButton";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
-import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
+import {saveWarningSymptoms} from "@reduxShared/models/assessments/actions";
 import ComplimentaryFullWidthButton from "../../../sharedComponents/buttons/complimenaryFullWidthButton";
 import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import WarningFullWidthButton from "../../../sharedComponents/buttons/warningFullWidthButton";
 
-interface Call911Props {}
-const Call911: React.FC<Call911Props> = () => {
+interface Call811Props {}
+const Call811: React.FC<Call811Props> = () => {
     const [tempPermissionGiven, setTempPermissionGiven] = React.useState<boolean>(false);
-    const call911 = React.useCallback(() => {
-        Linking.openURL(`tel:911`);
+    const call811 = React.useCallback(() => {
+        Linking.openURL(`tel:811`);
     }, []);
-    const onContinue = React.useCallback(() => {
+    const onComplete = React.useCallback(() => {
         console.error("This is not hooked up yet");
         setTempPermissionGiven(true);
     }, []);
     const dispatch = useDispatch();
     const goBack = useCallback(() => {
-        dispatch(
-            saveSevereSymptoms(undefined, undefined, undefined, undefined, undefined),
-        );
+        dispatch(saveWarningSymptoms(undefined, undefined, undefined));
     }, [dispatch]);
-    const onComplete = React.useCallback(() => {
-        console.error("This is not hooked up yet");
-        setTempPermissionGiven(true);
-    }, []);
     return (
         <>
             <AssessmentQuestionHeaderView>
                 <AssessmentQuestionHeaderText>
-                    Please call 911 or go directly to your nearest emergency department
+                    Please call 811 to speak with a nurse.
                 </AssessmentQuestionHeaderText>
             </AssessmentQuestionHeaderView>
-            <EmergencyFullWidthButton onPress={call911}>
-                Call 911 Immediately
-            </EmergencyFullWidthButton>
+            <WarningFullWidthButton onPress={call811}>Call 811</WarningFullWidthButton>
             <AssessmentQuestionDescriptionView>
                 <AssessmentQuestionDescriptionText>
                     To help health authorities trace any people you may have come into
@@ -55,16 +47,11 @@ const Call911: React.FC<Call911Props> = () => {
             </AssessmentQuestionDescriptionView>
 
             {!tempPermissionGiven && (
-                <ComplimentaryFullWidthButton onPress={onContinue}>
-                    I want to share my personal data irrevocably
+                <ComplimentaryFullWidthButton onPress={onComplete}>
+                    Complete this self assessment
                 </ComplimentaryFullWidthButton>
             )}
             <DividerView />
-
-            <ComplimentaryFullWidthButton onPress={onComplete}>
-                Complete this self assessment
-            </ComplimentaryFullWidthButton>
-
             <LightFullWidthButton onPress={goBack}>
                 I made a mistake, go back
             </LightFullWidthButton>
@@ -72,4 +59,4 @@ const Call911: React.FC<Call911Props> = () => {
     );
 };
 
-export default Call911;
+export default Call811;

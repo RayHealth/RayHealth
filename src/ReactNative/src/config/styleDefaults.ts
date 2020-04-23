@@ -55,6 +55,7 @@ export const STYLE = {
         BRAND_COMPLIMENTARYh: "#ddfbd4",
         BRAND_COMPLIMENTARYi: "#eefdea",
         EMERGENCY_RED: "#FF0000",
+        WARNING_YELLOW: "#EED202",
     },
     FONT_SIZES: {
         H1: 30,
