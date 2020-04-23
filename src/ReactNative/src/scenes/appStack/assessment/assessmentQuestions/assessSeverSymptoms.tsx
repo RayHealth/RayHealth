@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react";
-import {AssessmentQuestionsProps} from "./AsessmentQuestions";
+import {AssessmentQuestionsProps} from "./asessmentQuestions";
 import {
     AssessmentQuestionDescriptionText,
     AssessmentQuestionDescriptionView,

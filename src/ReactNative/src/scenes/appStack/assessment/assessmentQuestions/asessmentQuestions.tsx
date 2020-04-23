@@ -30,6 +30,14 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
     ) {
         return <Call911 />;
     }
+    if (
+        isUndefined(assessment.shortnessOfBreathAtRest) ||
+        isUndefined(assessment.inabilityToLieDown) ||
+        isUndefined(assessment.chronicHealthConditionsExasperated)
+    ) {
+        return;
+    }
+
     return null;
 };
 

@@ -5,7 +5,7 @@ import HomeIndex from "../appStack/home";
 import AppTabBar from "./tabBarComponents";
 import {createStackNavigator} from "@react-navigation/stack";
 import Placeholder from "../appStack/home/placeholder";
-import Assessment from "../appStack/assessment/Assessment";
+import Assessment from "../appStack/assessment/assessment";
 import {useSelector} from "react-redux";
 import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/accessors";
 import NavigationService from "../../services/navigationService";
