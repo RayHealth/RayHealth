@@ -6,7 +6,7 @@ import {
     FullWidthButtonTouchableHighlight,
 } from "./brandFullWidthButton";
 
-const DarkFullWidthButton: React.FC<{onPress: () => void; children: string}> = ({
+const ComplimentaryFullWidthButton: React.FC<{onPress: () => void; children: string}> = ({
     children,
     onPress,
 }) => (
@@ -15,12 +15,12 @@ const DarkFullWidthButton: React.FC<{onPress: () => void; children: string}> = (
     </ButtonTouchableHighlight>
 );
 
-export default DarkFullWidthButton;
+export default ComplimentaryFullWidthButton;
 
 const ButtonTouchableHighlight = styled(FullWidthButtonTouchableHighlight)`
-    background-color: ${STYLE.COLORS.BRAND5};
-    border-color: ${STYLE.COLORS.BRAND5};
+    background-color: ${STYLE.COLORS.BRAND_COMPLIMENTARYe};
+    border-color: ${STYLE.COLORS.BRAND_COMPLIMENTARY};
 `;
 const ButtonText = styled(FullWidthButtonText)`
-    color: ${STYLE.COLORS.BRANDe};
+    color: ${STYLE.COLORS.BRAND_COMPLIMENTARY3};
 `;
