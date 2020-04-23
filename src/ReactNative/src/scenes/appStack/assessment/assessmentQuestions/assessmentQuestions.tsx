@@ -7,6 +7,7 @@ import AssessWarningSymptoms from "./assessWarningSymptoms";
 import Call811 from "./Call811";
 import AssessMildSymptoms from "./assessMildSymptoms";
 import YouMustSelfIsolate from "./youMustSelfIsolate";
+import AssessOutOfCountry from "./assessOutOfCountry";
 
 export interface AssessmentQuestionsProps {
     assessment: Assessment;
@@ -67,6 +68,9 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
         assessment.runnyNose
     ) {
         return <YouMustSelfIsolate />;
+    }
+    if (isUndefined(assessment.outOfCountryWithinLast14Days)) {
+        return <AssessOutOfCountry assessment={assessment} />;
     }
 
     return null;
