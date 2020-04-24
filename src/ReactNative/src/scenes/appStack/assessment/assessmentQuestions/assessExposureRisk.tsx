@@ -7,11 +7,13 @@ import {
     saveMildSymptoms,
 } from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
-import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import {
+    BrandFullWidthButton,
+    LightFullWidthButton,
+    SecondaryFullWidthButton,
+} from "../../../sharedComponents/buttons";
 import Toggle from "./components/toggle";
 import {useState} from "react";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 
 const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [outOfCountryWithinLast14Days, setOutOfCountryWithinLast14Days] = useState<

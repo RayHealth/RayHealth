@@ -7,15 +7,17 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import Toggle from "./components/toggle";
-import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
 import {useDispatch} from "react-redux";
 import {
     cancelCurrentAssessment,
     saveSevereSymptoms,
 } from "@reduxShared/models/assessments/actions";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import {
+    BrandFullWidthButton,
+    LightFullWidthButton,
+    SecondaryFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [severeDifficultyBreathing, setSevereDifficultyBreathing] = useState<boolean>(

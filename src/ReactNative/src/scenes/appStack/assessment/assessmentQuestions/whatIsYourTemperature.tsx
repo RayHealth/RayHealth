@@ -14,10 +14,12 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
 import RayHealthTemperatureInput from "../../../sharedComponents/inputs/RayHealthTemperatureInput";
+import {
+    BrandFullWidthButton,
+    LightFullWidthButton,
+    SecondaryFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 const WhatIsYourTemperature = () => {
     const dispatch = useDispatch();

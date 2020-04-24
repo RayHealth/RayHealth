@@ -8,8 +8,8 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
 import {useCallback} from "react";
+import {LightFullWidthButton} from "../../../sharedComponents/buttons";
 
 interface YouMustSelfIsolateProps {}
 const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {

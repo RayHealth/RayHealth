@@ -1,15 +1,17 @@
 import React, {useCallback, useState} from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 import Toggle from "./components/toggle";
-import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
 import {useDispatch} from "react-redux";
 import {
     saveSevereSymptoms,
     saveWarningSymptoms,
 } from "@reduxShared/models/assessments/actions";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import {
+    BrandFullWidthButton,
+    LightFullWidthButton,
+    SecondaryFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 const AssessWarningSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [shortnessOfBreathAtRest, setShortnessOfBreathAtRest] = useState<boolean>(

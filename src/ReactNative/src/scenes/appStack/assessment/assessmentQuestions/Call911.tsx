@@ -7,12 +7,14 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import EmergencyFullWidthButton from "../../../sharedComponents/buttons/emergencyFullWidthButton";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
 import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
-import ComplimentaryFullWidthButton from "../../../sharedComponents/buttons/complimenaryFullWidthButton";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import {
+    ComplimentaryFullWidthButton,
+    EmergencyFullWidthButton,
+    LightFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 interface Call911Props {}
 const Call911: React.FC<Call911Props> = () => {

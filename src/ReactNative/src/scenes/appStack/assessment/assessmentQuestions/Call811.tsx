@@ -10,9 +10,11 @@ import {
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
 import {saveWarningSymptoms} from "@reduxShared/models/assessments/actions";
-import ComplimentaryFullWidthButton from "../../../sharedComponents/buttons/complimenaryFullWidthButton";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
-import WarningFullWidthButton from "../../../sharedComponents/buttons/warningFullWidthButton";
+import {
+    ComplimentaryFullWidthButton,
+    LightFullWidthButton,
+    WarningFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 interface Call811Props {}
 const Call811: React.FC<Call811Props> = () => {

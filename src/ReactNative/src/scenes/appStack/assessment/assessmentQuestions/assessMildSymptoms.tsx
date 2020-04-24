@@ -9,9 +9,11 @@ import {
 } from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import Toggle from "./components/toggle";
-import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
-import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
-import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
+import {
+    BrandFullWidthButton,
+    LightFullWidthButton,
+    SecondaryFullWidthButton,
+} from "../../../sharedComponents/buttons";
 
 const AssessMildSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [fever, setFever] = useState<boolean>(!!assessment.fever);
