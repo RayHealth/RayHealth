@@ -11,7 +11,8 @@ import rnConfig from "../../../config";
 const AssessmentNew: React.FC = () => {
     const currentAssessment = useSelector(getCurrentAssessment);
     useEffect(() => {
-        if (!currentAssessment) NavigationService.navigate(APP_STACK_ROUTES.HOME.INDEX);
+        if (!currentAssessment)
+            NavigationService.navigate(APP_STACK_ROUTES.HOME.INDEX.path);
     }, [currentAssessment]);
     if (!currentAssessment) return null;
     return (
