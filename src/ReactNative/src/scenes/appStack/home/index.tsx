@@ -1,12 +1,15 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {Text} from "react-native";
 import {useSelector} from "react-redux";
+import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/accessors";
 import {BaseContainerView, PageContainer} from "../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 
-const Indent: React.FC = ({children}) => <View style={{marginLeft: 10}}>{children}</View>;
+const Indent = styled.View`
+    margin-left: 10px;
+`;
 
 const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
