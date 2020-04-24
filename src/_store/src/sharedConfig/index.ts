@@ -34,8 +34,6 @@ const sharedConfig = {
     tld,
     domain: isDevMode ? `http://${devServerAddress}:5000` : `https://www.${tld}`,
     apiDomain: apiDomain(),
-    googleTrackingId: "needToSet",
-    facebookId: "needToSet",
     enableAnalytics: !isDevMode || false,
     logAnalytics: isDevMode && false,
     version: version.build,
