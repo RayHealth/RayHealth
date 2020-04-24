@@ -29,7 +29,7 @@ const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
                 contactWithPositiveCovid19Case,
             ),
         );
-    }, [dispatch]);
+    }, [dispatch, outOfCountryWithinLast14Days, contactWithPositiveCovid19Case]);
     const goBack = useCallback(() => {
         dispatch(
             saveMildSymptoms(
