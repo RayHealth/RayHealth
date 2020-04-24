@@ -1,11 +1,12 @@
 import React, {useEffect} from "react";
-import {Text} from "react-native";
 import {BaseContainerView, PageContainer} from "../styles";
 import {useSelector} from "react-redux";
 import {getCurrentAssessment} from "@reduxShared/models/assessments/accessors";
 import NavigationService from "../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../router/constants";
 import AssessmentQuestions from "./assessmentQuestions/assessmentQuestions";
+import DevTools from "./devTools";
+import rnConfig from "../../../config";
 
 const AssessmentNew: React.FC = () => {
     const currentAssessment = useSelector(getCurrentAssessment);
@@ -18,9 +19,7 @@ const AssessmentNew: React.FC = () => {
             <BaseContainerView>
                 <AssessmentQuestions assessment={currentAssessment} />
             </BaseContainerView>
-            <BaseContainerView>
-                <Text>{JSON.stringify(currentAssessment)}</Text>
-            </BaseContainerView>
+            {rnConfig.isDevMode && <DevTools />}
         </PageContainer>
     );
 };

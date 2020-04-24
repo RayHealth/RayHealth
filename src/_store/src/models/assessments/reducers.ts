@@ -86,6 +86,12 @@ const assessmentReducer = (
                 soreThroat: action.soreThroat,
                 runnyNose: action.runnyNose,
             });
+        case ASSESSMENT.SAVE_EXPOSURE_RISK:
+            return updateCurrentAssessmentAttribute(state, {
+                outOfCountryWithinLast14Days: action.outOfCountryWithinLast14Days,
+                contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
+            });
+
         default:
             return state;
     }

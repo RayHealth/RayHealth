@@ -5,7 +5,6 @@ import {useDispatch} from "react-redux";
 import {useCallback} from "react";
 import {
     saveMildSymptoms,
-    saveSevereSymptoms,
     saveWarningSymptoms,
 } from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";

@@ -4,6 +4,7 @@ import {
     CompleteAssessment,
     GrantPermissionToShare,
     RecordTemperature,
+    SaveExposureRisk,
     SaveMildSymptoms,
     SaveSevereSymptoms,
     SaveWarningSymptoms,
@@ -20,6 +21,7 @@ export enum ASSESSMENT {
     SAVE_SEVERE_SYMPTOMS = "assessment/SAVE_SEVERE_SYMPTOMS",
     SAVE_WARNING_SYMPTOMS = "assessment/SAVE_WARNING_SYMPTOMS",
     SAVE_MILD_SYMPTOMS = "assessment/SAVE_MILD_SYMPTOMS",
+    SAVE_EXPOSURE_RISK = "assessment/SAVE_EXPOSURE_RISK",
 }
 
 export type AssessmentUuid = string;
@@ -67,4 +69,5 @@ export type AssessmentActions =
     | RecordTemperature
     | SaveSevereSymptoms
     | SaveWarningSymptoms
-    | SaveMildSymptoms;
+    | SaveMildSymptoms
+    | SaveExposureRisk;

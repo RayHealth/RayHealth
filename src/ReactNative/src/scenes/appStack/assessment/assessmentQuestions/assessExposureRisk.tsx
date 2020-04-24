@@ -2,21 +2,18 @@ import * as React from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
-import {saveMildSymptoms} from "@reduxShared/models/assessments/actions";
 import {
-    AssessmentDescriptionText,
-    AssessmentDescriptionView,
-    AssessmentHeaderText,
-    AssessmentHeaderView,
-    DividerView,
-} from "./styles";
+    saveExposureRisk,
+    saveMildSymptoms,
+} from "@reduxShared/models/assessments/actions";
+import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import BrandFullWidthButton from "../../../sharedComponents/buttons/brandFullWidthButton";
 import LightFullWidthButton from "../../../sharedComponents/buttons/lightFullWidthButton";
 import Toggle from "./components/toggle";
 import {useState} from "react";
 import SecondaryFullWidthButton from "../../../sharedComponents/buttons/secondaryFullWidthButton";
 
-const AssessOutOfCountry: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
+const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) => {
     const [outOfCountryWithinLast14Days, setOutOfCountryWithinLast14Days] = useState<
         boolean
     >(!!assessment.outOfCountryWithinLast14Days);
@@ -26,9 +23,12 @@ const AssessOutOfCountry: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
     const dispatch = useDispatch();
     const onContinue = useCallback(() => {
         console.log("Was not out of country");
-        // dispatch(
-        //     saveMildSymptoms(),
-        // );
+        dispatch(
+            saveExposureRisk(
+                outOfCountryWithinLast14Days,
+                contactWithPositiveCovid19Case,
+            ),
+        );
     }, [dispatch]);
     const goBack = useCallback(() => {
         dispatch(
@@ -77,4 +77,4 @@ const AssessOutOfCountry: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
     );
 };
 
-export default AssessOutOfCountry;
+export default AssessExposureRisk;

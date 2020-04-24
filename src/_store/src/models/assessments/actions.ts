@@ -113,3 +113,17 @@ export const saveMildSymptoms = (
     soreThroat,
     runnyNose,
 });
+
+export interface SaveExposureRisk {
+    type: ASSESSMENT.SAVE_EXPOSURE_RISK;
+    outOfCountryWithinLast14Days?: boolean;
+    contactWithPositiveCovid19Case?: boolean;
+}
+export const saveExposureRisk = (
+    outOfCountryWithinLast14Days?: boolean,
+    contactWithPositiveCovid19Case?: boolean,
+): SaveExposureRisk => ({
+    type: ASSESSMENT.SAVE_EXPOSURE_RISK,
+    outOfCountryWithinLast14Days,
+    contactWithPositiveCovid19Case,
+});

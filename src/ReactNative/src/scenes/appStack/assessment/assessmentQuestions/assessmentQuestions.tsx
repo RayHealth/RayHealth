@@ -7,7 +7,8 @@ import AssessWarningSymptoms from "./assessWarningSymptoms";
 import Call811 from "./Call811";
 import AssessMildSymptoms from "./assessMildSymptoms";
 import YouMustSelfIsolate from "./youMustSelfIsolate";
-import AssessOutOfCountry from "./assessOutOfCountry";
+import AssessOutOfCountry from "./assessExposureRisk";
+import YouDontNeedToBeTested from "./youDontNeedToBeTested";
 
 export interface AssessmentQuestionsProps {
     assessment: Assessment;
@@ -69,11 +70,19 @@ const AssessmentQuestions: React.FC<AssessmentQuestionsProps> = ({assessment}) =
     ) {
         return <YouMustSelfIsolate />;
     }
-    if (isUndefined(assessment.outOfCountryWithinLast14Days)) {
+    if (
+        isUndefined(assessment.outOfCountryWithinLast14Days) ||
+        isUndefined(assessment.contactWithPositiveCovid19Case)
+    ) {
         return <AssessOutOfCountry assessment={assessment} />;
     }
-
-    return null;
+    if (
+        assessment.outOfCountryWithinLast14Days ||
+        assessment.contactWithPositiveCovid19Case
+    ) {
+        return <YouMustSelfIsolate />;
+    }
+    return <YouDontNeedToBeTested />;
 };
 
 export default AssessmentQuestions;
