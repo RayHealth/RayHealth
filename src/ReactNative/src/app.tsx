@@ -3,8 +3,9 @@ import {StatusBar, YellowBox} from "react-native";
 import {Provider} from "react-redux";
 import {NetworkProvider} from "react-native-offline";
 
-import appRnStore from "./store/rnStore";
+import {store, persistor} from "./store/rnStore";
 import RootStackComponent from "./scenes/router";
+import {PersistGate} from "redux-persist/integration/react";
 
 const App: React.FC = React.memo(() => {
     useEffect(() => {
@@ -15,11 +16,13 @@ const App: React.FC = React.memo(() => {
         ]);
     }, []);
     return (
-        <Provider store={appRnStore}>
-            <StatusBar barStyle="dark-content" />
-            <NetworkProvider>
-                <RootStackComponent />
-            </NetworkProvider>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <StatusBar barStyle="dark-content" />
+                <NetworkProvider>
+                    <RootStackComponent />
+                </NetworkProvider>
+            </PersistGate>
         </Provider>
     );
 });
