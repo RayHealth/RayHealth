@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {APP_STACK_ROUTES} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import HomeIndex from "../appStack/home";
+import HomeIndex from "../appStack/home/homeScreen";
 import AppTabBar from "./tabBarComponents";
 import {createStackNavigator} from "@react-navigation/stack";
-import Placeholder from "../appStack/home/placeholder";
+import UserMenu from "../appStack/home/userMenu/userMenu";
 import Assessment from "../appStack/assessment/assessment";
 import {useSelector} from "react-redux";
 import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/accessors";
@@ -43,11 +43,11 @@ const StackWithBottomTabs: React.FC = () => (
             }}
         />
         <BottomTab.Screen
-            name={APP_STACK_ROUTES.HOME.PLACEHOLDER}
-            component={Placeholder}
+            name={APP_STACK_ROUTES.USER.MENU}
+            component={UserMenu}
             options={{
-                tabBarLabel: "Placeholder",
-                tabBarAccessibilityLabel: "Placeholder",
+                tabBarLabel: "User Menu",
+                tabBarAccessibilityLabel: "User menu",
             }}
         />
     </BottomTab.Navigator>

@@ -3,7 +3,7 @@ import {Text} from "react-native";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/accessors";
-import {BaseContainerView, PageContainer} from "../styles";
+import {BaseContainerView, PageContainer} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 

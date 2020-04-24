@@ -1,5 +1,5 @@
 import React from "react";
-import RayHealthTextInput from "../../sharedComponents/inputs/RayHealthTextInput";
+import RayHealthTextInput from "../../../sharedComponents/inputs/RayHealthTextInput";
 import {Text, View} from "react-native";
 
 const SetName: React.FC = () => {
