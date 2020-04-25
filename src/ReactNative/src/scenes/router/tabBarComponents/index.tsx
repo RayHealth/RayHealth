@@ -7,7 +7,7 @@ import {
 import {TabNavigationState, NavigationHelpers} from "@react-navigation/native";
 import {getRouteOptionsFromPath} from "../constants";
 import {ImageSourcePropType} from "react-native";
-import {STYLE} from "../../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../config/styleDefaults";
 
 interface IAppTabBarProps {
     state: TabNavigationState;
@@ -76,7 +76,7 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
 
 const TabBarIconView = styled.View`
     flex-direction: row;
-    background-color: #fff;
+    background-color: ${STYLE.SETTINGS.TAB_BAR_BACKGROUND};
 `;
 const TabBarIconTouchableOpacity = styled.TouchableOpacity`
     flex: 1;
@@ -104,7 +104,7 @@ const TabBarIconImage = styled.Image`
     width: 35px;
 `;
 
-const TabBarIconText = styled.Text`
+const TabBarIconText = styled(DefaultText)`
     color: ${({isFocused}: ITabBarIconTextProps) =>
         isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.SECONDARY};
 `;

@@ -8,7 +8,11 @@ import useInitialState from "../../services/useInitialState";
 import {KeyboardAvoidingView} from "react-native";
 import {getBackgroundColor} from "../../store/models/appState/accessors";
 import styled from "styled-components/native";
+import {STYLE} from "../../config/styleDefaults";
 
+const KeyboardAvoidingViewStyle = {
+    flex: 1,
+};
 const App: React.FC = React.memo(() => {
     const routeNameRef = React.useRef();
     const dispatch = useDispatch();
@@ -22,12 +26,7 @@ const App: React.FC = React.memo(() => {
     if (!isReady) return null;
     // todo re-hook up persistence https://reactnavigation.org/docs/en/next/state-persistence.html#docsNav
     return (
-        <KeyboardAvoidingView
-            behavior="height"
-            style={{
-                flex: 1,
-                backgroundColor,
-            }}>
+        <KeyboardAvoidingView behavior="height" style={KeyboardAvoidingViewStyle}>
             <NavigationContainer
                 ref={NavigationService.topLevelNavigatorRef}
                 initialState={initialState}
@@ -43,6 +42,7 @@ const App: React.FC = React.memo(() => {
                         // border: "rgb(199, 199, 204)",
                     } as any,
                 }}>
+                <HeaderSafeAreaView backgroundColor={backgroundColor} />
                 <BasePageSafeAreaView>
                     <AppStackNavigatorContainer />
                 </BasePageSafeAreaView>
@@ -52,6 +52,12 @@ const App: React.FC = React.memo(() => {
 });
 export default App;
 
+const HeaderSafeAreaView = styled.SafeAreaView`
+    flex: 0;
+    background-color: ${({backgroundColor}: {backgroundColor: string}) =>
+        backgroundColor};
+`;
 const BasePageSafeAreaView = styled.SafeAreaView`
     flex: 1;
+    background-color: ${STYLE.SETTINGS.TAB_BAR_BACKGROUND};
 `;

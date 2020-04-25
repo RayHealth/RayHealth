@@ -1,3 +1,5 @@
+import styled from "styled-components/native";
+
 const COLORS = {
     BLACK: "#000",
     GREY1: "#111",
@@ -78,13 +80,19 @@ const COLORS = {
 export const STYLE = {
     SETTINGS: {
         MAIN_BACKGROUND_COLOR: COLORS.GREYE,
+        TAB_BAR_BACKGROUND: COLORS.WHITE,
     },
     COLORS: {
         ...COLORS,
     },
     FONT_SIZES: {
         H1: 30,
+        DEFAULT: 20,
         BUTTON_TEXT: 20,
         INPUT: 20,
     },
 };
+
+export const DefaultText = styled.Text`
+    font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
+`;

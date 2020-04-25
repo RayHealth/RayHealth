@@ -4,31 +4,27 @@ import {BORDER_RADIUS, PageContainerView} from "../../styles";
 import NavigationService from "../../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../../router/constants";
 import ShareSettings from "./shareSettings";
-import {STYLE} from "../../../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../../config/styleDefaults";
+import {View} from "react-native";
 
 // cannot be React.memo, react nav issue
-const UserMenu: React.FC = () => {
-    return (
-        <PageContainerView>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
-                Your personal details
-            </MenuItem>
-            <ShareSettings />
-            <MenuItem route={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}>
-                View past assessments
-            </MenuItem>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>View past trips</MenuItem>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>COVID-19 Links</MenuItem>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
-                Frequently asked questions
-            </MenuItem>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
-                Term and Conditions
-            </MenuItem>
-            <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Privacy policy</MenuItem>
-        </PageContainerView>
-    );
-};
+const UserMenu: React.FC = () => (
+    <PageContainerView>
+        <View style={{height: 30}} />
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
+        <ShareSettings />
+        <MenuItem route={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}>
+            View past assessments
+        </MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>View past trips</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>COVID-19 Links</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
+            Frequently asked questions
+        </MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Term and Conditions</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Privacy policy</MenuItem>
+    </PageContainerView>
+);
 
 export default UserMenu;
 
@@ -46,14 +42,17 @@ const MenuItem: React.FC<MenuItemProps> = React.memo(({children, route}) => {
         </MenuItemTouchableHighlight>
     );
 });
-const MenuItemTouchableHighlight = styled.TouchableHighlight`
+export const MenuItemTouchableHighlight = styled.TouchableHighlight`
     margin-bottom: 10px;
     margin-right: 10px;
     margin-left: 10px;
-    background: ${STYLE.COLORS.GREYC};
+    background: ${STYLE.COLORS.WHITE};
     border-radius: ${BORDER_RADIUS};
 `;
-const MenuItemText = styled.Text`
-    padding: 30px;
+export const MenuItemText = styled(DefaultText)`
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     color: ${STYLE.COLORS.GREY2};
 `;

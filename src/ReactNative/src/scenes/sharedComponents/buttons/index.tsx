@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import {STYLE} from "../../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../config/styleDefaults";
 
 interface BaseFullWidthButtonOwnProps {
     onPress: () => void;
@@ -44,7 +44,7 @@ interface FullWidthButtonTextProps {
     color: string;
     bold?: true;
 }
-export const FullWidthButtonText = styled.Text`
+export const FullWidthButtonText = styled(DefaultText)`
     font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT}px;
     color: ${({color}: FullWidthButtonTextProps) => color};
     font-weight: ${({bold}: FullWidthButtonTextProps) => (bold ? "bold" : "normal")};

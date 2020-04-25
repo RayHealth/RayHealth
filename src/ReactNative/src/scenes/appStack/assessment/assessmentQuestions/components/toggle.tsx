@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useCallback} from "react";
-import {STYLE} from "../../../../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../../../config/styleDefaults";
 import styled from "styled-components";
 
 interface ToggleProps {
@@ -39,7 +39,7 @@ const ToggleOffTouchableHighlight = styled.TouchableHighlight`
     border-radius: 5px;
     align-items: flex-start;
 `;
-const ToggleOffText = styled.Text`
+const ToggleOffText = styled(DefaultText)`
     font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT}px;
     color: ${STYLE.COLORS.BRAND_COMPLIMENTARY3};
 `;
