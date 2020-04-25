@@ -1,8 +1,8 @@
 import {
-    mdiHome222,
     mdiHomeBrand,
-    mdiMenu222,
+    mdiHomeCCC,
     mdiMenuBrand,
+    mdiMenuCCC,
 } from "../../services/staticImages";
 import {ImageSourcePropType} from "react-native";
 
@@ -19,7 +19,7 @@ export const APP_STACK_ROUTES = {
         INDEX: {
             path: "home/INDEX",
             label: "Home",
-            icon: mdiHome222,
+            icon: mdiHomeCCC,
             iconIsFocused: mdiHomeBrand,
         },
     },
@@ -27,7 +27,7 @@ export const APP_STACK_ROUTES = {
         MENU: {
             path: "user/MENU",
             label: "Menu",
-            icon: mdiMenu222,
+            icon: mdiMenuCCC,
             iconIsFocused: mdiMenuBrand,
         },
         PAST_ASSESSMENTS_LIST: {

@@ -35,7 +35,6 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
                 const icon = isFocused
                     ? getRouteOptionsFromPath(route.name).iconIsFocused
                     : getRouteOptionsFromPath(route.name).icon;
-                console.log("image", route.name, icon, isFocused);
 
                 const onPress = () => {
                     const event = navigation.emit({
@@ -64,8 +63,11 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
                         onPress={onPress}
                         onLongPress={onLongPress}
                         isFocused={isFocused}>
-                        {icon && <TabBarIcon icon={icon} />}
-                        <TabBarIconText isFocused={isFocused}>{label}</TabBarIconText>
+                        {icon ? (
+                            <TabBarIcon icon={icon} />
+                        ) : (
+                            <TabBarIconText isFocused={isFocused}>{label}</TabBarIconText>
+                        )}
                     </TabBarIconTouchableOpacity>
                 );
             })}
@@ -100,11 +102,14 @@ interface TabBarIconIconProps {
 const TabBarIcon: React.FC<TabBarIconIconProps> = ({icon}) => (
     <TabBarIconImage source={icon} />
 );
-const TabBarIconImage = styled.Image``;
+const TabBarIconImage = styled.Image`
+    height: 35px;
+    width: 35px;
+`;
 
 const TabBarIconText = styled.Text`
     color: ${({isFocused}: ITabBarIconTextProps) =>
-        isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.GREY2};
+        isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.SECONDARY};
 `;
 
 export default AppTabBar;
