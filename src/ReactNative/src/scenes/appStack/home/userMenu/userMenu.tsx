@@ -1,33 +1,52 @@
 import React, {useCallback} from "react";
-import {Text, TouchableHighlight} from "react-native";
-import {BaseContainerView, PageContainer} from "../../styles";
+import styled from "styled-components/native";
+import {BORDER_RADIUS, PageContainer} from "../../styles";
 import NavigationService from "../../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../../router/constants";
 
-const Placeholder: React.FC = () => {
-    const navToPastAssessments = useCallback(() => {
-        NavigationService.navigate(APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path);
-    }, []);
+// cannot be React.memo, react nav issue
+const UserMenu: React.FC = () => (
+    <PageContainer>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
+            Your share settings (show current share settings)
+        </MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}>
+            View past assessments
+        </MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>View past trips</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>COVID-19 Links</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
+            Frequently asked questions
+        </MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Term and Conditions</MenuItem>
+        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Privacy policy</MenuItem>
+    </PageContainer>
+);
+
+export default UserMenu;
+
+interface MenuItemProps {
+    route: string;
+    children: string;
+}
+const MenuItem: React.FC<MenuItemProps> = React.memo(({children, route}) => {
+    const onPress = useCallback(() => {
+        NavigationService.navigate(route);
+    }, [route]);
     return (
-        <PageContainer>
-            <BaseContainerView>
-                <Text>Placeholder</Text>
-            </BaseContainerView>
-            <BaseContainerView>
-                <Text>&bull; Your personal details</Text>
-                <Text>&bull; Your share settings (show current share settings)</Text>
-                <TouchableHighlight onPress={navToPastAssessments}>
-                    <Text>&bull; View past assessments</Text>
-                </TouchableHighlight>
-
-                <Text>&bull; View past trips</Text>
-                <Text>&bull; COVID-19 Links</Text>
-                <Text>&bull; Frequently asked questions</Text>
-                <Text>&bull; Term and Conditions</Text>
-                <Text>&bull; Privacy policy</Text>
-            </BaseContainerView>
-        </PageContainer>
+        <MenuItemTouchableHighlight onPress={onPress}>
+            <MenuItemText>{children}</MenuItemText>
+        </MenuItemTouchableHighlight>
     );
-};
-
-export default Placeholder;
+});
+const MenuItemTouchableHighlight = styled.TouchableHighlight`
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background: red;
+    border-radius: ${BORDER_RADIUS};
+`;
+const MenuItemText = styled.Text`
+    padding: 30px;
+`;
