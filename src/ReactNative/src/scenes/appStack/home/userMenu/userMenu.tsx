@@ -15,13 +15,16 @@ const Placeholder: React.FC = () => {
             </BaseContainerView>
             <BaseContainerView>
                 <Text>&bull; Your personal details</Text>
-                <Text>&bull; Your share settings</Text>
+                <Text>&bull; Your share settings (show current share settings)</Text>
                 <TouchableHighlight onPress={navToPastAssessments}>
                     <Text>&bull; View past assessments</Text>
                 </TouchableHighlight>
 
                 <Text>&bull; View past trips</Text>
+                <Text>&bull; COVID-19 Links</Text>
+                <Text>&bull; Frequently asked questions</Text>
                 <Text>&bull; Term and Conditions</Text>
+                <Text>&bull; Privacy policy</Text>
             </BaseContainerView>
         </PageContainer>
     );

@@ -45,7 +45,7 @@ const HomeIndex: React.FC = () => {
                 </Indent>
                 <Text>&bull; Add ability to track user</Text>
                 {/*<Text>&bull; test</Text>
-                <Text>&bull; test</Text>
+                <Text>&bull; re-add version.json tracking for api</Text>
                 <Text>&bull; test</Text>*/}
             </BaseContainerView>
             <BaseContainerView>
