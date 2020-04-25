@@ -6,6 +6,9 @@ import {
 } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 import {TabNavigationState, NavigationHelpers} from "@react-navigation/native";
 import {BORDER_RADIUS} from "../../appStack/styles";
+import {getRouteOptionsFromPath} from "../constants";
+import {ImageSourcePropType} from "react-native";
+import {STYLE} from "../../../config/styleDefaults";
 
 interface IAppTabBarProps {
     state: TabNavigationState;
@@ -28,6 +31,11 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
                         : route.name;
 
                 const isFocused = state.index === index;
+
+                const icon = isFocused
+                    ? getRouteOptionsFromPath(route.name).iconIsFocused
+                    : getRouteOptionsFromPath(route.name).icon;
+                console.log("image", route.name, icon, isFocused);
 
                 const onPress = () => {
                     const event = navigation.emit({
@@ -56,6 +64,7 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
                         onPress={onPress}
                         onLongPress={onLongPress}
                         isFocused={isFocused}>
+                        {icon && <TabBarIcon icon={icon} />}
                         <TabBarIconText isFocused={isFocused}>{label}</TabBarIconText>
                     </TabBarIconTouchableOpacity>
                 );
@@ -85,8 +94,17 @@ const TabBarIconTouchableOpacity = styled.TouchableOpacity`
 interface ITabBarIconTextProps {
     isFocused: boolean;
 }
+interface TabBarIconIconProps {
+    icon: ImageSourcePropType;
+}
+const TabBarIcon: React.FC<TabBarIconIconProps> = ({icon}) => (
+    <TabBarIconImage source={icon} />
+);
+const TabBarIconImage = styled.Image``;
+
 const TabBarIconText = styled.Text`
-    color: ${({isFocused}: ITabBarIconTextProps) => (isFocused ? "#673ab7" : "#222")};
+    color: ${({isFocused}: ITabBarIconTextProps) =>
+        isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.GREY2};
 `;
 
 export default AppTabBar;
