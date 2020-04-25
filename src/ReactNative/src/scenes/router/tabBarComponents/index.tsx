@@ -5,7 +5,6 @@ import {
     BottomTabNavigationEventMap,
 } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 import {TabNavigationState, NavigationHelpers} from "@react-navigation/native";
-import {BORDER_RADIUS} from "../../appStack/styles";
 import {getRouteOptionsFromPath} from "../constants";
 import {ImageSourcePropType} from "react-native";
 import {STYLE} from "../../../config/styleDefaults";
@@ -77,11 +76,6 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
 
 const TabBarIconView = styled.View`
     flex-direction: row;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-radius: ${BORDER_RADIUS};
     background-color: #fff;
 `;
 const TabBarIconTouchableOpacity = styled.TouchableOpacity`
@@ -90,6 +84,9 @@ const TabBarIconTouchableOpacity = styled.TouchableOpacity`
     justify-content: center;
     padding-top: 15px;
     padding-bottom: 15px;
+    border-top-width: 3px;
+    border-top-color: ${(props: ITabBarIconTextProps) =>
+        props.isFocused ? STYLE.COLORS.BRAND : "transparent"}
     background: ${(props: ITabBarIconTextProps) =>
         props.isFocused ? "transparent" : "transparent"};
 `;

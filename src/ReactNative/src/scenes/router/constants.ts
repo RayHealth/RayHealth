@@ -5,6 +5,7 @@ import {
     mdiMenuCCC,
 } from "../../services/staticImages";
 import {ImageSourcePropType} from "react-native";
+import {STYLE} from "../../config/styleDefaults";
 
 interface RoutePath {
     path: string;
@@ -12,6 +13,7 @@ interface RoutePath {
     tabBarVisible?: false;
     icon?: ImageSourcePropType;
     iconIsFocused?: ImageSourcePropType;
+    backgroundColor?: string;
 }
 type AppStackRoutesObj = {[k: string]: RoutePath | AppStackRoutesObj};
 export const APP_STACK_ROUTES = {
@@ -29,6 +31,7 @@ export const APP_STACK_ROUTES = {
             label: "Menu",
             icon: mdiMenuCCC,
             iconIsFocused: mdiMenuBrand,
+            backgroundColor: STYLE.COLORS.BRAND,
         },
         PAST_ASSESSMENTS_LIST: {
             path: "user/PAST_ASSESSMENTS_LIST",

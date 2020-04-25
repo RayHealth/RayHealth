@@ -1,26 +1,10 @@
 import styled from "styled-components/native";
-import {ScrollView} from "react-native";
-import React from "react";
+import {STYLE} from "../../config/styleDefaults";
 
-const BACKGROUND_COLOR = "#eee";
 export const BORDER_RADIUS = "15px";
 
-export const KeyboardAvoidingViewStyle = {
-    flex: 1,
-    backgroundColor: BACKGROUND_COLOR,
-};
 export const PageContainerView = styled.ScrollView`
     flex: 1;
-`;
-export const PageContainer: React.FC = (props) => (
-    <ScrollView>
-        <PageContainerView>{props.children}</PageContainerView>
-    </ScrollView>
-);
-
-export const BasePageSafeAreaView = styled.SafeAreaView`
-    flex: 1;
-    background: ${BACKGROUND_COLOR};
 `;
 export const BaseContainerView = styled.View`
     margin-top: 10px;
@@ -31,7 +15,7 @@ export const BaseContainerView = styled.View`
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 15px;
-    color: #000;
-    background: #fff;
+    color: ${STYLE.COLORS.GREY1};
+    background: ${STYLE.COLORS.WHITE};
     border-radius: ${BORDER_RADIUS};
 `;

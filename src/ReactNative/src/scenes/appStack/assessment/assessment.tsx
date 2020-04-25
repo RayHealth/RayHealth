@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {BaseContainerView, PageContainer} from "../styles";
+import {BaseContainerView, PageContainerView} from "../styles";
 import {useSelector} from "react-redux";
 import {getCurrentAssessment} from "@reduxShared/models/assessments/accessors";
 import NavigationService from "../../../services/navigationService";
@@ -16,12 +16,12 @@ const AssessmentNew: React.FC = () => {
     }, [currentAssessment]);
     if (!currentAssessment) return null;
     return (
-        <PageContainer>
+        <PageContainerView>
             <BaseContainerView>
                 <AssessmentQuestions assessment={currentAssessment} />
             </BaseContainerView>
             {rnConfig.isDevMode && <DevTools />}
-        </PageContainer>
+        </PageContainerView>
     );
 };
 

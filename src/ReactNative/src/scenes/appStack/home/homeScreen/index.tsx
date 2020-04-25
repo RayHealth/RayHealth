@@ -3,7 +3,7 @@ import {Text} from "react-native";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/accessors";
-import {BaseContainerView, PageContainer} from "../../styles";
+import {BaseContainerView, PageContainerView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 
@@ -14,7 +14,7 @@ const Indent = styled.View`
 const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
     return (
-        <PageContainer>
+        <PageContainerView>
             <BaseContainerView>
                 <Text>LOGO GOES HERE?!?</Text>
             </BaseContainerView>
@@ -54,7 +54,7 @@ const HomeIndex: React.FC = () => {
             <BaseContainerView>
                 <SetName />
             </BaseContainerView>
-        </PageContainer>
+        </PageContainerView>
     );
 };
 

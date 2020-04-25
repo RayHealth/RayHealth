@@ -24,7 +24,10 @@ const AppStackNavigator = () => {
             <PrimaryStack.Screen
                 name={APP_STACK_ROUTES.ASSESSMENTS.NEW.path}
                 component={Assessment}
-                options={{headerShown: false, gestureEnabled: false}}
+                options={{
+                    headerShown: false,
+                    gestureEnabled: false,
+                }}
             />
         </PrimaryStack.Navigator>
     );
@@ -70,7 +73,10 @@ const UserMenuStackNavigator = () => {
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.MENU.path}
                 component={UserMenu}
-                options={{title: APP_STACK_ROUTES.USER.MENU.label, headerShown: false}}
+                options={{
+                    title: APP_STACK_ROUTES.USER.MENU.label,
+                    headerShown: false,
+                }}
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}

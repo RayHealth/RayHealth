@@ -1,12 +1,12 @@
 import {SCREEN_CHANGE} from "./constants";
 
-export interface ITriggerScreenChangeAction {
+export interface TriggerScreenChangeAction {
     type: typeof SCREEN_CHANGE;
     currentRouteName: string;
 }
 export const triggerScreenChange = (
     currentRouteName: string,
-): ITriggerScreenChangeAction => ({
+): TriggerScreenChangeAction => ({
     type: SCREEN_CHANGE,
     currentRouteName,
 });

@@ -25,6 +25,7 @@ middleware.push(epicMiddleware);
 const persistConfig = {
     key: "root",
     storage: AsyncStorage,
+    blacklist: ["rnAppState"],
 };
 
 const persistedReducer = persistReducer(persistConfig, appRnReducer);
