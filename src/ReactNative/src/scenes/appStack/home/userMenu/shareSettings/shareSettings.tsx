@@ -1,6 +1,5 @@
 import * as React from "react";
 import {APP_STACK_ROUTES} from "../../../../router/constants";
-import {useCallback} from "react";
 import NavigationService from "../../../../../services/navigationService";
 import {
     MenuItemLabelText,
@@ -12,7 +11,7 @@ import {
 
 interface ShareSettingsProps {}
 const ShareSettings: React.FC<ShareSettingsProps> = () => {
-    const onPress = useCallback(() => {
+    const onPress = React.useCallback(() => {
         NavigationService.navigate(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path);
     }, []);
     return (
