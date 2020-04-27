@@ -4,7 +4,6 @@ import {
     CurrentUserState,
     defaultCurrentUser,
 } from "./constants";
-import {ASSESSMENT} from "../assessments/constants";
 
 const currentCurrentUserReducer = (
     state: CurrentUserState = defaultCurrentUser,
@@ -25,10 +24,10 @@ const currentCurrentUserReducer = (
                 ...state,
                 permissionToSharePersonalData: action.permissionToSharePersonalData,
             };
-        case CURRENT_USER.PERMISSION_TO_SHARE_ANONYMIZED_DATA_SUCCESS:
+        case CURRENT_USER.PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS:
             return {
                 ...state,
-                permissionToShareAnonymizedData: action.permissionToShareAnonymizedData,
+                permissionToShareAggregateData: action.permissionToShareAggregateData,
             };
         case CURRENT_USER.ACCEPT_TAC_SUCCESS:
             return {

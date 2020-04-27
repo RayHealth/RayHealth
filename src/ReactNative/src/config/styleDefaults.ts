@@ -89,6 +89,7 @@ export const STYLE = {
     BORDER_RADIUS: 15,
     FONT_SIZES: {
         H1: 50,
+        H2: 42,
         DEFAULT: 22,
         BUTTON_TEXT: 22,
         INPUT: 22,
@@ -96,15 +97,31 @@ export const STYLE = {
     },
 };
 
-export const HeaderText = styled.Text`
+export const DefaultView = styled.View``;
+
+export const DefaultH1Text = styled.Text`
     font-size: ${STYLE.FONT_SIZES.H1}px;
-    line-height: ${STYLE.FONT_SIZES.H1 * STYLE.FONT_SIZES.LINE_HEIGHT}px;
+    line-height: ${STYLE.FONT_SIZES.H1 * STYLE.FONT_SIZES.LINE_HEIGHT * 0.8}px;
+    font-weight: bold;
+`;
+export const DefaultH2Text = styled.Text`
+    font-size: ${STYLE.FONT_SIZES.H2}px;
+    line-height: ${STYLE.FONT_SIZES.H2 * STYLE.FONT_SIZES.LINE_HEIGHT * 0.8}px;
     font-weight: bold;
 `;
 export const DefaultText = styled.Text`
     font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
     line-height: ${STYLE.FONT_SIZES.DEFAULT * STYLE.FONT_SIZES.LINE_HEIGHT}px;
 `;
-export const DefaultView = styled.View`
-    flex: 1;
+
+export const CalloutSectionView = styled.View`
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left-width: 3px;
+    border-left-color: ${STYLE.COLORS.BRAND};
+    padding-left: 10px;
+`;
+export const CalloutSectionText = styled(DefaultText)`
+    color: ${STYLE.COLORS.BRAND3};
+    font-weight: bold;
 `;

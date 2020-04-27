@@ -8,9 +8,20 @@ import {
     MenuItemC2A,
     MenuItemTouchableHighlight,
 } from "../styles";
+import {useSelector} from "react-redux";
+import {
+    getCurrentUsersPermissionToShareAggregateData,
+    getCurrentUsersPermissionToSharePersonalData,
+} from "@reduxShared/models/currentUser/selectors";
 
 interface ShareSettingsProps {}
 const ShareSettings: React.FC<ShareSettingsProps> = () => {
+    const permissionToSharePersonalData = useSelector(
+        getCurrentUsersPermissionToSharePersonalData,
+    );
+    const permissionToShareAggregateData = useSelector(
+        getCurrentUsersPermissionToShareAggregateData,
+    );
     const onPress = React.useCallback(() => {
         NavigationService.navigate(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path);
     }, []);
@@ -19,15 +30,16 @@ const ShareSettings: React.FC<ShareSettingsProps> = () => {
             <>
                 <MenuItemLabelText>Privacy settings</MenuItemLabelText>
                 <MenuItemHeaderText>
-                    You are sharing anonymized data with Ray.Health and your regional
-                    health authority
+                    You control what information you share with RayHealth and your
+                    regional health authority
                 </MenuItemHeaderText>
                 <MenuItemBodyText>
-                    Information you share is anonymized to ensure your privacy is
-                    protected. The information provided will allow your regional health
-                    authority and Ray.Health to track the spread of COVID-19 and provide
-                    early warning of exposure, or possible exposure to you and your fellow
-                    citizens.
+                    You {permissionToSharePersonalData ? "ARE" : "ARE NOT"} currently
+                    sharing personal data.
+                </MenuItemBodyText>
+                <MenuItemBodyText>
+                    You {permissionToShareAggregateData ? "ARE" : "ARE NOT"} currently
+                    sharing aggragate data.
                 </MenuItemBodyText>
                 <MenuItemC2A>Click to change</MenuItemC2A>
             </>

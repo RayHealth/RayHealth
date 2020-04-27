@@ -39,15 +39,15 @@ export const setCurrentUserPermissionToSharePersonalDataSuccess = (
     type: CURRENT_USER.PERMISSION_TO_SHARE_PERSONAL_DATA_SUCCESS,
     permissionToSharePersonalData,
 });
-export interface CurrentUserPermissionToShareAnonymizedDataSuccess {
-    type: CURRENT_USER.PERMISSION_TO_SHARE_ANONYMIZED_DATA_SUCCESS;
-    permissionToShareAnonymizedData: boolean;
+export interface CurrentUserPermissionToShareAggragateDataSuccess {
+    type: CURRENT_USER.PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS;
+    permissionToShareAggregateData: boolean;
 }
-export const setCurrentUserPermissionToShareAnonymizedDataSuccess = (
-    permissionToShareAnonymizedData: boolean,
-): CurrentUserPermissionToShareAnonymizedDataSuccess => ({
-    type: CURRENT_USER.PERMISSION_TO_SHARE_ANONYMIZED_DATA_SUCCESS,
-    permissionToShareAnonymizedData,
+export const setCurrentUserPermissionToShareAggragateDataSuccess = (
+    permissionToShareAggregateData: boolean,
+): CurrentUserPermissionToShareAggragateDataSuccess => ({
+    type: CURRENT_USER.PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS,
+    permissionToShareAggregateData,
 });
 export interface CurrentUserAcceptTacSuccess {
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS;

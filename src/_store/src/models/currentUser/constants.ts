@@ -6,13 +6,12 @@ import {
     CurrentUserPermissionToSharePersonalDataSuccess,
 } from "./actions";
 import {AssessmentInitialize} from "../assessments/actions";
-import {AssessmentUuid} from "../assessments/constants";
 
 export enum CURRENT_USER {
     NAME_SUCCESS = "currentUser/CURRENT_USER_SET_NAME",
     BIRTHDAY_SUCCESS = "currentUser/CURRENT_USER_BIRTH_DATE",
     PERMISSION_TO_SHARE_PERSONAL_DATA_SUCCESS = "currentUser/CURRENT_USER_PERMISSION_TO_SHARE_PERSONAL_DATA_SUCCESS",
-    PERMISSION_TO_SHARE_ANONYMIZED_DATA_SUCCESS = "currentUser/CURRENT_USER_PERMISSION_TO_SHARE_ANONYMIZED_DATA_SUCCESS",
+    PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS = "currentUser/CURRENT_USER_PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS",
     ACCEPT_TAC_SUCCESS = "currentUser/CURRENT_USER_ACCEPT_TAC_SUCCESS",
 }
 
@@ -26,12 +25,12 @@ export interface CurrentUser {
     birthDay?: number;
     birthYear?: number;
     permissionToSharePersonalData: boolean;
-    permissionToShareAnonymizedData: boolean;
+    permissionToShareAggregateData: boolean;
     acceptanceOfTermsAndConditions: boolean;
 }
 export const defaultCurrentUser: CurrentUser = {
     permissionToSharePersonalData: false,
-    permissionToShareAnonymizedData: false,
+    permissionToShareAggregateData: false,
     acceptanceOfTermsAndConditions: false,
 };
 

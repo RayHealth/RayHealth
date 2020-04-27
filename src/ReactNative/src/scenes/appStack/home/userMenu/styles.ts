@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import {DefaultText, STYLE} from "../../../../config/styleDefaults";
+import {DefaultH1Text, DefaultText, STYLE} from "../../../../config/styleDefaults";
 
 export const MenuItemTouchableHighlight = styled.TouchableHighlight`
     margin-bottom: 10px;
@@ -55,4 +55,12 @@ export const MenuItemC2A = styled(DefaultText)`
     padding-right: 20px;
     padding-bottom: 10px;
     align-self: flex-end;
+`;
+
+export const SettingPageHeaderText = styled(DefaultH1Text)`
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    color: ${STYLE.COLORS.BRAND8};
 `;

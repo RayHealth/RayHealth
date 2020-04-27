@@ -1,7 +1,5 @@
 import * as React from "react";
 import {
-    AssessmentCalloutText,
-    AssessmentCalloutView,
     AssessmentDescriptionText,
     AssessmentDescriptionView,
     AssessmentHeaderText,
@@ -10,6 +8,7 @@ import {
 } from "./styles";
 import {useCallback} from "react";
 import {LightFullWidthButton} from "../../../sharedComponents/buttons";
+import {CalloutSectionView, CalloutSectionText} from "../../../../config/styleDefaults";
 
 interface YouMustSelfIsolateProps {}
 const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
@@ -25,11 +24,11 @@ const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
                 </AssessmentHeaderText>
             </AssessmentHeaderView>
 
-            <AssessmentCalloutView>
-                <AssessmentCalloutText>
+            <CalloutSectionView>
+                <CalloutSectionText>
                     You must self-isolate until you receive further instructions
-                </AssessmentCalloutText>
-            </AssessmentCalloutView>
+                </CalloutSectionText>
+            </CalloutSectionView>
 
             <AssessmentDescriptionView>
                 <AssessmentDescriptionText>
@@ -76,21 +75,21 @@ const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
                 </AssessmentDescriptionText>
             </AssessmentDescriptionView>
 
-            <AssessmentCalloutView>
-                <AssessmentCalloutText>
+            <CalloutSectionView>
+                <CalloutSectionText>
                     Please provide your contact information and healthcare number below.
                     You will be contacted to confirm your symptoms and discuss next steps
                     which may include a referral for testing.
-                </AssessmentCalloutText>
-            </AssessmentCalloutView>
+                </CalloutSectionText>
+            </CalloutSectionView>
 
-            <AssessmentCalloutView>
-                <AssessmentCalloutText>
+            <CalloutSectionView>
+                <CalloutSectionText>
                     The COVID-19 test is only for people who currently have symptoms of
                     the virus. The test does not show if you were infected in the past and
                     are no longer symptomatic.
-                </AssessmentCalloutText>
-            </AssessmentCalloutView>
+                </CalloutSectionText>
+            </CalloutSectionView>
 
             <DividerView />
 

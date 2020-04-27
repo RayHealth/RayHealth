@@ -47,6 +47,7 @@ const Toggle: React.FC<ToggleProps> = ({children, toggleFunc, value}) => {
 export default Toggle;
 
 const ToggleIcon = styled.Image`
+    margin-top: 3px;
     height: 25px;
     width: 25px;
     margin-right: 10px;

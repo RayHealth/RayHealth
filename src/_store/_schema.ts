@@ -46,6 +46,8 @@ interface DeviceSchema {
         birthMonth?: number;
         birthDay?: number;
         birthYear?: number;
+        gender?: "male" | "female" | string;
+        // other useful metrics? income, ethnicity, etc
         permissionToSharePersonalData: boolean;
         permissionToShareAnonymizedData: boolean;
         acceptanceOfTermsAndConditions: boolean;

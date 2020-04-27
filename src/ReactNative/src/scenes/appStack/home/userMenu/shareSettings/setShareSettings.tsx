@@ -1,22 +1,48 @@
 import * as React from "react";
-import {DefaultText} from "../../../../../config/styleDefaults";
+import {
+    DefaultText,
+    DefaultView,
+    CalloutSectionText,
+    CalloutSectionView,
+    DefaultH2Text,
+} from "../../../../../config/styleDefaults";
 import {BaseContainerView, PageContainerScrollView} from "../../../styles";
-import Toggle from "../../../toggle";
-import {useState} from "react";
+import {SettingPageHeaderText} from "../styles";
+import PersonallyIdentifiableInformationToggle from "./PersonallyIdentifiableInformationToggle";
+import AggregateDataToggle from "./AggregateDataToggle";
 
 interface SetShareSettingsProps {}
 const SetShareSettings: React.FC<SetShareSettingsProps> = () => {
-    const [test, setTest] = useState<boolean>(false);
     return (
         <PageContainerScrollView>
+            <DefaultView>
+                <SettingPageHeaderText>Change your share settings</SettingPageHeaderText>
+            </DefaultView>
             <BaseContainerView>
-                <DefaultText>Set share settings</DefaultText>
+                <DefaultText>
+                    In order to provide you and your community with the best possible data
+                    to prevent the spread of COVID-19, Ray Health allows you to control
+                    what information is shared with our servers and your regional health
+                    authority.
+                </DefaultText>
             </BaseContainerView>
             <BaseContainerView>
-                <DefaultText>Share anonymized information</DefaultText>
-                <Toggle value={test} toggleFunc={setTest}>
-                    Set Test
-                </Toggle>
+                <DefaultH2Text>Share personally identifiable information</DefaultH2Text>
+                <DefaultText>
+                    Personally identifiable information is any data that could,
+                    theoretically be used to figure out who you are. This information
+                    includes your age, gender, more detailed information about your trips
+                </DefaultText>
+                <PersonallyIdentifiableInformationToggle />
+            </BaseContainerView>
+            <BaseContainerView>
+                <DefaultH2Text>Share anonymized, aggregated information</DefaultH2Text>
+                <CalloutSectionView>
+                    <CalloutSectionText>
+                        This information is used by epidemiologists to see trends
+                    </CalloutSectionText>
+                </CalloutSectionView>
+                <AggregateDataToggle />
             </BaseContainerView>
         </PageContainerScrollView>
     );
