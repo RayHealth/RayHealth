@@ -7,10 +7,10 @@ const devServerAddress = "localhost";
 
 const tld = "ray.health";
 const apiDomain = (): string => {
-    if (!isDevMode) return "http://Stephens-MacBook-Pro.local:3000";
+    if (!isDevMode) return "http://Stephens-MacBook-Pro.local:3000"; // update to your machine's address. This should be generic
     return "https://ray-health-demo.herokuapp.com";
     // to use your local server, you can use one of the following settings
-    // REACT_APP_API_BASE_URL=https://stagingapi.zept.ca    // use staging
+    // REACT_APP_API_BASE_URL=https://stagingapi.ray.health   // use staging
     // REACT_APP_API_BASE_URL=//localhost:5000              // for web development
     // REACT_APP_API_BASE_URL=http://localhost:5000         // for iOS development
     // REACT_APP_API_BASE_URL=http://10.0.2.2:5000          // for android development
