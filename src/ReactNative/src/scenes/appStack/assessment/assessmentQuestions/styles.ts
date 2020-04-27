@@ -1,13 +1,11 @@
 import styled from "styled-components/native";
-import {DefaultText, STYLE} from "../../../../config/styleDefaults";
+import {DefaultText, HeaderText, STYLE} from "../../../../config/styleDefaults";
 
 export const AssessmentHeaderView = styled.View`
     margin-top: 10px;
     margin-bottom: 20px;
 `;
-export const AssessmentHeaderText = styled(DefaultText)`
-    font-size: 50px;
-    font-weight: bold;
+export const AssessmentHeaderText = styled(HeaderText)`
     color: ${STYLE.COLORS.BRAND7};
 `;
 
@@ -16,7 +14,6 @@ export const AssessmentDescriptionView = styled.View`
     margin-bottom: 10px;
 `;
 export const AssessmentDescriptionText = styled(DefaultText)`
-    font-size: 25px;
     color: ${STYLE.COLORS.BRAND3};
 `;
 
@@ -28,7 +25,6 @@ export const AssessmentCalloutView = styled.View`
     padding-left: 10px;
 `;
 export const AssessmentCalloutText = styled(DefaultText)`
-    font-size: 25px;
     color: ${STYLE.COLORS.BRAND3};
     font-weight: bold;
 `;
