@@ -7,7 +7,6 @@ import {
     DividerView,
 } from "./styles";
 import {CalloutSectionView, CalloutSectionText} from "../../../../config/styleDefaults";
-import PossibleCovidCaseShareEntireProfile from "./components/possibleCovidCaseShareEntireProfile";
 import CompleteSelfAssessmentButton from "./components/completeSelfAssessmentButton";
 
 interface YouDontNeedToBeTestedProps {}

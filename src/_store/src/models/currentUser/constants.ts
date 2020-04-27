@@ -2,7 +2,7 @@ import {
     CurrentUserAcceptTacSuccess,
     CurrentUserBirthdaySuccess,
     CurrentUserNameSuccess,
-    CurrentUserPermissionToShareAnonymizedDataSuccess,
+    CurrentUserPermissionToShareAggragateDataSuccess,
     CurrentUserPermissionToSharePersonalDataSuccess,
 } from "./actions";
 import {AssessmentInitialize} from "../assessments/actions";
@@ -38,6 +38,6 @@ export type CurrentAccountActions =
     | CurrentUserNameSuccess
     | CurrentUserBirthdaySuccess
     | CurrentUserPermissionToSharePersonalDataSuccess
-    | CurrentUserPermissionToShareAnonymizedDataSuccess
+    | CurrentUserPermissionToShareAggragateDataSuccess
     | CurrentUserAcceptTacSuccess
     | AssessmentInitialize;
