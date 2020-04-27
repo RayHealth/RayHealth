@@ -9,6 +9,8 @@ import {
 import {useCallback} from "react";
 import {LightFullWidthButton} from "../../../sharedComponents/buttons";
 import {CalloutSectionView, CalloutSectionText} from "../../../../config/styleDefaults";
+import CompleteSelfAssessmentButton from "./components/completeSelfAssessmentButton";
+import PossibleCovidCaseShareEntireProfile from "./components/possibleCovidCaseShareEntireProfile";
 
 interface YouMustSelfIsolateProps {}
 const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
@@ -91,19 +93,10 @@ const YouMustSelfIsolate: React.FC<YouMustSelfIsolateProps> = () => {
                 </CalloutSectionText>
             </CalloutSectionView>
 
-            <DividerView />
-
-            <AssessmentDescriptionView>
-                <AssessmentDescriptionText>
-                    To do: {`\n`}
-                    &bull; add form to collect information and submit{`\n`}
-                </AssessmentDescriptionText>
-            </AssessmentDescriptionView>
+            <PossibleCovidCaseShareEntireProfile />
 
             <DividerView />
-            <LightFullWidthButton onPress={goBack}>
-                Return to previous question.
-            </LightFullWidthButton>
+            <CompleteSelfAssessmentButton askForTemperature={true} />
         </>
     );
 };

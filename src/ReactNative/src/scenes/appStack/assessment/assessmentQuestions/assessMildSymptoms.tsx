@@ -11,7 +11,6 @@ import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles"
 import Toggle from "../../toggle";
 import {
     BrandFullWidthButton,
-    LightFullWidthButton,
     SecondaryFullWidthButton,
 } from "../../../sharedComponents/buttons";
 
@@ -48,10 +47,6 @@ const AssessMildSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
         soreThroat,
         runnyNose,
     ]);
-
-    const goBack = useCallback(() => {
-        dispatch(saveWarningSymptoms(undefined, undefined, undefined));
-    }, [dispatch]);
 
     const allFalse =
         !fever &&
@@ -95,11 +90,6 @@ const AssessMildSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
-
-            <DividerView />
-            <LightFullWidthButton onPress={goBack}>
-                Return to previous question.
-            </LightFullWidthButton>
         </>
     );
 };

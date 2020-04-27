@@ -21,13 +21,6 @@ export const cancelCurrentAssessment: CancelCurrentAssessment = {
     type: ASSESSMENT.CANCEL_CURRENT,
 };
 
-export interface GrantPermissionToShare {
-    type: ASSESSMENT.GRANT_PERMISSION_TO_SHARE;
-}
-export const grantPermissionToShare: GrantPermissionToShare = {
-    type: ASSESSMENT.GRANT_PERMISSION_TO_SHARE,
-};
-
 export interface RecordTemperature {
     type: ASSESSMENT.RECORD_TEMPERATURE;
     temperatureInCelsius: number;

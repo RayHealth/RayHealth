@@ -4,8 +4,11 @@ import {
     AssessmentDescriptionView,
     AssessmentHeaderText,
     AssessmentHeaderView,
+    DividerView,
 } from "./styles";
 import {CalloutSectionView, CalloutSectionText} from "../../../../config/styleDefaults";
+import PossibleCovidCaseShareEntireProfile from "./components/possibleCovidCaseShareEntireProfile";
+import CompleteSelfAssessmentButton from "./components/completeSelfAssessmentButton";
 
 interface YouDontNeedToBeTestedProps {}
 const YouDontNeedToBeTested: React.FC<YouDontNeedToBeTestedProps> = () => {
@@ -54,6 +57,9 @@ const YouDontNeedToBeTested: React.FC<YouDontNeedToBeTestedProps> = () => {
                     AHS.ca/COVID.
                 </AssessmentDescriptionText>
             </AssessmentDescriptionView>
+
+            <DividerView />
+            <CompleteSelfAssessmentButton askForTemperature={true} />
         </>
     );
 };

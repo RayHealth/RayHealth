@@ -21,9 +21,5 @@ export const getCurrentAssessment = (state: IAppSharedState): Assessment | undef
 };
 export const getAllUnSyncedAssessments = (state: IAppSharedState): Assessment[] =>
     (Object.values(getAllAssessments(state)) as Assessment[]).filter(
-        (assessment) =>
-            assessment &&
-            assessment.completed &&
-            assessment.permissionToShare &&
-            !assessment.sharedToServer,
+        (assessment) => assessment && assessment.completed && !assessment.sharedToServer,
     );

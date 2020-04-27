@@ -18,10 +18,10 @@ const DevTools: React.FC<DevToolsProps> = () => {
         <>
             <BaseContainerView>
                 <DefaultText>{JSON.stringify(currentAssessment)}</DefaultText>
+                <SecondaryFullWidthButton onPress={onCompleteAssessment}>
+                    Dev: Force complete assessment
+                </SecondaryFullWidthButton>
             </BaseContainerView>
-            <SecondaryFullWidthButton onPress={onCompleteAssessment}>
-                Dev: Force complete assessment
-            </SecondaryFullWidthButton>
         </>
     );
 };

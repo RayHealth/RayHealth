@@ -55,10 +55,6 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
         feelingConfused,
         lostConsciousness,
     ]);
-    const goBack = useCallback(() => {
-        dispatch(cancelCurrentAssessment);
-    }, [dispatch]);
-
     const allFalse =
         !severeDifficultyBreathing &&
         !severeChestPain &&
@@ -67,11 +63,6 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
         !lostConsciousness;
     return (
         <>
-            <AssessmentDescriptionView>
-                <AssessmentDescriptionText>
-                    Oh no! Sorry to hear, Let's perform a quick COVID-19 self-assessment.
-                </AssessmentDescriptionText>
-            </AssessmentDescriptionView>
             <AssessmentHeaderView>
                 <AssessmentHeaderText>
                     Are you experiencing any of the following?
@@ -103,8 +94,6 @@ const AssessSevereSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment}) 
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
-            <DividerView />
-            <LightFullWidthButton onPress={goBack}>Go back</LightFullWidthButton>
         </>
     );
 };

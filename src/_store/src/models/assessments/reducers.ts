@@ -37,7 +37,6 @@ const assessmentsReducer = (
                     [uuid]: {
                         id: uuid,
                         createdAt: epoch,
-                        permissionToShare: false,
                         sharedToServer: false,
                         feelingGood: action.feelingGood,
                     },
@@ -52,8 +51,6 @@ const assessmentsReducer = (
                 assessments: newAssessments,
                 currentAssessmentUuid: undefined,
             };
-        case ASSESSMENT.GRANT_PERMISSION_TO_SHARE:
-            return updateCurrentAssessmentAttribute(state, {permissionToShare: true});
         case ASSESSMENT.COMPLETE:
             const newState = updateCurrentAssessmentAttribute(state, {completed: true});
             return {...newState, currentAssessmentUuid: undefined};
@@ -90,7 +87,9 @@ const assessmentsReducer = (
                 outOfCountryWithinLast14Days: action.outOfCountryWithinLast14Days,
                 contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
             });
-
+        case ASSESSMENT.SHARED_TO_SERVER_SUCCESS:
+            // todo
+            console.log("ASSESSMENT.SHARED_TO_SERVER_SUCCESS");
         default:
             return state;
     }

@@ -2,19 +2,18 @@ import {
     AssessmentInitialize,
     CancelCurrentAssessment,
     CompleteAssessment,
-    GrantPermissionToShare,
     RecordTemperature,
     SaveExposureRisk,
     SaveMildSymptoms,
     SaveSevereSymptoms,
     SaveWarningSymptoms,
+    SharedToServerSuccess,
 } from "./actions";
 import {ById} from "../../utils/byIdUtils";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
     CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
-    GRANT_PERMISSION_TO_SHARE = "assessment/GIVE_PERMISSION_TO_SHARE",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
     SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
@@ -29,7 +28,6 @@ export type AssessmentUuid = string;
 export interface Assessment {
     id: AssessmentUuid;
     createdAt: number;
-    permissionToShare: boolean;
     sharedToServer: boolean;
     completed?: true;
 
@@ -65,9 +63,9 @@ export type AssessmentActions =
     | AssessmentInitialize
     | CancelCurrentAssessment
     | CompleteAssessment
-    | GrantPermissionToShare
     | RecordTemperature
     | SaveSevereSymptoms
     | SaveWarningSymptoms
     | SaveMildSymptoms
-    | SaveExposureRisk;
+    | SaveExposureRisk
+    | SharedToServerSuccess;

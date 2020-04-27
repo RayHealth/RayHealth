@@ -2,14 +2,10 @@ import * as React from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
-import {
-    saveExposureRisk,
-    saveMildSymptoms,
-} from "@reduxShared/models/assessments/actions";
+import {saveExposureRisk} from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import {
     BrandFullWidthButton,
-    LightFullWidthButton,
     SecondaryFullWidthButton,
 } from "../../../sharedComponents/buttons";
 import Toggle from "../../toggle";
@@ -32,18 +28,6 @@ const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
             ),
         );
     }, [dispatch, outOfCountryWithinLast14Days, contactWithPositiveCovid19Case]);
-    const goBack = useCallback(() => {
-        dispatch(
-            saveMildSymptoms(
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-            ),
-        );
-    }, [dispatch]);
 
     const allFalse = !outOfCountryWithinLast14Days && !contactWithPositiveCovid19Case;
     return (
@@ -70,11 +54,6 @@ const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
-
-            <DividerView />
-            <LightFullWidthButton onPress={goBack}>
-                Return to previous question.
-            </LightFullWidthButton>
         </>
     );
 };

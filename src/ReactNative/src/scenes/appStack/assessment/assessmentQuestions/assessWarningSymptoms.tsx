@@ -3,13 +3,9 @@ import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import Toggle from "../../toggle";
 import {useDispatch} from "react-redux";
-import {
-    saveSevereSymptoms,
-    saveWarningSymptoms,
-} from "@reduxShared/models/assessments/actions";
+import {saveWarningSymptoms} from "@reduxShared/models/assessments/actions";
 import {
     BrandFullWidthButton,
-    LightFullWidthButton,
     SecondaryFullWidthButton,
 } from "../../../sharedComponents/buttons";
 
@@ -40,11 +36,6 @@ const AssessWarningSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment})
         inabilityToLieDown,
         chronicHealthConditionsExasperated,
     ]);
-    const goBack = useCallback(() => {
-        dispatch(
-            saveSevereSymptoms(undefined, undefined, undefined, undefined, undefined),
-        );
-    }, [dispatch]);
 
     const allFalse =
         !shortnessOfBreathAtRest &&
@@ -79,10 +70,6 @@ const AssessWarningSymptoms: React.FC<AssessmentQuestionsProps> = ({assessment})
             ) : (
                 <BrandFullWidthButton onPress={onContinue}>Continue</BrandFullWidthButton>
             )}
-            <DividerView />
-            <LightFullWidthButton onPress={goBack}>
-                Return to previous question.
-            </LightFullWidthButton>
         </>
     );
 };
