@@ -6,9 +6,8 @@ import NavigationService from "../../services/navigationService";
 import {trackRouteChanges} from "../utils/trackRouteChanges";
 import useInitialState from "../../services/useInitialState";
 import {KeyboardAvoidingView} from "react-native";
-import {getBackgroundColor} from "../../store/models/appState/accessors";
+import {getBackgroundColors} from "../../store/models/appState/accessors";
 import styled from "styled-components/native";
-import {STYLE} from "../../config/styleDefaults";
 
 const KeyboardAvoidingViewStyle = {
     flex: 1,
@@ -21,7 +20,7 @@ const App: React.FC = React.memo(() => {
         (state) => trackRouteChanges(routeNameRef, dispatch, state),
         [routeNameRef, dispatch],
     );
-    const backgroundColor = useSelector(getBackgroundColor);
+    const backgroundColors = useSelector(getBackgroundColors);
 
     if (!isReady) return null;
     // todo re-hook up persistence https://reactnavigation.org/docs/en/next/state-persistence.html#docsNav
@@ -36,14 +35,14 @@ const App: React.FC = React.memo(() => {
                     dark: false,
                     colors: {
                         // primary: "rgb(255, 45, 85)",
-                        background: backgroundColor,
+                        background: backgroundColors.body,
                         // card: "rgb(255, 255, 255)",
                         // text: "rgb(28, 28, 30)",
                         // border: "rgb(199, 199, 204)",
                     } as any,
                 }}>
-                <HeaderSafeAreaView backgroundColor={backgroundColor} />
-                <BasePageSafeAreaView>
+                <HeaderSafeAreaView backgroundColor={backgroundColors.header} />
+                <BasePageSafeAreaView backgroundColor={backgroundColors.footer}>
                     <AppStackNavigatorContainer />
                 </BasePageSafeAreaView>
             </NavigationContainer>
@@ -59,5 +58,6 @@ const HeaderSafeAreaView = styled.SafeAreaView`
 `;
 const BasePageSafeAreaView = styled.SafeAreaView`
     flex: 1;
-    background-color: ${STYLE.SETTINGS.TAB_BAR_BACKGROUND};
+    background-color: ${({backgroundColor}: {backgroundColor: string}) =>
+        backgroundColor};
 `;

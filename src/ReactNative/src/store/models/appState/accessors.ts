@@ -1,6 +1,7 @@
 import {IAppRnState} from "../../rnReducers";
+import {BackgroundSettings} from "./constants";
 
 export const getCurrentScreenPath = (state: IAppRnState): string =>
     state.rnAppState.currentScreenPath;
-export const getBackgroundColor = (state: IAppRnState): string =>
-    state.rnAppState.backgroundColor;
+export const getBackgroundColors = (state: IAppRnState): BackgroundSettings =>
+    state.rnAppState.background;

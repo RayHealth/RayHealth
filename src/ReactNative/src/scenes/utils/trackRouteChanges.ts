@@ -11,12 +11,8 @@ const getActiveRouteName = (state): string => {
     return route.name;
 };
 export const trackRouteChanges = (routeNameRef: any, dispatch: Dispatch<any>, state) => {
-    const previousRouteName = routeNameRef.current;
     const currentRouteName = getActiveRouteName(state);
-    if (currentRouteName && previousRouteName !== currentRouteName) {
-        console.log("Route Changed to => ", currentRouteName);
+    if (currentRouteName) {
         dispatch(triggerScreenChange(currentRouteName));
     }
-    // Save the current route name for later comparision
-    routeNameRef.current = currentRouteName;
 };

@@ -9,11 +9,20 @@ export enum APP_STATE {}
 
 export type IAppState = {
     currentScreenPath: string;
-    backgroundColor: string;
+    background: BackgroundSettings;
 };
+export interface BackgroundSettings {
+    header: string;
+    body: string;
+    footer: string;
+}
 export const rnAppStateInitialState = {
     currentScreenPath: "",
-    backgroundColor: STYLE.SETTINGS.MAIN_BACKGROUND_COLOR,
+    background: {
+        header: STYLE.SETTINGS.BACKGROUND_HEADER_COLOR,
+        body: STYLE.SETTINGS.BACKGROUND_BODY_COLOR,
+        footer: STYLE.SETTINGS.BACKGROUND_FOOTER_COLOR,
+    },
 };
 
 export type AppStateActions = TriggerScreenChangeAction;

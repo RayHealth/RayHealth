@@ -76,14 +76,14 @@ const AppTabBar: React.FC<IAppTabBarProps> = React.memo(
 
 const TabBarIconView = styled.View`
     flex-direction: row;
-    background-color: ${STYLE.SETTINGS.TAB_BAR_BACKGROUND};
+    background-color: ${STYLE.SETTINGS.BACKGROUND_FOOTER_COLOR};
 `;
 const TabBarIconTouchableOpacity = styled.TouchableOpacity`
     flex: 1;
     align-items: center;
     justify-content: center;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-top-width: 3px;
     border-top-color: ${(props: ITabBarIconTextProps) =>
         props.isFocused ? STYLE.COLORS.BRAND : "transparent"}

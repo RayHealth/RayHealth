@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
-import {APP_STACK_ROUTES, getRouteOptionsFromPath} from "./constants";
+import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeIndex from "../appStack/home/homeScreen";
 import AppTabBar from "./tabBarComponents";
-import {createStackNavigator} from "@react-navigation/stack";
+import {createStackNavigator, StackNavigationOptions} from "@react-navigation/stack";
 import UserMenu from "../appStack/home/userMenu/userMenu";
 import Assessment from "../appStack/assessment/assessment";
 import {useSelector} from "react-redux";
@@ -12,6 +12,7 @@ import NavigationService from "../../services/navigationService";
 import PastAssessments from "../appStack/home/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/home/userMenu/healthAuthority/setHealthAuthority";
 import SetShareSettings from "../appStack/home/userMenu/shareSettings/setShareSettings";
+import {STYLE} from "../../config/styleDefaults";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -68,6 +69,13 @@ const StackWithBottomTabs: React.FC = () => (
 );
 
 const UserMenuStack = createStackNavigator();
+const setOptionsFromRoute = (routePath: RoutePath): StackNavigationOptions => ({
+    headerStyle: {
+        backgroundColor: routePath.style?.headerBg,
+    },
+    headerTintColor: routePath.style?.headerColor,
+    title: routePath.label,
+});
 const UserMenuStackNavigator = () => {
     useAssessmentMonitor();
     return (
@@ -83,23 +91,17 @@ const UserMenuStackNavigator = () => {
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}
                 component={PastAssessments}
-                options={{
-                    title: APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.label,
-                }}
+                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST)}
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path}
                 component={SetShareSettings}
-                options={{
-                    title: APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.label,
-                }}
+                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS)}
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY.path}
                 component={SetHealthAuthority}
-                options={{
-                    title: APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY.label,
-                }}
+                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY)}
             />
         </UserMenuStack.Navigator>
     );
