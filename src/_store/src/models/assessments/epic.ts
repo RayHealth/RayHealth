@@ -9,7 +9,7 @@ import {ASSESSMENT} from "./constants";
 import {catchError, filter, map, mergeMap} from "rxjs/operators";
 import {API_ENDPOINT} from "../../services/apiEndpoints";
 import {handleErrorAsObservable} from "../../services/errorObservable";
-import {getAllUnSyncedAssessments} from "./accessors";
+import {getAllUnSyncedAssessments} from "./selectors";
 
 const anonymouslySyncAllUnSyncedAssessmentEpic: AppSharedEpic<
     CompleteAssessment,

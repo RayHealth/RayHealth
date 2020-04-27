@@ -6,8 +6,12 @@ import {ById} from "../../utils/byIdUtils";
 const getAllAssessments = (state: IAppSharedState): ById<Assessment> =>
     state.assessments.assessments;
 
-export const getAllAssessmentsByDate = createSelector(getAllAssessments, (assessments) =>
-    Object.values(assessments),
+export const getAllAssessmentsByDate = createSelector(
+    getAllAssessments,
+    (assessments): Assessment[] =>
+        (Object.values(assessments) as Assessment[]).sort((a, b) =>
+            a && b ? a.createdAt - b.createdAt : 0,
+        ),
 );
 export const getCurrentAssessmentUuid = (state: IAppSharedState): string | undefined =>
     state.assessments.currentAssessmentUuid;

@@ -7,9 +7,10 @@ import {createStackNavigator} from "@react-navigation/stack";
 import UserMenu from "../appStack/home/userMenu/userMenu";
 import Assessment from "../appStack/assessment/assessment";
 import {useSelector} from "react-redux";
-import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/accessors";
+import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/selectors";
 import NavigationService from "../../services/navigationService";
 import PastAssessments from "../appStack/home/userMenu/pastAssessments";
+import SetHealthAuthority from "../appStack/home/userMenu/healthAuthority/setHealthAuthority";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -83,6 +84,13 @@ const UserMenuStackNavigator = () => {
                 component={PastAssessments}
                 options={{
                     title: APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.label,
+                }}
+            />
+            <UserMenuStack.Screen
+                name={APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY.path}
+                component={SetHealthAuthority}
+                options={{
+                    title: APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY.label,
                 }}
             />
         </UserMenuStack.Navigator>

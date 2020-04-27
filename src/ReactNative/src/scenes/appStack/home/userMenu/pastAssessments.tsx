@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useSelector} from "react-redux";
-import {getAllAssessmentsByDate} from "@reduxShared/models/assessments/accessors";
+import {getAllAssessmentsByDate} from "@reduxShared/models/assessments/selectors";
 import {Text, View} from "react-native";
 
 interface PastAssessmentsProps {}

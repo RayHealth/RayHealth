@@ -85,6 +85,7 @@ export const STYLE = {
     COLORS: {
         ...COLORS,
     },
+    BORDER_RADIUS: 15,
     FONT_SIZES: {
         H1: 30,
         DEFAULT: 20,
@@ -95,4 +96,7 @@ export const STYLE = {
 
 export const DefaultText = styled.Text`
     font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
+`;
+export const DefaultView = styled.View`
+    flex: 1;
 `;

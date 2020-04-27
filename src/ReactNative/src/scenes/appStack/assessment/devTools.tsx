@@ -2,7 +2,7 @@ import * as React from "react";
 import {BaseContainerView} from "../styles";
 import {Text} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
-import {getCurrentAssessment} from "@reduxShared/models/assessments/accessors";
+import {getCurrentAssessment} from "@reduxShared/models/assessments/selectors";
 import {useCallback} from "react";
 import {completeAssessment} from "@reduxShared/models/assessments/actions";
 import {SecondaryFullWidthButton} from "../../sharedComponents/buttons";

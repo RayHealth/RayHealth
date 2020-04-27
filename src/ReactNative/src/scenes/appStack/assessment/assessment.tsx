@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {BaseContainerView, PageContainerView} from "../styles";
 import {useSelector} from "react-redux";
-import {getCurrentAssessment} from "@reduxShared/models/assessments/accessors";
+import {getCurrentAssessment} from "@reduxShared/models/assessments/selectors";
 import NavigationService from "../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../router/constants";
 import AssessmentQuestions from "./assessmentQuestions/assessmentQuestions";

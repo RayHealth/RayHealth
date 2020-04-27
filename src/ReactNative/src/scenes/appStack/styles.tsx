@@ -1,8 +1,6 @@
 import styled from "styled-components/native";
 import {STYLE} from "../../config/styleDefaults";
 
-export const BORDER_RADIUS = "15px";
-
 export const PageContainerView = styled.ScrollView`
     flex: 1;
 `;
@@ -17,5 +15,5 @@ export const BaseContainerView = styled.View`
     padding-bottom: 15px;
     color: ${STYLE.COLORS.GREY1};
     background: ${STYLE.COLORS.WHITE};
-    border-radius: ${BORDER_RADIUS};
+    border-radius: ${STYLE.BORDER_RADIUS}px;
 `;

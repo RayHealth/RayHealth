@@ -5,7 +5,6 @@ import {
     AssessmentState,
     defaultAssessmentsState,
 } from "./constants";
-import {CancelCurrentAssessment} from "./actions";
 
 const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     if (!state.currentAssessmentUuid) return state;
@@ -22,7 +21,7 @@ const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     };
 };
 
-const assessmentReducer = (
+const assessmentsReducer = (
     state: AssessmentState = defaultAssessmentsState,
     action: AssessmentActions,
 ): AssessmentState => {
@@ -97,4 +96,4 @@ const assessmentReducer = (
     }
 };
 
-export default assessmentReducer;
+export default assessmentsReducer;

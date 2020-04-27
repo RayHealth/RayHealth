@@ -1,7 +1,17 @@
+import {ById} from "./src/utils/byIdUtils";
+
+/*
+This is a single overview of the data modelling for the entire
+application; for planning and execution.
+This file should not be imported anywhere else and is for reference
+only
+ */
+
 type LocationId = string;
 type RandomizedUserCheckinUuid = string;
 
 interface ServerSchema {
+    assessments: Array<Assessment>;
     locations: Array<Location>;
 }
 interface Location {
@@ -30,7 +40,7 @@ interface CheckIn {
 
 interface DeviceSchema {
     user: {
-        healthAuthority?: "";
+        healthAuthority?: HealthAuthorityId;
         givenName?: string;
         familyName?: string;
         birthMonth?: number;
@@ -40,8 +50,17 @@ interface DeviceSchema {
         permissionToShareAnonymizedData: boolean;
         acceptanceOfTermsAndConditions: boolean;
     };
-    assessments: Assessment[];
-    trips: Trip[];
+    assessments: {
+        currentAssessmentId: string;
+        assessment: ById<Assessment>;
+    };
+    trips: ById<Trip>;
+    healthAuthority: ById<HealthAuthority>;
+}
+type HealthAuthorityId = string;
+interface HealthAuthority {
+    id: HealthAuthorityId;
+    name: string;
 }
 interface Assessment {
     date: Date;

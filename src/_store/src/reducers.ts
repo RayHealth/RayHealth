@@ -3,7 +3,9 @@ import {IAppAction} from "./epics";
 import {CurrentUserState} from "./models/currentUser/constants";
 import currentCurrentUserReducer from "./models/currentUser/reducers";
 import {AssessmentState} from "./models/assessments/constants";
-import assessmentReducer from "./models/assessments/reducers";
+import assessmentsReducer from "./models/assessments/reducers";
+import {HealthAuthorityState} from "./models/healthAuthorities/constants";
+import healthAuthorityReducer from "./models/healthAuthorities/reducer";
 
 // @ts-ignore this should work
 // export type AppDispatch = any; //Dispatch<WedImageAction>;
@@ -15,11 +17,13 @@ export type ReducerMap<S, A extends IAppAction = any> = {
 export interface IAppSharedState {
     assessments: AssessmentState;
     currentUser: CurrentUserState;
+    healthAuthorities: HealthAuthorityState;
 }
 
 const appSharedReducers: ReducerMap<IAppSharedState> = {
-    assessments: assessmentReducer,
+    assessments: assessmentsReducer,
     currentUser: currentCurrentUserReducer,
+    healthAuthorities: healthAuthorityReducer,
 };
 
 export default appSharedReducers;

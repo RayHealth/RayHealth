@@ -2,7 +2,7 @@ import React from "react";
 import {Text} from "react-native";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
-import {getCurrentUser} from "@reduxShared/models/currentUser/accessors";
+import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {BaseContainerView, PageContainerView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";

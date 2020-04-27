@@ -38,6 +38,11 @@ export const APP_STACK_ROUTES = {
             label: "Past assessments",
             tabBarVisible: false,
         },
+        SET_HEALTH_AUTHORITY: {
+            path: "user/SET_HEALTH_AUTHORITY",
+            label: "Set health authority",
+            tabBarVisible: false,
+        },
     },
     ASSESSMENTS: {
         NEW: {path: "assessments/NEW", label: "New assessment"},
