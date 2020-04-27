@@ -19,6 +19,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* RayHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RayHealthTests.m */; };
 		339DDD28832CDC0BCE965729 /* libPods-RayHealth-RayHealthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF45A278059CDD78B33E2E1 /* libPods-RayHealth-RayHealthTests.a */; };
 		496B4D59244BE8B700D6E187 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B4D58244BE8B700D6E187 /* Dummy.swift */; };
+		497EA6702456CCFC00359C08 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		B7A4887CC41EF31307B2A4D1 /* libPods-RayHealth-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C8E59AFF8F7C6D8E46C4FC /* libPods-RayHealth-tvOS.a */; };
 		D92EF70B8FF3F7882B318D69 /* libPods-RayHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9C35A16063F15BC4C2E2D5 /* libPods-RayHealth.a */; };
 /* End PBXBuildFile section */
@@ -345,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497EA6702456CCFC00359C08 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
