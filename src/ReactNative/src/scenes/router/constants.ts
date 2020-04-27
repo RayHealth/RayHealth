@@ -43,6 +43,11 @@ export const APP_STACK_ROUTES = {
             label: "Set health authority",
             tabBarVisible: false,
         },
+        SET_SHARE_SETTINGS: {
+            path: "user/SET_SHARE_SETTINGS",
+            label: "Update share settings",
+            tabBarVisible: false,
+        },
     },
     ASSESSMENTS: {
         NEW: {path: "assessments/NEW", label: "New assessment"},

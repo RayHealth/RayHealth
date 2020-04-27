@@ -12,7 +12,7 @@ import {
     LightFullWidthButton,
     SecondaryFullWidthButton,
 } from "../../../sharedComponents/buttons";
-import Toggle from "./components/toggle";
+import Toggle from "../../toggle";
 import {useState} from "react";
 
 const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) => {

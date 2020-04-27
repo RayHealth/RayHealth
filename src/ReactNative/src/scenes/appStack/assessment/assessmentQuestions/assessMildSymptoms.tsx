@@ -8,7 +8,7 @@ import {
     saveWarningSymptoms,
 } from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
-import Toggle from "./components/toggle";
+import Toggle from "../../toggle";
 import {
     BrandFullWidthButton,
     LightFullWidthButton,

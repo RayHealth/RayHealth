@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import {PageContainerScrollView} from "../../styles";
 import NavigationService from "../../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../../router/constants";
-import ShareSettings from "./shareSettings";
+import ShareSettings from "./shareSettings/shareSettings";
 import {View} from "react-native";
 import HealthAuthority from "./healthAuthority/healthAuthority";
 import {

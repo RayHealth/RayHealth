@@ -1,11 +1,11 @@
 import React from "react";
-import {Text} from "react-native";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {BaseContainerView, PageContainerScrollView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
+import {DefaultText} from "../../../../config/styleDefaults";
 
 const Indent = styled.View`
     margin-left: 10px;
@@ -16,40 +16,46 @@ const HomeIndex: React.FC = () => {
     return (
         <PageContainerScrollView>
             <BaseContainerView>
-                <Text>LOGO GOES HERE?!?</Text>
+                <DefaultText>LOGO GOES HERE?!?</DefaultText>
             </BaseContainerView>
             <HowAreYouFeeling />
             <BaseContainerView>
-                <Text>Home: To do list</Text>
+                <DefaultText>Home: To do list</DefaultText>
             </BaseContainerView>
             <BaseContainerView>
-                <Text>&bull; Create welcome flow</Text>
+                <DefaultText>&bull; Create welcome flow</DefaultText>
                 <Indent>
-                    <Text>Page 1: Explain what RayHealth is</Text>
-                    <Text>Page 2: Accept terms and conditions</Text>
-                    <Text>Page 3: Permission to share anonymized data</Text>
-                    <Text>
+                    <DefaultText>Page 1: Explain what RayHealth is</DefaultText>
+                    <DefaultText>Page 2: Accept terms and conditions</DefaultText>
+                    <DefaultText>Page 3: Permission to share anonymized data</DefaultText>
+                    <DefaultText>
                         Page 4: Permission to share personally identifyable information
-                    </Text>
-                    <Text>Page 5: Get name, birthdate for app use only</Text>
+                    </DefaultText>
+                    <DefaultText>
+                        Page 5: Get name, birthdate for app use only
+                    </DefaultText>
                     <Indent>
-                        <Text>
+                        <DefaultText>
                             &bull; Birthdate could be sent as non-identifiable information
                             for tracking?
-                        </Text>
+                        </DefaultText>
                     </Indent>
-                    <Text>Page 6: What health authority are they a part of?</Text>
+                    <DefaultText>
+                        Page 6: What health authority are they a part of?
+                    </DefaultText>
                     <Indent>
-                        <Text>&bull; Who do we share data with? Who ya gunna call?</Text>
+                        <DefaultText>
+                            &bull; Who do we share data with? Who ya gunna call?
+                        </DefaultText>
                     </Indent>
                 </Indent>
-                <Text>&bull; Add ability to track user</Text>
-                {/*<Text>&bull; test</Text>
-                <Text>&bull; re-add version.json tracking for api</Text>
-                <Text>&bull; test</Text>*/}
+                <DefaultText>&bull; Add ability to track user</DefaultText>
+                {/*<DefaultText>&bull; test</DefaultText>
+                <DefaultText>&bull; re-add version.json tracking for api</DefaultText>
+                <DefaultText>&bull; test</DefaultText>*/}
             </BaseContainerView>
             <BaseContainerView>
-                <Text>{JSON.stringify(currentUser)}</Text>
+                <DefaultText>{JSON.stringify(currentUser)}</DefaultText>
             </BaseContainerView>
             <BaseContainerView>
                 <SetName />

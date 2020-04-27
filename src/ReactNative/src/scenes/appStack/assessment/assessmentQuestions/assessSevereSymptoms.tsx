@@ -7,7 +7,7 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import Toggle from "./components/toggle";
+import Toggle from "../../toggle";
 import {useDispatch} from "react-redux";
 import {
     cancelCurrentAssessment,

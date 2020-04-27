@@ -1,16 +1,13 @@
 import * as React from "react";
 import {useCallback} from "react";
-import {DefaultText, STYLE} from "../../../../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../config/styleDefaults";
 import styled from "styled-components/native";
-import {
-    mdiCheckBoxChecked,
-    mdiCheckBoxUnchecked,
-} from "../../../../../services/staticImages";
+import {mdiCheckBoxChecked, mdiCheckBoxUnchecked} from "../../services/staticImages";
 import {
     Flex2ColumnContainerView,
     Flex2ColumnFixedChild,
     Flex2ColumnFlexibleChild,
-} from "../../../../utils/flex2Column1FixedWidth";
+} from "../utils/flex2Column1FixedWidth";
 
 interface ToggleProps {
     children: string;

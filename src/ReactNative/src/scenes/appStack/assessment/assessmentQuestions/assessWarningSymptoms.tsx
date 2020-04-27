@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
-import Toggle from "./components/toggle";
+import Toggle from "../../toggle";
 import {useDispatch} from "react-redux";
 import {
     saveSevereSymptoms,
