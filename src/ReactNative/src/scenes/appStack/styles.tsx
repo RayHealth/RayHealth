@@ -1,9 +1,11 @@
+import React from "react";
 import styled from "styled-components/native";
 import {STYLE} from "../../config/styleDefaults";
 
-export const PageContainerView = styled.ScrollView`
+export const PageContainerScrollView = styled.ScrollView`
     flex: 1;
 `;
+
 export const BaseContainerView = styled.View`
     margin-top: 10px;
     margin-left: 10px;

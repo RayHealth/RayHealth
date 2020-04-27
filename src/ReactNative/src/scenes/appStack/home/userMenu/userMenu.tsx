@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import {PageContainerView} from "../../styles";
+import {PageContainerScrollView} from "../../styles";
 import NavigationService from "../../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../../router/constants";
 import ShareSettings from "./shareSettings";
@@ -14,7 +14,7 @@ import {
 
 // cannot be React.memo, react nav issue
 const UserMenu: React.FC = () => (
-    <PageContainerView>
+    <PageContainerScrollView>
         <View style={{height: 30}} />
         <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
         <HealthAuthority />
@@ -38,7 +38,7 @@ const UserMenu: React.FC = () => (
         <SecondaryMenuItem route={APP_STACK_ROUTES.USER.MENU.path}>
             Privacy policy
         </SecondaryMenuItem>
-    </PageContainerView>
+    </PageContainerScrollView>
 );
 
 export default UserMenu;
