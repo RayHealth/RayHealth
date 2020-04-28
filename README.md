@@ -20,6 +20,8 @@
     - `sudo gem install cocoapods`
     - install all dependencies
         - `npm run install-clean`
+    - create main.jsbundle file
+        - `npm run bundle-ios-dev`
 ## Run
 
 ### API
@@ -38,7 +40,7 @@
 - in separate terminal
     - start typescript
         - `npm run dev:watch`
-    - start 
+    - start react-native server
         - `npm run dev:start`
 - ios
     - start via xcode
