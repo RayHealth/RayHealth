@@ -12,7 +12,6 @@ import NavigationService from "../../services/navigationService";
 import PastAssessments from "../appStack/home/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/home/userMenu/healthAuthority/setHealthAuthority";
 import SetShareSettings from "../appStack/home/userMenu/shareSettings/setShareSettings";
-import {STYLE} from "../../config/styleDefaults";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {

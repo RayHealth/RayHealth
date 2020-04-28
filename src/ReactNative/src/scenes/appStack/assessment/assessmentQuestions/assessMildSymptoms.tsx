@@ -3,10 +3,7 @@ import {AssessmentQuestionsProps} from "./assessmentQuestions";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useCallback} from "react";
-import {
-    saveMildSymptoms,
-    saveWarningSymptoms,
-} from "@reduxShared/models/assessments/actions";
+import {saveMildSymptoms} from "@reduxShared/models/assessments/actions";
 import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import Toggle from "../../toggle";
 import {

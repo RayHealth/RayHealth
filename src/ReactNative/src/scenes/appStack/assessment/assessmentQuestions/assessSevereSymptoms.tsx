@@ -1,21 +1,11 @@
 import React, {useCallback, useState} from "react";
 import {AssessmentQuestionsProps} from "./assessmentQuestions";
-import {
-    AssessmentDescriptionText,
-    AssessmentDescriptionView,
-    AssessmentHeaderText,
-    AssessmentHeaderView,
-    DividerView,
-} from "./styles";
+import {AssessmentHeaderText, AssessmentHeaderView, DividerView} from "./styles";
 import Toggle from "../../toggle";
 import {useDispatch} from "react-redux";
-import {
-    cancelCurrentAssessment,
-    saveSevereSymptoms,
-} from "@reduxShared/models/assessments/actions";
+import {saveSevereSymptoms} from "@reduxShared/models/assessments/actions";
 import {
     BrandFullWidthButton,
-    LightFullWidthButton,
     SecondaryFullWidthButton,
 } from "../../../sharedComponents/buttons";
 

@@ -13,9 +13,10 @@ import {
 } from "./styles";
 
 // cannot be React.memo, react nav issue
+const spacerHeightStyle = {height: 30};
 const UserMenu: React.FC = () => (
     <PageContainerScrollView>
-        <View style={{height: 30}} />
+        <View style={spacerHeightStyle} />
         <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
         <HealthAuthority />
         <ShareSettings />
