@@ -109,9 +109,24 @@ export const DefaultH2Text = styled.Text`
     line-height: ${STYLE.FONT_SIZES.H2 * STYLE.FONT_SIZES.LINE_HEIGHT * 0.8}px;
     font-weight: bold;
 `;
+
+export const HeaderText = styled.Text`
+    font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
+    line-height: ${STYLE.FONT_SIZES.DEFAULT * STYLE.FONT_SIZES.LINE_HEIGHT}px;
+    text-align: center;
+`;
+
 export const DefaultText = styled.Text`
     font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
     line-height: ${STYLE.FONT_SIZES.DEFAULT * STYLE.FONT_SIZES.LINE_HEIGHT}px;
+`;
+
+export const ShareIcon = styled.Text`
+    text-align: right;
+`;
+
+export const NotificationIcon = styled.Text`
+    text-align: right;
 `;
 
 export const CalloutSectionView = styled.View`

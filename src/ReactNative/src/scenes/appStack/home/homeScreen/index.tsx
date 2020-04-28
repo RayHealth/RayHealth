@@ -2,10 +2,15 @@ import React from "react";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
-import {BaseContainerView, PageContainerScrollView} from "../../styles";
+import {HeaderView, BaseContainerView, PageContainerScrollView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
-import {DefaultText} from "../../../../config/styleDefaults";
+import {
+    HeaderText,
+    ShareIcon,
+    NotificationIcon,
+    DefaultText,
+} from "../../../../config/styleDefaults";
 
 const Indent = styled.View`
     margin-left: 10px;
@@ -15,9 +20,11 @@ const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
     return (
         <PageContainerScrollView>
-            <BaseContainerView>
-                <DefaultText>LOGO GOES HERE?!?</DefaultText>
-            </BaseContainerView>
+            <HeaderView>
+                <HeaderText>Welcome</HeaderText>
+                <ShareIcon>Share</ShareIcon>
+                <NotificationIcon>Notification</NotificationIcon>
+            </HeaderView>
             <HowAreYouFeeling />
             <BaseContainerView>
                 <DefaultText>Home: To do list</DefaultText>
