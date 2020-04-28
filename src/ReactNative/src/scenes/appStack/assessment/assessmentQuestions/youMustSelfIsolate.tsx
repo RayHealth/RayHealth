@@ -6,7 +6,6 @@ import {
     AssessmentHeaderView,
     DividerView,
 } from "./styles";
-import {useCallback} from "react";
 import {CalloutSectionView, CalloutSectionText} from "../../../../config/styleDefaults";
 import CompleteSelfAssessmentButton from "./components/completeSelfAssessmentButton";
 import PossibleCovidCaseShareEntireProfile from "./components/possibleCovidCaseShareEntireProfile";
