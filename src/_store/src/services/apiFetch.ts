@@ -102,6 +102,7 @@ const apiFetchPromise = <T>(
                 method: apiConstant.method,
             };
         }
+        if (sharedConfig.isDevMode) console.log(`API: ${url}`, fetchParams);
         return fetch(url, fetchParams)
             .then((response) => handleResponse(response))
             .then(
