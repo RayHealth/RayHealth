@@ -11,7 +11,7 @@ import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/selector
 import NavigationService from "../../services/navigationService";
 import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
-import SetShareSettings from "../appStack/appStack/userMenu/shareSettings/setShareSettings";
+import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -94,7 +94,7 @@ const UserMenuStackNavigator = () => {
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path}
-                component={SetShareSettings}
+                component={ManagePrivacySettings}
                 options={setOptionsFromRoute(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS)}
             />
             <UserMenuStack.Screen

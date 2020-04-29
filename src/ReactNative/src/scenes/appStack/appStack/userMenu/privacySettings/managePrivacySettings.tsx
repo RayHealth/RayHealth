@@ -12,7 +12,7 @@ import PersonallyIdentifiableInformationToggle from "./PersonallyIdentifiableInf
 import AggregateDataToggle from "./AggregateDataToggle";
 
 interface SetShareSettingsProps {}
-const SetShareSettings: React.FC<SetShareSettingsProps> = () => {
+const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
     return (
         <PageContainerScrollView>
             <DefaultView>
@@ -48,4 +48,4 @@ const SetShareSettings: React.FC<SetShareSettingsProps> = () => {
     );
 };
 
-export default SetShareSettings;
+export default ManagePrivacySettings;
