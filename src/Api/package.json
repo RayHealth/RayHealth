@@ -30,8 +30,10 @@
     "scripts": {
         "compile-tsc": "del-cli build/dist/ && tsc",
         "dev:watch": "npm run compile-tsc && tsc --w",
-        "dev:server": "NODE_ENV=development nodemon --inspect -r dotenv/config build/dist/Api/src/index.js 3000",
-        "docker:start-db": "docker run --name ray_health -d -p 127.0.0.1:27017:27017 mongo",
-        "start": "node ./build/dist/Api/src/index.js"
+        "dev:server": "npm run docker:start-db && npm run _start:dev:server",
+        "docker:create-db": "docker run --name ray_health -d -p 127.0.0.1:27017:27017 mongo",
+        "docker:start-db": "docker start ray_health",
+        "start": "node ./build/dist/Api/src/index.js",
+        "_start:dev:server": "NODE_ENV=development nodemon --inspect -r dotenv/config build/dist/Api/src/index.js 3000"
     }
 }

@@ -2,17 +2,17 @@
 
 ## Installation (OSX)
 - Install 
+  - Install redux _store dependencies
+    - `cd ./src/_store`
+    - `npm install`
   - Api
     - install docker
     - `cd ./src/Api`
     - install mongodb via docker
-        - `npm run docker:start-db`
-        - `docker run --name ray_health -d -p 127.0.0.1:27017:27017 mongo`
-    - _optional:+ install mongoDb Compass for db tools
-  - Install _store dependencies
-    - `cd ./src/_store`
-    - `npm install`
+        - `npm run docker:create-db`
+    - _optional: install mongoDb Compass for db tools
   - ReactNative
+    - update `devMachineAddress` at `~/src/_store/sharedConfig/index.ts` to your local machine's address
     - `cd ./src/ReactNative`
     - see instructions here https://reactnative.dev/docs/environment-setup
         - follow "React Native CLI Quickstart"
@@ -28,8 +28,6 @@
 - `cd ./src/Api`
 - install npm
     - `npm install`
-- start database
-    - `npm run docker:start-db`
 - in one terminal to generate and watch typescript to javascript
     - `npm run dev:watch` 
 - to start express server
