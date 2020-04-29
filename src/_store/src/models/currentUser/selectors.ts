@@ -6,8 +6,9 @@ export const getCurrentUser = (state: IAppSharedState): CurrentUser => state.cur
 export const getPrivacySettings = (state: IAppSharedState): PrivacySettings =>
     getCurrentUser(state).privacy;
 
+const twoDigitsOnly = (num: number): number => Math.round(num * 100) / 100;
 const epochToYears = (msSinceEpoch: number): number =>
-    msSinceEpoch / 1000 / 60 / 60 / 24 / 365.25;
+    twoDigitsOnly(msSinceEpoch / 1000 / 60 / 60 / 24 / 365.25);
 const getCurrentAgeInYears = (user: CurrentUser): number =>
     epochToYears(
         Date.now() -

@@ -6,6 +6,7 @@ import PrivacyAge from "./privacyAge";
 import PrivacyGender from "./privacyGender";
 import PrivacyAssessments from "./privacyAssessements";
 import PrivacyLocations from "./shareLocations";
+import PrivacyEthnicity from "./privacyEthnicity";
 
 const ManagePrivacySettings: React.FC = () => {
     return (
@@ -35,6 +36,7 @@ const ManagePrivacySettings: React.FC = () => {
             <PrivacyGender />
             <PrivacyAssessments />
             <PrivacyLocations />
+            <PrivacyEthnicity />
         </PageContainerScrollView>
     );
 };
