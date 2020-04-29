@@ -4,9 +4,9 @@ import {BaseContainerView, PageContainerScrollView} from "../../../styles";
 import {SettingPageHeaderText} from "../styles";
 import PrivacyAge from "./privacyAge";
 import PrivacyGender from "./privacyGender";
+import PrivacyAssessments from "./privacyAssessements";
 
-interface SetShareSettingsProps {}
-const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
+const ManagePrivacySettings: React.FC = () => {
     return (
         <PageContainerScrollView>
             <DefaultView>
@@ -32,6 +32,7 @@ const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
             </BaseContainerView>
             <PrivacyAge />
             <PrivacyGender />
+            <PrivacyAssessments />
         </PageContainerScrollView>
     );
 };

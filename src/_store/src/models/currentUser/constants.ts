@@ -21,6 +21,7 @@ export interface PrivacySettings {
     shareAgeExact: boolean;
     shareAgeRange: boolean;
     shareGender: boolean;
+    shareAssessments: boolean;
 }
 export interface CurrentUser {
     givenName?: string;
@@ -37,6 +38,7 @@ export const defaultCurrentUser: CurrentUser = {
         shareAgeExact: false,
         shareAgeRange: false,
         shareGender: false,
+        shareAssessments: false,
     },
     acceptanceOfTermsAndConditions: false,
 };
