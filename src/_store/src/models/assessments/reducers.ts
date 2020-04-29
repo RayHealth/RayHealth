@@ -90,7 +90,7 @@ const assessmentsReducer = (
                 outOfCountryWithinLast14Days: action.outOfCountryWithinLast14Days,
                 contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
             });
-        case ASSESSMENT.SYNED_WITH_SERVER_SUCCESS:
+        case ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS:
             // todo
             console.log("ASSESSMENT.SHARED_TO_SERVER_SUCCESS");
         default:

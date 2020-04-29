@@ -40,10 +40,10 @@ export const completeAssessment: CompleteAssessment = {
 };
 
 export interface SyncedWithServerSuccess {
-    type: ASSESSMENT.SYNED_WITH_SERVER_SUCCESS;
+    type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS;
 }
 export const syncedWithServerSuccess: SyncedWithServerSuccess = {
-    type: ASSESSMENT.SYNED_WITH_SERVER_SUCCESS,
+    type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS,
 };
 
 export interface SaveSevereSymptoms {
