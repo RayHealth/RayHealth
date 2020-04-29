@@ -6,6 +6,7 @@ import {BaseContainerView, PageContainerScrollView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 import {DefaultText} from "../../../../config/styleDefaults";
+import DevModeResetStore from "./devModeResetStore";
 
 const Indent = styled.View`
     margin-left: 10px;
@@ -60,6 +61,7 @@ const HomeIndex: React.FC = () => {
             <BaseContainerView>
                 <SetName />
             </BaseContainerView>
+            <DevModeResetStore />
         </PageContainerScrollView>
     );
 };

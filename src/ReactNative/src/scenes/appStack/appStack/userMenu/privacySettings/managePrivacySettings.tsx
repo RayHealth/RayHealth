@@ -2,14 +2,11 @@ import * as React from "react";
 import {
     DefaultText,
     DefaultView,
-    CalloutSectionText,
-    CalloutSectionView,
     DefaultH2Text,
 } from "../../../../../config/styleDefaults";
 import {BaseContainerView, PageContainerScrollView} from "../../../styles";
 import {SettingPageHeaderText} from "../styles";
 import PersonallyIdentifiableInformationToggle from "./PersonallyIdentifiableInformationToggle";
-import AggregateDataToggle from "./AggregateDataToggle";
 
 interface SetShareSettingsProps {}
 const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
@@ -34,15 +31,6 @@ const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
                     includes your age, gender, more detailed information about your trips
                 </DefaultText>
                 <PersonallyIdentifiableInformationToggle />
-            </BaseContainerView>
-            <BaseContainerView>
-                <DefaultH2Text>Share anonymized, aggregated information</DefaultH2Text>
-                <CalloutSectionView>
-                    <CalloutSectionText>
-                        This information is used by epidemiologists to see trends
-                    </CalloutSectionText>
-                </CalloutSectionView>
-                <AggregateDataToggle />
             </BaseContainerView>
         </PageContainerScrollView>
     );

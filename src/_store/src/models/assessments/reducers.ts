@@ -5,6 +5,7 @@ import {
     AssessmentState,
     defaultAssessmentsState,
 } from "./constants";
+import {APP} from "../resetStoreActions";
 
 const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     if (!state.currentAssessmentUuid) return state;
@@ -26,6 +27,8 @@ const assessmentsReducer = (
     action: AssessmentActions,
 ): AssessmentState => {
     switch (action.type) {
+        case APP.RESET_STORE:
+            return defaultAssessmentsState;
         case ASSESSMENT.INITIALIZE:
             const epoch = new Date().getTime();
             const uuid = `${epoch}::${action.uuid}`;

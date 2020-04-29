@@ -1,26 +1,26 @@
 import * as React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getCurrentUsersPermissionToSharePersonalData} from "@reduxShared/models/currentUser/selectors";
+import {getPrivacySettings} from "@reduxShared/models/currentUser/selectors";
 import {useCallback} from "react";
-import {setCurrentUserPermissionToSharePersonalDataSuccess} from "@reduxShared/models/currentUser/actions";
 import Toggle from "../../../toggle";
+import {patchCurrentUserPrivacySettings} from "@reduxShared/models/currentUser/actions";
 
 interface PersonallyIdentifiableInformationToggleProps {}
 const PersonallyIdentifiableInformationToggle: React.FC<PersonallyIdentifiableInformationToggleProps> = () => {
-    const permissionToSharePersonalData = useSelector(
-        getCurrentUsersPermissionToSharePersonalData,
-    );
+    const privacySettings = useSelector(getPrivacySettings);
     const dispatch = useDispatch();
-    const togglePII = useCallback(() => {
+    const togglePermissionToShareAge = useCallback(() => {
         dispatch(
-            setCurrentUserPermissionToSharePersonalDataSuccess(
-                !permissionToSharePersonalData,
-            ),
+            patchCurrentUserPrivacySettings({
+                permissionToShareAge: !privacySettings.permissionToShareAge,
+            }),
         );
-    }, [dispatch, permissionToSharePersonalData]);
+    }, [dispatch, privacySettings]);
     return (
-        <Toggle value={permissionToSharePersonalData} toggleFunc={togglePII}>
-            I give permission to share personal data
+        <Toggle
+            value={privacySettings.permissionToShareAge}
+            toggleFunc={togglePermissionToShareAge}>
+            I give permission to share my current age
         </Toggle>
     );
 };

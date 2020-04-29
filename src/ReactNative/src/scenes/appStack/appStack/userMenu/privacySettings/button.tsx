@@ -4,13 +4,12 @@ import NavigationService from "../../../../../services/navigationService";
 import {
     MenuItemLabelText,
     MenuItemHeaderText,
-    MenuItemBodyText,
     MenuItemC2A,
     MenuItemTouchableHighlight,
 } from "../styles";
 
 interface ShareSettingsProps {}
-const PrivacySettings: React.FC<ShareSettingsProps> = () => {
+const PrivacySettingsButton: React.FC<ShareSettingsProps> = () => {
     const onPress = React.useCallback(() => {
         NavigationService.navigate(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path);
     }, []);
@@ -28,4 +27,4 @@ const PrivacySettings: React.FC<ShareSettingsProps> = () => {
     );
 };
 
-export default PrivacySettings;
+export default PrivacySettingsButton;

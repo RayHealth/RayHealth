@@ -1,4 +1,4 @@
-import {CURRENT_USER} from "./constants";
+import {CURRENT_USER, PrivacySettings} from "./constants";
 
 export interface CurrentUserNameSuccess {
     type: CURRENT_USER.NAME_SUCCESS;
@@ -29,26 +29,18 @@ export const setCurrentUserBirthdaySuccess = (
     birthDay,
     birthYear,
 });
-export interface CurrentUserPermissionToSharePersonalDataSuccess {
-    type: CURRENT_USER.PERMISSION_TO_SHARE_PERSONAL_DATA_SUCCESS;
-    permissionToSharePersonalData: boolean;
+
+export interface PatchCurrentUserPrivacySettings {
+    type: CURRENT_USER.PATCH_PRIVACY_SETTINGS;
+    privacySettings: Partial<PrivacySettings>;
 }
-export const setCurrentUserPermissionToSharePersonalDataSuccess = (
-    permissionToSharePersonalData: boolean,
-): CurrentUserPermissionToSharePersonalDataSuccess => ({
-    type: CURRENT_USER.PERMISSION_TO_SHARE_PERSONAL_DATA_SUCCESS,
-    permissionToSharePersonalData,
+export const patchCurrentUserPrivacySettings = (
+    privacySettings: Partial<PrivacySettings>,
+): PatchCurrentUserPrivacySettings => ({
+    type: CURRENT_USER.PATCH_PRIVACY_SETTINGS,
+    privacySettings,
 });
-export interface CurrentUserPermissionToShareAggragateDataSuccess {
-    type: CURRENT_USER.PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS;
-    permissionToShareAggregateData: boolean;
-}
-export const setCurrentUserPermissionToShareAggragateDataSuccess = (
-    permissionToShareAggregateData: boolean,
-): CurrentUserPermissionToShareAggragateDataSuccess => ({
-    type: CURRENT_USER.PERMISSION_TO_SHARE_AGGRAGATE_DATA_SUCCESS,
-    permissionToShareAggregateData,
-});
+
 export interface CurrentUserAcceptTacSuccess {
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS;
     acceptanceOfTermsAndConditions: boolean;

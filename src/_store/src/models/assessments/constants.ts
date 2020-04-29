@@ -10,6 +10,7 @@ import {
     SharedToServerSuccess,
 } from "./actions";
 import {ById} from "../../utils/byIdUtils";
+import {ResetStore} from "../resetStoreActions";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
@@ -60,6 +61,7 @@ export const defaultAssessmentsState = {
 };
 
 export type AssessmentActions =
+    | ResetStore
     | AssessmentInitialize
     | CancelCurrentAssessment
     | CompleteAssessment
