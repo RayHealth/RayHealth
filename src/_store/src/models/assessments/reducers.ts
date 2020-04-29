@@ -30,17 +30,15 @@ const assessmentsReducer = (
         case APP.RESET_STORE:
             return defaultAssessmentsState;
         case ASSESSMENT.INITIALIZE:
-            const epoch = new Date().getTime();
-            const uuid = `${epoch}::${action.uuid}`;
             return {
                 ...state,
-                currentAssessmentUuid: uuid,
+                currentAssessmentUuid: action.uuid,
                 assessments: {
                     ...state.assessments,
-                    [uuid]: {
-                        id: uuid,
+                    [action.uuid]: {
+                        id: action.uuid,
                         secretKey: action.secretKey,
-                        createdAt: epoch,
+                        createdAt: new Date().getTime(),
                         feelingGood: action.feelingGood,
                     },
                 },
@@ -55,8 +53,7 @@ const assessmentsReducer = (
         //         currentAssessmentUuid: undefined,
         //     };
         case ASSESSMENT.COMPLETE:
-            const newState = updateCurrentAssessmentAttribute(state, {completed: true});
-            return {...newState, currentAssessmentUuid: undefined};
+            return {...state, currentAssessmentUuid: undefined};
         case ASSESSMENT.RECORD_TEMPERATURE:
             return updateCurrentAssessmentAttribute(state, {
                 currentBodyTemperatureCelsius: action.temperatureInCelsius,
@@ -91,8 +88,19 @@ const assessmentsReducer = (
                 contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
             });
         case ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS:
-            // todo
-            console.log("ASSESSMENT.SHARED_TO_SERVER_SUCCESS");
+            return action.ids.reduce(
+                (accState, id) => ({
+                    ...accState,
+                    assessments: {
+                        ...accState.assessments,
+                        [id]: {
+                            ...(accState.assessments[id] as Assessment),
+                            syncedToServer: new Date().getTime(),
+                        },
+                    },
+                }),
+                {...state},
+            );
         default:
             return state;
     }

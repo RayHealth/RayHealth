@@ -31,7 +31,6 @@ export interface Assessment {
     secretKey: AssessmentSecretKey; // a password used to update assessments on the server
     createdAt: EpochDateNumber;
     syncedToServer?: EpochDateNumber;
-    completed?: true;
 
     feelingGood: boolean;
     currentBodyTemperatureCelsius?: number;
@@ -52,6 +51,11 @@ export interface Assessment {
     outOfCountryWithinLast14Days?: boolean; // self-isolate
     contactWithPositiveCovid19Case?: boolean; // self-isolate
 }
+type AssessmentServerTransform = Omit<Assessment, "secretKey" | "syncedToServer">;
+export interface AssessmentServer extends AssessmentServerTransform {
+    other?: boolean;
+}
+
 export type AssessmentState = {
     currentAssessmentUuid?: AssessmentUuid;
     assessments: ById<Assessment>;
@@ -60,6 +64,12 @@ export const defaultAssessmentsState = {
     currentAssessmentUuid: undefined,
     assessments: {},
 };
+
+export interface AssessmentSaveServerResponse {
+    savedSuccessfully: AssessmentUuid[];
+    failed: AssessmentUuid[];
+    failedMessage: Array<{id: AssessmentUuid; message: string}>;
+}
 
 export type AssessmentActions =
     | ResetStore

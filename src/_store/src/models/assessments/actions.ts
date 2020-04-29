@@ -41,10 +41,14 @@ export const completeAssessment: CompleteAssessment = {
 
 export interface SyncedWithServerSuccess {
     type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS;
+    ids: AssessmentUuid[];
 }
-export const syncedWithServerSuccess: SyncedWithServerSuccess = {
+export const syncedWithServerSuccess = (
+    ids: AssessmentUuid[],
+): SyncedWithServerSuccess => ({
     type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS,
-};
+    ids,
+});
 
 export interface SaveSevereSymptoms {
     type: ASSESSMENT.SAVE_SEVERE_SYMPTOMS;
