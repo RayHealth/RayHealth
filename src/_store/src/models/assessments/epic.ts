@@ -1,8 +1,8 @@
 import {AppSharedEpic} from "../../epics";
 import {
     CompleteAssessment,
-    sharedToServerSuccess,
-    SharedToServerSuccess,
+    syncedWithServerSuccess,
+    SyncedWithServerSuccess,
 } from "./actions";
 import {ActionsObservable, combineEpics} from "redux-observable";
 import {ASSESSMENT} from "./constants";
@@ -13,7 +13,7 @@ import {getAllUnSyncedAssessments} from "./selectors";
 
 const anonymouslySyncAllUnSyncedAssessmentEpic: AppSharedEpic<
     CompleteAssessment,
-    SharedToServerSuccess
+    SyncedWithServerSuccess
 > = (action$: ActionsObservable<CompleteAssessment>, store$, {apiFetch}) =>
     action$.ofType(ASSESSMENT.COMPLETE).pipe(
         // PII and aggragate data needs to be defined....
@@ -26,7 +26,7 @@ const anonymouslySyncAllUnSyncedAssessmentEpic: AppSharedEpic<
             apiFetch(API_ENDPOINT.V1.ASSESSMENTS.NEW, {
                 assessments: getAllUnSyncedAssessments(store$.value),
             }).pipe(
-                map(({response}) => sharedToServerSuccess),
+                map(({response}) => syncedWithServerSuccess),
                 catchError(handleErrorAsObservable()),
             ),
         ),

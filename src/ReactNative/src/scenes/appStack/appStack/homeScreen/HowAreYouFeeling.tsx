@@ -9,12 +9,13 @@ import {DefaultText} from "../../../../config/styleDefaults";
 const HowAreYouFeeling: React.FC = () => {
     const dispatch = useDispatch();
     const uuid = useUuid();
+    const secretKey = useUuid();
     const isFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(uuid, true));
-    }, [dispatch, uuid]);
+        dispatch(initializeAssessment(uuid, secretKey, true));
+    }, [dispatch, uuid, secretKey]);
     const isNotFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(uuid, false));
-    }, [dispatch, uuid]);
+        dispatch(initializeAssessment(uuid, secretKey, false));
+    }, [dispatch, uuid, secretKey]);
     return (
         <BaseContainerView>
             <DefaultText>How are you feeling?</DefaultText>

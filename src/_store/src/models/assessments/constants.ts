@@ -1,13 +1,12 @@
 import {
     AssessmentInitialize,
-    CancelCurrentAssessment,
     CompleteAssessment,
     RecordTemperature,
     SaveExposureRisk,
     SaveMildSymptoms,
     SaveSevereSymptoms,
     SaveWarningSymptoms,
-    SharedToServerSuccess,
+    SyncedWithServerSuccess,
 } from "./actions";
 import {ById} from "../../utils/byIdUtils";
 import {ResetStore} from "../resetStoreActions";
@@ -17,7 +16,7 @@ export enum ASSESSMENT {
     CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
-    SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
+    SYNED_WITH_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
     SAVE_SEVERE_SYMPTOMS = "assessment/SAVE_SEVERE_SYMPTOMS",
     SAVE_WARNING_SYMPTOMS = "assessment/SAVE_WARNING_SYMPTOMS",
     SAVE_MILD_SYMPTOMS = "assessment/SAVE_MILD_SYMPTOMS",
@@ -25,11 +24,14 @@ export enum ASSESSMENT {
 }
 
 export type AssessmentUuid = string;
+export type AssessmentSecretKey = string;
+export type EpochDateNumber = number;
 
 export interface Assessment {
     id: AssessmentUuid;
-    createdAt: number;
-    sharedToServer: boolean;
+    secretKey: AssessmentSecretKey; // a password used to update assessments on the server
+    createdAt: EpochDateNumber;
+    syncedToServer?: EpochDateNumber;
     completed?: true;
 
     feelingGood: boolean;
@@ -63,11 +65,10 @@ export const defaultAssessmentsState = {
 export type AssessmentActions =
     | ResetStore
     | AssessmentInitialize
-    | CancelCurrentAssessment
     | CompleteAssessment
     | RecordTemperature
     | SaveSevereSymptoms
     | SaveWarningSymptoms
     | SaveMildSymptoms
     | SaveExposureRisk
-    | SharedToServerSuccess;
+    | SyncedWithServerSuccess;

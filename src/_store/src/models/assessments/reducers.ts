@@ -39,21 +39,21 @@ const assessmentsReducer = (
                     ...state.assessments,
                     [uuid]: {
                         id: uuid,
+                        secretKey: action.secretKey,
                         createdAt: epoch,
-                        sharedToServer: false,
                         feelingGood: action.feelingGood,
                     },
                 },
             };
-        case ASSESSMENT.CANCEL_CURRENT:
-            if (!state.currentAssessmentUuid) return state;
-            const newAssessments = {...state.assessments};
-            delete newAssessments[state.currentAssessmentUuid];
-            return {
-                ...state,
-                assessments: newAssessments,
-                currentAssessmentUuid: undefined,
-            };
+        // case ASSESSMENT.CANCEL_CURRENT:
+        //     if (!state.currentAssessmentUuid) return state;
+        //     const newAssessments = {...state.assessments};
+        //     delete newAssessments[state.currentAssessmentUuid];
+        //     return {
+        //         ...state,
+        //         assessments: newAssessments,
+        //         currentAssessmentUuid: undefined,
+        //     };
         case ASSESSMENT.COMPLETE:
             const newState = updateCurrentAssessmentAttribute(state, {completed: true});
             return {...newState, currentAssessmentUuid: undefined};
@@ -90,7 +90,7 @@ const assessmentsReducer = (
                 outOfCountryWithinLast14Days: action.outOfCountryWithinLast14Days,
                 contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
             });
-        case ASSESSMENT.SHARED_TO_SERVER_SUCCESS:
+        case ASSESSMENT.SYNED_WITH_SERVER_SUCCESS:
             // todo
             console.log("ASSESSMENT.SHARED_TO_SERVER_SUCCESS");
         default:
