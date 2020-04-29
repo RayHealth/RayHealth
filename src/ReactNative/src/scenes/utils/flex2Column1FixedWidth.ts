@@ -12,4 +12,5 @@ export const Flex2ColumnFixedChild = styled.View`
 export const Flex2ColumnFlexibleChild = styled.View`
     flex-grow: 1;
     flex-shrink: 1;
+    min-height: 1px;
 `;

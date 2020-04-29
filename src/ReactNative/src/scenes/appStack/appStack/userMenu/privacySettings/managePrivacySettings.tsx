@@ -1,37 +1,37 @@
 import * as React from "react";
-import {
-    DefaultText,
-    DefaultView,
-    DefaultH2Text,
-} from "../../../../../config/styleDefaults";
+import {DefaultText, DefaultView} from "../../../../../config/styleDefaults";
 import {BaseContainerView, PageContainerScrollView} from "../../../styles";
 import {SettingPageHeaderText} from "../styles";
-import PersonallyIdentifiableInformationToggle from "./PersonallyIdentifiableInformationToggle";
+import PrivacyAge from "./privacyAge";
+import PrivacyGender from "./privacyGender";
 
 interface SetShareSettingsProps {}
 const ManagePrivacySettings: React.FC<SetShareSettingsProps> = () => {
     return (
         <PageContainerScrollView>
             <DefaultView>
-                <SettingPageHeaderText>Change your share settings</SettingPageHeaderText>
+                <SettingPageHeaderText>
+                    Change your privacy settings
+                </SettingPageHeaderText>
             </DefaultView>
             <BaseContainerView>
                 <DefaultText>
-                    In order to provide you and your community with the best possible data
-                    to prevent the spread of COVID-19, Ray Health allows you to control
-                    what information is shared with our servers and your regional health
-                    authority.
+                    Ray Health's priority is putting end-users (you) in control of what is
+                    shared with the public and with your regional health authority.
                 </DefaultText>
-            </BaseContainerView>
-            <BaseContainerView>
-                <DefaultH2Text>Share personally identifiable information</DefaultH2Text>
                 <DefaultText>
-                    Personally identifiable information is any data that could,
-                    theoretically be used to figure out who you are. This information
-                    includes your age, gender, more detailed information about your trips
+                    Sharing more information is better for your community and can help get
+                    your more relevant updates in the future. However, we don't want you
+                    to feel uncomfortable by forcing you to share any information you
+                    don't want to share.
                 </DefaultText>
-                <PersonallyIdentifiableInformationToggle />
+                <DefaultText>
+                    Ray Health allows you to control what information is shared with our
+                    servers and your regional health authority.
+                </DefaultText>
             </BaseContainerView>
+            <PrivacyAge />
+            <PrivacyGender />
         </PageContainerScrollView>
     );
 };

@@ -1,4 +1,5 @@
 import {ById} from "./src/utils/byIdUtils";
+import {CurrentUser} from "./src/models/currentUser/constants";
 
 /*
 This is a single overview of the data modelling for the entire
@@ -39,19 +40,7 @@ interface CheckIn {
 }
 
 interface DeviceSchema {
-    user: {
-        healthAuthority?: HealthAuthorityId;
-        givenName?: string;
-        familyName?: string;
-        birthMonth?: number;
-        birthDay?: number;
-        birthYear?: number;
-        gender?: "male" | "female" | string;
-        // other useful metrics? income, ethnicity, etc
-        permissionToSharePersonalData: boolean;
-        permissionToShareAnonymizedData: boolean;
-        acceptanceOfTermsAndConditions: boolean;
-    };
+    user: CurrentUser;
     assessments: {
         currentAssessmentId: string;
         assessment: ById<Assessment>;

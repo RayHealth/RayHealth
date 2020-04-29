@@ -18,8 +18,9 @@ export type RandomizedUserCheckinUuid = string;
 
 export type CurrentUserState = CurrentUser;
 export interface PrivacySettings {
-    permissionToShareAge: boolean;
-    permissionToShareAgeRange: boolean;
+    shareAgeExact: boolean;
+    shareAgeRange: boolean;
+    shareGender: boolean;
 }
 export interface CurrentUser {
     givenName?: string;
@@ -27,13 +28,15 @@ export interface CurrentUser {
     birthMonth?: number;
     birthDay?: number;
     birthYear?: number;
+    // gender?: string;
     privacy: PrivacySettings;
     acceptanceOfTermsAndConditions: boolean;
 }
 export const defaultCurrentUser: CurrentUser = {
     privacy: {
-        permissionToShareAge: false,
-        permissionToShareAgeRange: false,
+        shareAgeExact: false,
+        shareAgeRange: false,
+        shareGender: false,
     },
     acceptanceOfTermsAndConditions: false,
 };
