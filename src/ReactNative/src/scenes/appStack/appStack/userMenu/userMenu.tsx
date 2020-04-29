@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import {PageContainerScrollView} from "../../styles";
 import NavigationService from "../../../../services/navigationService";
 import {APP_STACK_ROUTES} from "../../../router/constants";
-import ShareSettings from "./privacySettings/shareSettings";
+import PrivacySettings from "./privacySettings/privacySettings";
 import {View} from "react-native";
 import HealthAuthority from "./healthAuthority/healthAuthority";
 import {
@@ -19,7 +19,7 @@ const UserMenu: React.FC = () => (
         <View style={spacerHeightStyle} />
         <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
         <HealthAuthority />
-        <ShareSettings />
+        <PrivacySettings />
         <MenuItem route={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}>
             View past assessments
         </MenuItem>
