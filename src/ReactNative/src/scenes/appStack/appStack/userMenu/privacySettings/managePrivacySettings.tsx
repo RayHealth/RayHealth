@@ -5,6 +5,7 @@ import {SettingPageHeaderText} from "../styles";
 import PrivacyAge from "./privacyAge";
 import PrivacyGender from "./privacyGender";
 import PrivacyAssessments from "./privacyAssessements";
+import PrivacyLocations from "./shareLocations";
 
 const ManagePrivacySettings: React.FC = () => {
     return (
@@ -33,6 +34,7 @@ const ManagePrivacySettings: React.FC = () => {
             <PrivacyAge />
             <PrivacyGender />
             <PrivacyAssessments />
+            <PrivacyLocations />
         </PageContainerScrollView>
     );
 };
