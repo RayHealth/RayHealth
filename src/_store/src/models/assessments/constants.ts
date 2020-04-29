@@ -10,6 +10,7 @@ import {
 } from "./actions";
 import {ById} from "../../utils/byIdUtils";
 import {ResetStore} from "../resetStoreActions";
+import {AggregatedPrivateInformation} from "../currentUser/constants";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
@@ -52,7 +53,9 @@ export interface Assessment {
     contactWithPositiveCovid19Case?: boolean; // self-isolate
 }
 type AssessmentServerTransform = Omit<Assessment, "secretKey" | "syncedToServer">;
-export interface AssessmentServer extends AssessmentServerTransform {
+export interface AssessmentServer
+    extends AssessmentServerTransform,
+        AggregatedPrivateInformation {
     other?: boolean;
 }
 

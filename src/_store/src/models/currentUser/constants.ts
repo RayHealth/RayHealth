@@ -21,9 +21,16 @@ export interface PrivacySettings {
     shareAgeExact: boolean;
     shareAgeRange: boolean;
     shareGender: boolean;
+    shareEthnicity: boolean;
     shareAssessments: boolean;
     shareTripsLocations: boolean;
     shareTripsDetailed: boolean;
+}
+export interface AggregatedPrivateInformation {
+    age?: number;
+    ageRange?: string;
+    gender?: string;
+    ethnicity?: string;
 }
 export interface CurrentUser {
     givenName?: string;
@@ -31,7 +38,8 @@ export interface CurrentUser {
     birthMonth?: number;
     birthDay?: number;
     birthYear?: number;
-    // gender?: string;
+    gender?: string;
+    ethnicity?: string;
     privacy: PrivacySettings;
     acceptanceOfTermsAndConditions: boolean;
 }
@@ -40,6 +48,7 @@ export const defaultCurrentUser: CurrentUser = {
         shareAgeExact: false,
         shareAgeRange: false,
         shareGender: false,
+        shareEthnicity: false,
         shareAssessments: false,
         shareTripsLocations: true,
         shareTripsDetailed: false,
