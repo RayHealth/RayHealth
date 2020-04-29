@@ -13,7 +13,6 @@ import {ResetStore} from "../resetStoreActions";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
-    CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
     SYNCED_WITH_SERVER_SUCCESS = "assessment/SYNCED_WITH_SERVER_SUCCESS",
