@@ -4,7 +4,24 @@ import {useDispatch} from "react-redux";
 import {initializeAssessment} from "@reduxShared/models/assessments/actions";
 import {useUuid} from "../../../utils/customHooks/useUuid";
 import {BrandFullWidthButton} from "../../../sharedComponents/buttons";
-import {HowAreYouFeelingHeader} from "../../../../config/styleDefaults";
+import styled from "styled-components/native";
+
+export const HowAreYouFeelingHeaderView = styled.View`
+    margin-top: -35px;
+    width: 315px;
+    height: 54px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 0;
+    background: #00b6b8;
+`;
+
+export const HowAreYouFeelingHeaderText = styled.Text`
+    padding-top: 20px;
+    padding-left: 10px;
+    color: #fff;
+`;
 
 const HowAreYouFeeling: React.FC = () => {
     const dispatch = useDispatch();
@@ -18,7 +35,11 @@ const HowAreYouFeeling: React.FC = () => {
     }, [dispatch, uuid, secretKey]);
     return (
         <FeelingContainerView>
-            <HowAreYouFeelingHeader>How are you feeling?</HowAreYouFeelingHeader>
+            <HowAreYouFeelingHeaderView>
+                <HowAreYouFeelingHeaderText>
+                    How are you feeling?
+                </HowAreYouFeelingHeaderText>
+            </HowAreYouFeelingHeaderView>
             <BrandFullWidthButton onPress={isFeelingGood}>Great</BrandFullWidthButton>
             <BrandFullWidthButton onPress={isNotFeelingGood}>
                 Not so great

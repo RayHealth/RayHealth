@@ -129,20 +129,6 @@ export const NotificationIcon = styled.Text`
     text-align: right;
 `;
 
-export const HowAreYouFeelingHeader = styled.Text`
-    margin-top: -35px;
-    width: 315px;
-    height: 54px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 0;
-    background: #00b6b8;
-    padding-top: 20px;
-    padding-left: 10px;
-    color: #fff;
-`;
-
 export const CalloutSectionView = styled.View`
     margin-top: 10px;
     margin-bottom: 10px;

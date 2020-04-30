@@ -7,9 +7,14 @@ import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 import {DefaultText} from "../../../../config/styleDefaults";
 import DevModeResetStore from "./devModeResetStore";
+import {mdiMenuCCC} from "../../../../services/staticImages";
 
 const Indent = styled.View`
     margin-left: 10px;
+`;
+
+const MenuImage = styled.Image`
+    background-color: red;
 `;
 
 const HomeIndex: React.FC = () => {
@@ -18,6 +23,7 @@ const HomeIndex: React.FC = () => {
         <PageContainerScrollView>
             <BaseContainerView>
                 <DefaultText>LOGO GOES HERE?!?</DefaultText>
+                <MenuImage source={mdiMenuCCC} />
             </BaseContainerView>
             <HowAreYouFeeling />
             <BaseContainerView>
