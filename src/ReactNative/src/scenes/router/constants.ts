@@ -62,7 +62,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         SET_SHARE_SETTINGS: {
-            path: "user/SET_SHARE_SETTINGS",
+            path: "user/UPDATE_PRIVACY_SETTINGS",
             label: "Update privacy settings",
             tabBarVisible: false,
             style: {
