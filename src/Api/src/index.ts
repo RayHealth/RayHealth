@@ -1,8 +1,8 @@
-import assessmentsController from "./controllers/assessments/assessmentsController";
-
 require("module-alias/register");
 const moduleAlias = require("module-alias");
 moduleAlias.addAlias("@reduxShared", __dirname + "/../../_store/src");
+
+import assessmentsController from "./controllers/assessments/assessmentsController";
 
 import express from "express";
 import cors from "cors";

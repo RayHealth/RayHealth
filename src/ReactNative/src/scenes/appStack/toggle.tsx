@@ -67,6 +67,7 @@ const ToggleActiveTouchableHighlight = styled.TouchableHighlight`
 const ToggleActiveText = styled(DefaultText)`
     font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT}px;
     color: ${STYLE.COLORS.BRAND3};
+    min-height: 5px;
 `;
 
 const ToggleNotActiveTouchableHighlight = styled(ToggleActiveTouchableHighlight)`

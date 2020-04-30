@@ -1,17 +1,17 @@
 import React, {useEffect} from "react";
 import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import HomeIndex from "../appStack/home/homeScreen";
+import HomeIndex from "../appStack/appStack/homeScreen";
 import AppTabBar from "./tabBarComponents";
 import {createStackNavigator, StackNavigationOptions} from "@react-navigation/stack";
-import UserMenu from "../appStack/home/userMenu/userMenu";
-import Assessment from "../appStack/assessment/assessment";
+import UserMenu from "../appStack/appStack/userMenu/userMenu";
+import Assessment from "../appStack/assessmentStack/assessment";
 import {useSelector} from "react-redux";
 import {getCurrentAssessmentUuid} from "@reduxShared/models/assessments/selectors";
 import NavigationService from "../../services/navigationService";
-import PastAssessments from "../appStack/home/userMenu/pastAssessments";
-import SetHealthAuthority from "../appStack/home/userMenu/healthAuthority/setHealthAuthority";
-import SetShareSettings from "../appStack/home/userMenu/shareSettings/setShareSettings";
+import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
+import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
+import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -94,7 +94,7 @@ const UserMenuStackNavigator = () => {
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path}
-                component={SetShareSettings}
+                component={ManagePrivacySettings}
                 options={setOptionsFromRoute(APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS)}
             />
             <UserMenuStack.Screen

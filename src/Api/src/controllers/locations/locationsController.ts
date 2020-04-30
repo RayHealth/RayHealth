@@ -4,7 +4,7 @@ import Locations, {
     locationToJson,
 } from "../../models/locations/locations";
 import serverConfig from "../../config";
-import {handleMongooseAsync, handleMongooseCollectionAsync} from "../utils";
+import {handleMongooseCollectionAsync} from "../utils";
 
 const r = express.Router();
 

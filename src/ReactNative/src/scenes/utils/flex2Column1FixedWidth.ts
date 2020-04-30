@@ -10,6 +10,5 @@ export const Flex2ColumnFixedChild = styled.View`
     width: ${({width}: {width: number}) => width}px;
 `;
 export const Flex2ColumnFlexibleChild = styled.View`
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex: 1 1;
 `;

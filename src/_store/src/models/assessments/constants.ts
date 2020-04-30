@@ -1,22 +1,22 @@
 import {
     AssessmentInitialize,
-    CancelCurrentAssessment,
     CompleteAssessment,
     RecordTemperature,
     SaveExposureRisk,
     SaveMildSymptoms,
     SaveSevereSymptoms,
     SaveWarningSymptoms,
-    SharedToServerSuccess,
+    SyncedWithServerSuccess,
 } from "./actions";
 import {ById} from "../../utils/byIdUtils";
+import {ResetStore} from "../resetStoreActions";
+import {AggregatedPrivateInformation} from "../currentUser/constants";
 
 export enum ASSESSMENT {
     INITIALIZE = "assessment/INITIALIZE",
-    CANCEL_CURRENT = "assessment/CANCEL_CURRENT",
     RECORD_TEMPERATURE = "assessment/RECORD_TEMPERATURE",
     COMPLETE = "assessment/COMPLETE",
-    SHARED_TO_SERVER_SUCCESS = "assessment/SHARED_TO_SERVER_SUCCESS",
+    SYNCED_WITH_SERVER_SUCCESS = "assessment/SYNCED_WITH_SERVER_SUCCESS",
     SAVE_SEVERE_SYMPTOMS = "assessment/SAVE_SEVERE_SYMPTOMS",
     SAVE_WARNING_SYMPTOMS = "assessment/SAVE_WARNING_SYMPTOMS",
     SAVE_MILD_SYMPTOMS = "assessment/SAVE_MILD_SYMPTOMS",
@@ -24,12 +24,14 @@ export enum ASSESSMENT {
 }
 
 export type AssessmentUuid = string;
+export type AssessmentSecretKey = string;
+export type EpochDateNumber = number;
 
 export interface Assessment {
     id: AssessmentUuid;
-    createdAt: number;
-    sharedToServer: boolean;
-    completed?: true;
+    secretKey: AssessmentSecretKey; // a password used to update assessments on the server
+    createdAt: EpochDateNumber;
+    syncedToServer?: EpochDateNumber;
 
     feelingGood: boolean;
     currentBodyTemperatureCelsius?: number;
@@ -50,6 +52,13 @@ export interface Assessment {
     outOfCountryWithinLast14Days?: boolean; // self-isolate
     contactWithPositiveCovid19Case?: boolean; // self-isolate
 }
+type AssessmentServerTransform = Omit<Assessment, "secretKey" | "syncedToServer">;
+export interface AssessmentServer
+    extends AssessmentServerTransform,
+        AggregatedPrivateInformation {
+    other?: boolean;
+}
+
 export type AssessmentState = {
     currentAssessmentUuid?: AssessmentUuid;
     assessments: ById<Assessment>;
@@ -59,13 +68,19 @@ export const defaultAssessmentsState = {
     assessments: {},
 };
 
+export interface AssessmentSaveServerResponse {
+    savedSuccessfully: AssessmentUuid[];
+    failed: AssessmentUuid[];
+    failedMessage: Array<{id: AssessmentUuid; message: string}>;
+}
+
 export type AssessmentActions =
+    | ResetStore
     | AssessmentInitialize
-    | CancelCurrentAssessment
     | CompleteAssessment
     | RecordTemperature
     | SaveSevereSymptoms
     | SaveWarningSymptoms
     | SaveMildSymptoms
     | SaveExposureRisk
-    | SharedToServerSuccess;
+    | SyncedWithServerSuccess;

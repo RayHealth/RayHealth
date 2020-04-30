@@ -5,6 +5,7 @@ import {
     AssessmentState,
     defaultAssessmentsState,
 } from "./constants";
+import {APP} from "../resetStoreActions";
 
 const updateCurrentAssessmentAttribute = (state, updates): AssessmentState => {
     if (!state.currentAssessmentUuid) return state;
@@ -26,34 +27,33 @@ const assessmentsReducer = (
     action: AssessmentActions,
 ): AssessmentState => {
     switch (action.type) {
+        case APP.RESET_STORE:
+            return defaultAssessmentsState;
         case ASSESSMENT.INITIALIZE:
-            const epoch = new Date().getTime();
-            const uuid = `${epoch}::${action.uuid}`;
             return {
                 ...state,
-                currentAssessmentUuid: uuid,
+                currentAssessmentUuid: action.uuid,
                 assessments: {
                     ...state.assessments,
-                    [uuid]: {
-                        id: uuid,
-                        createdAt: epoch,
-                        sharedToServer: false,
+                    [action.uuid]: {
+                        id: action.uuid,
+                        secretKey: action.secretKey,
+                        createdAt: new Date().getTime(),
                         feelingGood: action.feelingGood,
                     },
                 },
             };
-        case ASSESSMENT.CANCEL_CURRENT:
-            if (!state.currentAssessmentUuid) return state;
-            const newAssessments = {...state.assessments};
-            delete newAssessments[state.currentAssessmentUuid];
-            return {
-                ...state,
-                assessments: newAssessments,
-                currentAssessmentUuid: undefined,
-            };
+        // case ASSESSMENT.CANCEL_CURRENT:
+        //     if (!state.currentAssessmentUuid) return state;
+        //     const newAssessments = {...state.assessments};
+        //     delete newAssessments[state.currentAssessmentUuid];
+        //     return {
+        //         ...state,
+        //         assessments: newAssessments,
+        //         currentAssessmentUuid: undefined,
+        //     };
         case ASSESSMENT.COMPLETE:
-            const newState = updateCurrentAssessmentAttribute(state, {completed: true});
-            return {...newState, currentAssessmentUuid: undefined};
+            return {...state, currentAssessmentUuid: undefined};
         case ASSESSMENT.RECORD_TEMPERATURE:
             return updateCurrentAssessmentAttribute(state, {
                 currentBodyTemperatureCelsius: action.temperatureInCelsius,
@@ -87,9 +87,20 @@ const assessmentsReducer = (
                 outOfCountryWithinLast14Days: action.outOfCountryWithinLast14Days,
                 contactWithPositiveCovid19Case: action.contactWithPositiveCovid19Case,
             });
-        case ASSESSMENT.SHARED_TO_SERVER_SUCCESS:
-            // todo
-            console.log("ASSESSMENT.SHARED_TO_SERVER_SUCCESS");
+        case ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS:
+            return action.ids.reduce(
+                (accState, id) => ({
+                    ...accState,
+                    assessments: {
+                        ...accState.assessments,
+                        [id]: {
+                            ...(accState.assessments[id] as Assessment),
+                            syncedToServer: new Date().getTime(),
+                        },
+                    },
+                }),
+                {...state},
+            );
         default:
             return state;
     }

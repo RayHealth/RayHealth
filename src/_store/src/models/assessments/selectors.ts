@@ -2,6 +2,7 @@ import {createSelector} from "reselect";
 import {IAppSharedState} from "../../reducers";
 import {Assessment} from "./constants";
 import {ById} from "../../utils/byIdUtils";
+import {getAggregateUserData} from "../currentUser/selectors";
 
 const getAllAssessments = (state: IAppSharedState): ById<Assessment> =>
     state.assessments.assessments;
@@ -19,7 +20,19 @@ export const getCurrentAssessment = (state: IAppSharedState): Assessment | undef
     const uuid = getCurrentAssessmentUuid(state);
     return uuid ? getAllAssessments(state)[uuid] : undefined;
 };
-export const getAllUnSyncedAssessments = (state: IAppSharedState): Assessment[] =>
+
+const getAllAssessmentsNotSyncedToServerYet = (state: IAppSharedState): Assessment[] =>
     (Object.values(getAllAssessments(state)) as Assessment[]).filter(
-        (assessment) => assessment && assessment.completed && !assessment.sharedToServer,
+        (assessment) => assessment && !assessment.syncedToServer,
     );
+
+export const mergeAllUnSyncedAssessmentsAndData = createSelector(
+    getAllAssessmentsNotSyncedToServerYet,
+    getAggregateUserData,
+    (unsyncedAssessments, aggregatePrivateInformation) => {
+        return unsyncedAssessments.map((assessment) => ({
+            ...assessment,
+            ...aggregatePrivateInformation,
+        }));
+    },
+);

@@ -1,25 +1,28 @@
-import {ASSESSMENT, AssessmentUuid} from "./constants";
+import {ASSESSMENT, AssessmentSecretKey, AssessmentUuid} from "./constants";
 
 export interface AssessmentInitialize {
     type: ASSESSMENT.INITIALIZE;
     uuid: AssessmentUuid;
+    secretKey: AssessmentSecretKey;
     feelingGood: boolean;
 }
 export const initializeAssessment = (
     uuid: AssessmentUuid,
+    secretKey: AssessmentSecretKey,
     feelingGood: boolean,
 ): AssessmentInitialize => ({
     type: ASSESSMENT.INITIALIZE,
     uuid,
+    secretKey,
     feelingGood,
 });
 
-export interface CancelCurrentAssessment {
-    type: ASSESSMENT.CANCEL_CURRENT;
-}
-export const cancelCurrentAssessment: CancelCurrentAssessment = {
-    type: ASSESSMENT.CANCEL_CURRENT,
-};
+// export interface CancelCurrentAssessment {
+//     type: ASSESSMENT.CANCEL_CURRENT;
+// }
+// export const cancelCurrentAssessment: CancelCurrentAssessment = {
+//     type: ASSESSMENT.CANCEL_CURRENT,
+// };
 
 export interface RecordTemperature {
     type: ASSESSMENT.RECORD_TEMPERATURE;
@@ -36,12 +39,16 @@ export const completeAssessment: CompleteAssessment = {
     type: ASSESSMENT.COMPLETE,
 };
 
-export interface SharedToServerSuccess {
-    type: ASSESSMENT.SHARED_TO_SERVER_SUCCESS;
+export interface SyncedWithServerSuccess {
+    type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS;
+    ids: AssessmentUuid[];
 }
-export const sharedToServerSuccess: SharedToServerSuccess = {
-    type: ASSESSMENT.SHARED_TO_SERVER_SUCCESS,
-};
+export const syncedWithServerSuccess = (
+    ids: AssessmentUuid[],
+): SyncedWithServerSuccess => ({
+    type: ASSESSMENT.SYNCED_WITH_SERVER_SUCCESS,
+    ids,
+});
 
 export interface SaveSevereSymptoms {
     type: ASSESSMENT.SAVE_SEVERE_SYMPTOMS;
