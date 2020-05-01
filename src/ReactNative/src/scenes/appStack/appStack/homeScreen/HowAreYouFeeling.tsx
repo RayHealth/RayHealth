@@ -1,14 +1,27 @@
 import React, {useCallback} from "react";
-import {FeelingContainerView} from "../../styles";
 import {useDispatch} from "react-redux";
 import {initializeAssessment} from "@reduxShared/models/assessments/actions";
 import {useUuid} from "../../../utils/customHooks/useUuid";
 import {BrandFullWidthButton} from "../../../sharedComponents/buttons";
 import styled from "styled-components/native";
+import {STYLE} from "../../../../config/styleDefaults";
+
+export const FeelingContainerView = styled.View`
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    color: ${STYLE.COLORS.GREY1};
+    background: ${STYLE.COLORS.WHITE};
+    border-radius: ${STYLE.BORDER_RADIUS}px;
+`;
 
 export const HowAreYouFeelingHeaderView = styled.View`
     margin-top: -35px;
-    width: 315px;
     height: 54px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -21,6 +34,7 @@ export const HowAreYouFeelingHeaderText = styled.Text`
     padding-top: 20px;
     padding-left: 10px;
     color: #fff;
+    font-weight: bold;
 `;
 
 const HowAreYouFeeling: React.FC = () => {

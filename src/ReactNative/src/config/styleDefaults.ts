@@ -79,7 +79,7 @@ const COLORS = {
 };
 export const STYLE = {
     SETTINGS: {
-        BACKGROUND_HEADER_COLOR: COLORS.GREYE,
+        BACKGROUND_HEADER_COLOR: COLORS.WHITE,
         BACKGROUND_BODY_COLOR: COLORS.GREYE,
         BACKGROUND_FOOTER_COLOR: COLORS.WHITE,
     },
@@ -114,6 +114,7 @@ export const HeaderText = styled.Text`
     font-size: ${STYLE.FONT_SIZES.DEFAULT}px;
     line-height: ${STYLE.FONT_SIZES.DEFAULT * STYLE.FONT_SIZES.LINE_HEIGHT}px;
     text-align: center;
+    text-transform: uppercase;
 `;
 
 export const DefaultText = styled.Text`

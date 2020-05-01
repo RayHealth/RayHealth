@@ -19,20 +19,7 @@ export const HeaderView = styled.View`
     border-bottom-left-radius: ${STYLE.BORDER_RADIUS}px;
     border-bottom-right-radius: ${STYLE.BORDER_RADIUS}px;
     height: 114px;
-`;
-
-export const FeelingContainerView = styled.View`
-    margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    color: ${STYLE.COLORS.GREY1};
-    background: ${STYLE.COLORS.WHITE};
-    border-radius: ${STYLE.BORDER_RADIUS}px;
+    box-shadow: 0px 10px 30px rgba(147, 147, 147, 0.16);
 `;
 
 export const BaseContainerView = styled.View`
@@ -47,4 +34,5 @@ export const BaseContainerView = styled.View`
     color: ${STYLE.COLORS.GREY1};
     background: ${STYLE.COLORS.WHITE};
     border-radius: ${STYLE.BORDER_RADIUS}px;
+    box-shadow: 0px 10px 30px rgba(147, 147, 147, 0.16);
 `;

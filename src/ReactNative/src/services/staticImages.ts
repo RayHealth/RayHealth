@@ -10,3 +10,5 @@ export const mdiMenuCCC: ImageSourcePropType = require("assets/materialDesignIco
 export const mdiMenu222: ImageSourcePropType = require("assets/materialDesignIcons/menu-222.png");
 export const mdiCheckBoxUnchecked: ImageSourcePropType = require("assets/materialDesignIcons/checkbox-blank-outline-222.png");
 export const mdiCheckBoxChecked: ImageSourcePropType = require("assets/materialDesignIcons/checkbox-marked-brand.png");
+export const mdiShare: ImageSourcePropType = require("assets/materialDesignIcons/share.png");
+export const mdiNotification: ImageSourcePropType = require("assets/materialDesignIcons/bell.png");

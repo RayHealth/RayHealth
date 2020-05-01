@@ -2,29 +2,58 @@ import React from "react";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
-import {BaseContainerView, PageContainerScrollView} from "../../styles";
+import {HeaderView, BaseContainerView, PageContainerScrollView} from "../../styles";
 import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
-import {DefaultText} from "../../../../config/styleDefaults";
+import {
+    DefaultText,
+    HeaderText,
+    ShareIcon,
+    NotificationIcon,
+} from "../../../../config/styleDefaults";
 import DevModeResetStore from "./devModeResetStore";
-import {mdiMenuCCC} from "../../../../services/staticImages";
+import {mdiShare} from "../../../../services/staticImages";
+import {mdiNotification} from "../../../../services/staticImages";
 
 const Indent = styled.View`
     margin-left: 10px;
 `;
 
-const MenuImage = styled.Image`
-    background-color: red;
+const ShareIconView = styled.View`
+    position: absolute;
+    top: 75px;
+    right: 70px;
+`;
+
+const HeaderShareImage = styled.Image`
+    width: 25px;
+    height: 25px;
+`;
+
+const NotificationIconView = styled.View`
+    position: absolute;
+    top: 75px;
+    right: 20px;
+`;
+
+const HeaderNotificationImage = styled.Image`
+    width: 25px;
+    height: 25px;
 `;
 
 const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
     return (
         <PageContainerScrollView>
-            <BaseContainerView>
-                <DefaultText>LOGO GOES HERE?!?</DefaultText>
-                <MenuImage source={mdiMenuCCC} />
-            </BaseContainerView>
+            <HeaderView>
+                <HeaderText>Welcome</HeaderText>
+                <ShareIconView>
+                    <HeaderShareImage source={mdiShare} />
+                </ShareIconView>
+                <NotificationIconView>
+                    <HeaderNotificationImage source={mdiNotification} />
+                </NotificationIconView>
+            </HeaderView>
             <HowAreYouFeeling />
             <BaseContainerView>
                 <DefaultText>Home: To do list</DefaultText>
