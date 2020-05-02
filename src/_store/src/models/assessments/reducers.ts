@@ -37,7 +37,6 @@ const assessmentsReducer = (
                     ...state.assessments,
                     [action.uuid]: {
                         id: action.uuid,
-                        secretKey: action.secretKey,
                         createdAt: new Date().getTime(),
                         feelingGood: action.feelingGood,
                     },

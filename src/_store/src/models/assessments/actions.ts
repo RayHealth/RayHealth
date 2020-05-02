@@ -3,17 +3,14 @@ import {ASSESSMENT, AssessmentSecretKey, AssessmentUuid} from "./constants";
 export interface AssessmentInitialize {
     type: ASSESSMENT.INITIALIZE;
     uuid: AssessmentUuid;
-    secretKey: AssessmentSecretKey;
     feelingGood: boolean;
 }
 export const initializeAssessment = (
     uuid: AssessmentUuid,
-    secretKey: AssessmentSecretKey,
     feelingGood: boolean,
 ): AssessmentInitialize => ({
     type: ASSESSMENT.INITIALIZE,
     uuid,
-    secretKey,
     feelingGood,
 });
 

@@ -29,7 +29,6 @@ export type EpochDateNumber = number;
 
 export interface Assessment {
     id: AssessmentUuid;
-    secretKey: AssessmentSecretKey; // a password used to update assessments on the server
     createdAt: EpochDateNumber;
     syncedToServer?: EpochDateNumber;
 
@@ -51,6 +50,7 @@ export interface Assessment {
     runnyNose?: boolean; // self-isolate
     outOfCountryWithinLast14Days?: boolean; // self-isolate
     contactWithPositiveCovid19Case?: boolean; // self-isolate
+    // mental health questions too?
 }
 type AssessmentServerTransform = Omit<Assessment, "secretKey" | "syncedToServer">;
 export interface AssessmentServer
