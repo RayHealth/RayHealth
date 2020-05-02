@@ -41,18 +41,28 @@ export const APP_STACK_ROUTES = {
                 bodyBg: STYLE.COLORS.BRAND,
             },
         } as RoutePath,
+        PERSONAL_INFORMATION: {
+            path: "user/MENU/PERSONAL_INFORMATION",
+            label: "Personal information",
+            tabBarVisible: false,
+            style: {
+                headerBg: STYLE.COLORS.BRAND,
+                headerColor: STYLE.COLORS.WHITE,
+                bodyBg: STYLE.SETTINGS.BACKGROUND_BODY_COLOR,
+            },
+        } as RoutePath,
         PAST_ASSESSMENTS_LIST: {
-            path: "user/PAST_ASSESSMENTS_LIST",
+            path: "user/MENU/PAST_ASSESSMENTS_LIST",
             label: "Past assessments",
             tabBarVisible: false,
             style: {
                 headerBg: STYLE.COLORS.BRAND,
                 headerColor: STYLE.COLORS.WHITE,
-                bodyBg: STYLE.COLORS.BRAND,
+                bodyBg: STYLE.SETTINGS.BACKGROUND_BODY_COLOR,
             },
         } as RoutePath,
         SET_HEALTH_AUTHORITY: {
-            path: "user/SET_HEALTH_AUTHORITY",
+            path: "user/MENU/SET_HEALTH_AUTHORITY",
             label: "Set health authority",
             tabBarVisible: false,
             style: {
@@ -62,7 +72,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         SET_SHARE_SETTINGS: {
-            path: "user/UPDATE_PRIVACY_SETTINGS",
+            path: "user/MENU/UPDATE_PRIVACY_SETTINGS",
             label: "Update privacy settings",
             tabBarVisible: false,
             style: {

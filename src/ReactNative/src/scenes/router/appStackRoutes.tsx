@@ -12,6 +12,7 @@ import NavigationService from "../../services/navigationService";
 import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
 import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
+import ManagePersonalInformation from "../appStack/appStack/userMenu/personallyIdentifiableInformation/managePersonalInformation";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -88,9 +89,9 @@ const UserMenuStackNavigator = () => {
                 }}
             />
             <UserMenuStack.Screen
-                name={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}
-                component={PastAssessments}
-                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST)}
+                name={APP_STACK_ROUTES.USER.PERSONAL_INFORMATION.path}
+                component={ManagePersonalInformation}
+                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.PERSONAL_INFORMATION)}
             />
             <UserMenuStack.Screen
                 name={APP_STACK_ROUTES.USER.SET_SHARE_SETTINGS.path}
@@ -101,6 +102,11 @@ const UserMenuStackNavigator = () => {
                 name={APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY.path}
                 component={SetHealthAuthority}
                 options={setOptionsFromRoute(APP_STACK_ROUTES.USER.SET_HEALTH_AUTHORITY)}
+            />
+            <UserMenuStack.Screen
+                name={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}
+                component={PastAssessments}
+                options={setOptionsFromRoute(APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST)}
             />
         </UserMenuStack.Navigator>
     );

@@ -11,13 +11,14 @@ import {
     SecondaryMenuItemTouchableHighlight,
     SecondaryMenuItemText,
 } from "./styles";
+import PIIButton from "./personallyIdentifiableInformation/button";
 
 // cannot be React.memo, react nav issue
 const spacerHeightStyle = {height: 30};
 const UserMenu: React.FC = () => (
     <PageContainerScrollView>
         <View style={spacerHeightStyle} />
-        <MenuItem route={APP_STACK_ROUTES.USER.MENU.path}>Your personal details</MenuItem>
+        <PIIButton />
         <HealthAuthority />
         <PrivacySettings />
         <MenuItem route={APP_STACK_ROUTES.USER.PAST_ASSESSMENTS_LIST.path}>
