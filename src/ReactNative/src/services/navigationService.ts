@@ -18,6 +18,8 @@ const navigate = (routeName: string, params: {[k: string]: any} = {}) => {
         }),
     );
 };
+const setParams = (newParams: {[k: string]: any} = {}): void =>
+    topLevelNavigatorRef.current.dispatch(CommonActions.setParams(newParams));
 // const navigateWithParams = (routeSpec: RouteSpec) => {
 //     topLevelNavigatorRef.current.dispatch(
 //         CommonActions.navigate({
@@ -49,6 +51,7 @@ const NavigationService = {
     // navigateWithParams,
     // push,
     // pushWithParams,
+    setParams,
     topLevelNavigatorRef,
     goBack,
 };
