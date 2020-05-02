@@ -7,14 +7,14 @@ import {
 } from "../../../../../config/styleDefaults";
 import TextInput from "../../../../../formComponents/textInput/textInput";
 import {BaseContainerView} from "../../../styles";
-import {getCurrentUserName} from "@reduxShared/models/currentUser/selectors";
+import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {useDispatch, useSelector} from "react-redux";
 import {useCallback} from "react";
 import {setCurrentUserNameSuccess} from "@reduxShared/models/currentUser/actions";
 
 interface ChangeNameProps {}
 const ChangeName: React.FC<ChangeNameProps> = () => {
-    const name = useSelector(getCurrentUserName);
+    const {name} = useSelector(getCurrentUser);
     const dispatch = useDispatch();
     const setName = useCallback((n) => dispatch(setCurrentUserNameSuccess(n)), [
         dispatch,
@@ -26,6 +26,12 @@ const ChangeName: React.FC<ChangeNameProps> = () => {
                 This is used in the app to personalize your experience. It is not sent
                 with any data ever sent to the server
             </DefaultText>
+            <TextInput
+                placeholder="Your name"
+                value={name}
+                onChangeText={setName}
+                clearButtonMode="always"
+            />
             <CalloutSectionView>
                 <CalloutSectionText>
                     If an assessment ever triggers you to contact your local health
@@ -34,7 +40,6 @@ const ChangeName: React.FC<ChangeNameProps> = () => {
                     permission at that time.
                 </CalloutSectionText>
             </CalloutSectionView>
-            <TextInput value={name} onChangeText={setName} clearButtonMode="always" />
         </BaseContainerView>
     );
 };

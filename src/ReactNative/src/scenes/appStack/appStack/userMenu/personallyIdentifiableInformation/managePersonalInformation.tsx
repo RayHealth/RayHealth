@@ -6,8 +6,8 @@ import {
 } from "../../../../../config/styleDefaults";
 import {SettingPageHeaderText} from "../styles";
 import {BaseContainerView, PageContainerScrollView} from "../../../styles";
-import TextInput from "../../../../../formComponents/textInput/textInput";
 import ChangeName from "./changeName";
+import ChangeBirthdate from "./changeBirthdate";
 
 interface ManagePersonalInformationProps {}
 const ManagePersonalInformation: React.FC<ManagePersonalInformationProps> = () => {
@@ -28,6 +28,7 @@ const ManagePersonalInformation: React.FC<ManagePersonalInformationProps> = () =
                 </CalloutSectionView>
             </BaseContainerView>
             <ChangeName />
+            <ChangeBirthdate />
         </PageContainerScrollView>
     );
 };
