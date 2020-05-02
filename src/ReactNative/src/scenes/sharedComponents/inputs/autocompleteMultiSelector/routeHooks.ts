@@ -8,6 +8,7 @@ import {AMSValue} from "./constants";
 import {AutocompleteMultiSelectorModalParams} from "./autocompleteMultiSelectorModal";
 
 export const useOpenAutocompleteMultiSelectorModal = (
+    keyToMonitor: string,
     label: string,
     staticData: AMSValue[],
     currentValue?: AMSValue[],
@@ -17,12 +18,12 @@ export const useOpenAutocompleteMultiSelectorModal = (
         () =>
             NavigationService.navigate(
                 APP_STACK_ROUTES.MODALS.FORM.AUTOCOMPLETE_MULTI_SELECT.path,
-                {backRoute, label, currentValue, staticData},
+                {keyToMonitor, backRoute, label, currentValue, staticData},
             ),
-        [backRoute, label, currentValue, staticData],
+        [keyToMonitor, backRoute, label, currentValue, staticData],
     );
 };
-let postOnce = 0;
+
 const amsValuesToString = (amsValues: AMSValue[]) =>
     amsValues
         .map((o) => o.value)
@@ -31,14 +32,16 @@ const amsValuesToString = (amsValues: AMSValue[]) =>
 const areAMSValuesEqual = (a: AMSValue[], b: AMSValue[]): boolean =>
     amsValuesToString(a) === amsValuesToString(b);
 export const useDetectAutoCompleteMultiSelectorChange = (
+    key2Monitor: string,
     onChange: (newValues: AMSValue[]) => void,
     currentValue?: AMSValue[],
 ): void => {
     const route = (useRoute() as unknown) as {
-        params: {newValue: AMSValue[]};
+        params: {newValue: AMSValue[]; keyToMonitor: string};
     };
-    const {newValue} = route.params;
-    if (newValue) {
+    const {newValue, keyToMonitor} = route.params;
+    console.log(keyToMonitor, key2Monitor);
+    if (newValue && keyToMonitor === key2Monitor) {
         if (!currentValue || !areAMSValuesEqual(currentValue, newValue)) {
             onChange(newValue);
         }
@@ -50,9 +53,10 @@ export const useCloseAutocompleteMultiSelectorModal = () => {
     const route = (useRoute() as unknown) as {
         params: AutocompleteMultiSelectorModalParams;
     };
-    const {backRoute} = route.params;
+    const {keyToMonitor, backRoute} = route.params;
     return React.useCallback(
-        (newValue: AMSValue[]) => NavigationService.navigate(backRoute, {newValue}),
-        [backRoute],
+        (newValue: AMSValue[]) =>
+            NavigationService.navigate(backRoute, {keyToMonitor, newValue}),
+        [backRoute, keyToMonitor],
     );
 };

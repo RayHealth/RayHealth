@@ -6,34 +6,35 @@ import {useDispatch, useSelector} from "react-redux";
 import {useCallback} from "react";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {setCurrentUserBirthdaySuccess} from "@reduxShared/models/currentUser/actions";
-import ChooseMonth from "../../../../sharedComponents/inputs/autocompleteMultiSelector/chooseMonth";
+import ChooseMonth from "../../../../sharedComponents/inputs/autocompleteMultiSelector/preMade/chooseMonth";
+import ChooseYear from "../../../../sharedComponents/inputs/autocompleteMultiSelector/preMade/chooseYear";
 
 interface ChangeBirthdateProps {}
 const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
     const {birthYear, birthMonth, birthDay} = useSelector(getCurrentUser);
     const dispatch = useDispatch();
     const setBirthYear = useCallback(
-        (n) => {
-            console.log(n, n ? parseInt(n, 10) : undefined);
-            return dispatch(
+        (newYear?: number) =>
+            dispatch(
                 setCurrentUserBirthdaySuccess(
-                    n ? parseInt(n, 10) : undefined,
-                    birthMonth,
-                    birthDay,
+                    newYear,
+                    newYear ? birthMonth : undefined,
+                    newYear ? birthDay : undefined,
                 ),
-            );
-        },
+            ),
         [dispatch, birthMonth, birthDay],
     );
     const setBirthMonth = useCallback(
-        (newMonth?: number) =>
-            dispatch(
+        (newMonth?: number) => {
+            console.log("Asdfasfd");
+            return dispatch(
                 setCurrentUserBirthdaySuccess(
                     birthYear,
                     newMonth,
                     newMonth ? birthDay : undefined,
                 ),
-            ),
+            );
+        },
         [dispatch, birthYear, birthDay],
     );
     const setBirthDay = useCallback(
@@ -47,7 +48,6 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
             ),
         [dispatch, birthMonth, birthYear],
     );
-    console.log(birthYear);
     return (
         <BaseContainerView>
             <DefaultH2Text>Your date of birth</DefaultH2Text>
@@ -55,14 +55,18 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
                 This is used, in conjunction with your privacy settings, to help Ray
                 Health track assessments and location hot-spots based on age demographics
             </DefaultText>
-            <TextInput
-                placeholder="Year"
-                value={(birthYear || "").toString()}
-                onChangeText={setBirthYear}
-                clearButtonMode="always"
-                keyboardType="number-pad"
+            <ChooseYear
+                keyToMonitor="birthYear"
+                year={birthYear}
+                setYear={setBirthYear}
             />
-            {birthYear && <ChooseMonth month={birthMonth} setMonth={setBirthMonth} />}
+            {birthYear && (
+                <ChooseMonth
+                    keyToMonitor="birthMonth"
+                    month={birthMonth}
+                    setMonth={setBirthMonth}
+                />
+            )}
             {birthYear && birthMonth && (
                 <TextInput
                     placeholder="Day"

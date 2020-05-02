@@ -7,6 +7,7 @@ import {useRoute} from "@react-navigation/native";
 import {PageContainerScrollView} from "../../../appStack/styles";
 
 export interface AutocompleteMultiSelectorModalParams {
+    keyToMonitor: string;
     backRoute: string;
     label: string;
     staticData: AMSValue[];
