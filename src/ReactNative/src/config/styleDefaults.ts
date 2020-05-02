@@ -76,6 +76,7 @@ const COLORS = {
     BRAND_COMPLIMENTARYi: "#eefdea",
     EMERGENCY_RED: "#FF0000",
     WARNING_YELLOW: "#EED202",
+    TRANSPARENT: "rgba(0,0,0,0)",
 };
 export const STYLE = {
     SETTINGS: {
@@ -86,7 +87,11 @@ export const STYLE = {
     COLORS: {
         ...COLORS,
     },
-    BORDER_RADIUS: 15,
+    BORDER_RADIUS: {
+        BUTTON: 15,
+        VIEW: 15,
+        INPUT: 3,
+    },
     FONT_SIZES: {
         H1: 50,
         H2: 42,

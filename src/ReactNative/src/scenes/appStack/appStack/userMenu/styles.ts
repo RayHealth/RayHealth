@@ -6,7 +6,7 @@ export const MenuItemTouchableHighlight = styled.TouchableHighlight`
     margin-right: 10px;
     margin-left: 10px;
     background: ${STYLE.COLORS.WHITE};
-    border-radius: ${STYLE.BORDER_RADIUS}px;
+    border-radius: ${STYLE.BORDER_RADIUS.BUTTON}px;
 `;
 export const MenuItemText = styled(DefaultText)`
     padding-top: 30px;

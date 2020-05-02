@@ -14,7 +14,7 @@ const currentCurrentUserReducer = (
         case APP.RESET_STORE:
             return defaultCurrentUser;
         case CURRENT_USER.NAME_SUCCESS:
-            return {...state, givenName: action.givenName, familyName: action.familyName};
+            return {...state, name: action.name};
         case CURRENT_USER.BIRTHDAY_SUCCESS:
             return {
                 ...state,

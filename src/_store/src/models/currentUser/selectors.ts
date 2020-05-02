@@ -44,3 +44,6 @@ export const getAggregateUserData = (
             privateSettings.shareEthnicity && user.ethnicity ? user.ethnicity : undefined,
     };
 };
+
+export const getCurrentUserName = (state: IAppSharedState): string =>
+    getCurrentUser(state).name;

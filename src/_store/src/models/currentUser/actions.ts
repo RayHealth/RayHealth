@@ -2,16 +2,11 @@ import {CURRENT_USER, PrivacySettings} from "./constants";
 
 export interface CurrentUserNameSuccess {
     type: CURRENT_USER.NAME_SUCCESS;
-    givenName?: string;
-    familyName?: string;
+    name: string;
 }
-export const setCurrentUserNameSuccess = (
-    givenName?: string,
-    familyName?: string,
-): CurrentUserNameSuccess => ({
+export const setCurrentUserNameSuccess = (name: string): CurrentUserNameSuccess => ({
     type: CURRENT_USER.NAME_SUCCESS,
-    givenName,
-    familyName,
+    name,
 });
 export interface CurrentUserBirthdaySuccess {
     type: CURRENT_USER.BIRTHDAY_SUCCESS;

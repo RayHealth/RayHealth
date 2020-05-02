@@ -7,6 +7,8 @@ import {
 import {AssessmentInitialize} from "../assessments/actions";
 import {ResetStore} from "../resetStoreActions";
 
+export const DEFAULT_NAME = "Anonymous Corona Virus Fighter";
+
 export enum CURRENT_USER {
     NAME_SUCCESS = "currentUser/CURRENT_USER_SET_NAME",
     BIRTHDAY_SUCCESS = "currentUser/CURRENT_USER_BIRTH_DATE",
@@ -33,8 +35,7 @@ export interface AggregatedPrivateInformation {
     ethnicity?: string;
 }
 export interface CurrentUser {
-    givenName?: string;
-    familyName?: string;
+    name: string;
     birthMonth?: number;
     birthDay?: number;
     birthYear?: number;
@@ -44,6 +45,7 @@ export interface CurrentUser {
     acceptanceOfTermsAndConditions: boolean;
 }
 export const defaultCurrentUser: CurrentUser = {
+    name: DEFAULT_NAME,
     privacy: {
         shareAgeExact: false,
         shareAgeRange: false,
