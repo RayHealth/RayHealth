@@ -15,14 +15,14 @@ export interface CurrentUserBirthdaySuccess {
     birthYear?: number;
 }
 export const setCurrentUserBirthdaySuccess = (
+    birthYear?: number,
     birthMonth?: number,
     birthDay?: number,
-    birthYear?: number,
 ): CurrentUserBirthdaySuccess => ({
     type: CURRENT_USER.BIRTHDAY_SUCCESS,
+    birthYear,
     birthMonth,
     birthDay,
-    birthYear,
 });
 
 export interface PatchCurrentUserPrivacySettings {

@@ -12,14 +12,16 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
     const {birthYear, birthMonth, birthDay} = useSelector(getCurrentUser);
     const dispatch = useDispatch();
     const setBirthYear = useCallback(
-        (n) =>
-            dispatch(
+        (n) => {
+            console.log(n, n ? parseInt(n, 10) : undefined);
+            return dispatch(
                 setCurrentUserBirthdaySuccess(
                     n ? parseInt(n, 10) : undefined,
                     birthMonth,
                     birthDay,
                 ),
-            ),
+            );
+        },
         [dispatch, birthMonth, birthDay],
     );
     const setBirthMonth = useCallback(
@@ -44,6 +46,7 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
             ),
         [dispatch, birthMonth, birthYear],
     );
+    console.log(birthYear);
     return (
         <BaseContainerView>
             <DefaultH2Text>Your date of birth</DefaultH2Text>
@@ -56,19 +59,26 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
                 value={(birthYear || "").toString()}
                 onChangeText={setBirthYear}
                 clearButtonMode="always"
+                keyboardType="number-pad"
             />
-            <TextInput
-                placeholder="Month"
-                value={(birthMonth || "").toString()}
-                onChangeText={setBirthMonth}
-                clearButtonMode="always"
-            />
-            <TextInput
-                placeholder="Day"
-                value={(birthDay || "").toString()}
-                onChangeText={setBirthDay}
-                clearButtonMode="always"
-            />
+            {birthYear && (
+                <TextInput
+                    placeholder="Month"
+                    value={(birthMonth || "").toString()}
+                    onChangeText={setBirthMonth}
+                    clearButtonMode="always"
+                    keyboardType="number-pad"
+                />
+            )}
+            {birthYear && birthMonth && (
+                <TextInput
+                    placeholder="Day"
+                    value={(birthDay || "").toString()}
+                    onChangeText={setBirthDay}
+                    clearButtonMode="always"
+                    keyboardType="number-pad"
+                />
+            )}
         </BaseContainerView>
     );
 };

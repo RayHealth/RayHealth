@@ -33,6 +33,20 @@ type TextContentType =
     | "password"
     | "newPassword"
     | "oneTimeCode";
+type KeyboardType =
+    | "default"
+    | "number-pad"
+    | "decimal-pad"
+    | "numeric"
+    | "email-address"
+    | "phone-pad";
+// | "ascii-capable" // ios-only
+// | "numbers-and-punctuation" // ios-only
+// | "url" // ios-only
+// | "name-phone-pad" // ios-only
+// | "twitter" // ios-only
+// | "web-search" // ios-only
+// | "visible-password" // android only
 
 interface TextInputProps {
     multiline?: boolean;
@@ -48,6 +62,7 @@ interface TextInputProps {
     clearButtonMode?: "always"; //|"never"|"while-editing"|"unless-editing";
     // https://facebook.github.io/react-native/docs/next/textinput#textcontenttype
     textContentType?: TextContentType;
+    keyboardType?: KeyboardType;
 }
 const TextInput: React.FC<TextInputProps> = ({
     multiline,
@@ -62,6 +77,7 @@ const TextInput: React.FC<TextInputProps> = ({
     value,
     clearButtonMode,
     textContentType,
+    keyboardType,
 }) => {
     const handleOnBlur = useCallback(() => onBlur && onBlur(), [onBlur]);
     const handleOnClear = useCallback(() => onChangeText(""), [onChangeText]);
@@ -81,6 +97,7 @@ const TextInput: React.FC<TextInputProps> = ({
                 underlineColorAndroid={underlineColorAndroid || STYLE.COLORS.TRANSPARENT}
                 value={value}
                 clearButtonMode={clearButtonMode}
+                keyboardType={keyboardType || "default"}
                 textContentType={textContentType}
             />
             {Platform.OS !== "ios" && !!value && clearButtonMode === "always" && (
@@ -97,8 +114,8 @@ const TextInput: React.FC<TextInputProps> = ({
 export default TextInput;
 
 const IosStyledTextInput = styled.TextInput`
-    font-size: ${STYLE.FONT_SIZES.INPUT};
-    letter-spacing: 0.2;
+    font-size: ${STYLE.FONT_SIZES.INPUT}px;
+    letter-spacing: 0.2px;
     color: ${STYLE.COLORS.BRAND1};
 `;
 
@@ -113,7 +130,7 @@ const StyledTextInput = Platform.select({
 
 const TextInputContainer = styled.View`
     background-color: ${STYLE.COLORS.WHITE};
-    border-width: 1;
+    border-width: 1px;
     border-color: ${STYLE.COLORS.BRAND};
     border-radius: ${STYLE.BORDER_RADIUS.INPUT}px;
     padding-top: ${STYLE.FONT_SIZES.INPUT * 0.5}px;

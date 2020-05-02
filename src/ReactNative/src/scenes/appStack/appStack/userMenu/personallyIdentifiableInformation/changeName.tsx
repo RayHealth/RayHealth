@@ -19,6 +19,10 @@ const ChangeName: React.FC<ChangeNameProps> = () => {
     const setName = useCallback((n) => dispatch(setCurrentUserNameSuccess(n)), [
         dispatch,
     ]);
+    const onBlur = useCallback(() => dispatch(setCurrentUserNameSuccess(name.trim())), [
+        dispatch,
+        name,
+    ]);
     return (
         <BaseContainerView>
             <DefaultH2Text>Your name</DefaultH2Text>
@@ -29,6 +33,8 @@ const ChangeName: React.FC<ChangeNameProps> = () => {
             <TextInput
                 placeholder="Your name"
                 value={name}
+                onBlur={onBlur}
+                textContentType="givenName"
                 onChangeText={setName}
                 clearButtonMode="always"
             />
