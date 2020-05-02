@@ -36,13 +36,13 @@ const navigate = (routeName: string, params: {[k: string]: any} = {}) => {
 //     );
 // };
 //
-// const goBack = () => {
-//     topLevelNavigatorRef.current.dispatch(
-//         // this does optionally take a key
-//         // https://reactnavigation.org/docs/en/navigation-actions.html#back
-//         CommonActions.goBack(),
-//     );
-// };
+const goBack = () => {
+    topLevelNavigatorRef.current.dispatch(
+        // this does optionally take a key
+        // https://reactnavigation.org/docs/en/navigation-actions.html#back
+        CommonActions.goBack(),
+    );
+};
 
 const NavigationService = {
     navigate,
@@ -50,7 +50,7 @@ const NavigationService = {
     // push,
     // pushWithParams,
     topLevelNavigatorRef,
-    // goBack,
+    goBack,
 };
 
 export default NavigationService;

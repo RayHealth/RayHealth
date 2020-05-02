@@ -5,7 +5,7 @@ import {
     DefaultH2Text,
     DefaultText,
 } from "../../../../../config/styleDefaults";
-import TextInput from "../../../../../formComponents/textInput/textInput";
+import TextInput from "../../../../sharedComponents/inputs/textInput";
 import {BaseContainerView} from "../../../styles";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {useDispatch, useSelector} from "react-redux";

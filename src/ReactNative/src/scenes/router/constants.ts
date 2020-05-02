@@ -30,6 +30,17 @@ export const APP_STACK_ROUTES = {
             iconIsFocused: mdiHomeBrand,
         } as RoutePath,
     },
+    MODALS: {
+        ASSESSMENTS: {
+            NEW: {path: "modal/assessments/NEW", label: "New assessment"},
+        },
+        FORM: {
+            AUTOCOMPLETE_MULTI_SELECT: {
+                path: "modal/form/AUTOCOMPLETE_MULTI_SELECT",
+                label: "No label?",
+            },
+        },
+    },
     USER: {
         MENU: {
             path: "user/MENU",
@@ -82,9 +93,6 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
     },
-    ASSESSMENTS: {
-        NEW: {path: "assessments/NEW", label: "New assessment"},
-    },
 };
 
 const recursivelyFlatten = (obj: AppStackRoutesObj) =>
@@ -93,7 +101,7 @@ const recursivelyFlatten = (obj: AppStackRoutesObj) =>
     );
 const flattenAppStackRoutes: RoutePath[] = recursivelyFlatten(
     APP_STACK_ROUTES as AppStackRoutesObj,
-).flat();
+).flat(Infinity);
 
 export const getRouteOptionsFromPath = (path: string): RoutePath =>
     flattenAppStackRoutes.find((route) => route.path === path) as RoutePath;

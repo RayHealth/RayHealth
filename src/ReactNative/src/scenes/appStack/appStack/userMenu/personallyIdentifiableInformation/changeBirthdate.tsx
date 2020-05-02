@@ -1,11 +1,12 @@
 import * as React from "react";
 import {DefaultH2Text, DefaultText} from "../../../../../config/styleDefaults";
-import TextInput from "../../../../../formComponents/textInput/textInput";
+import TextInput from "../../../../sharedComponents/inputs/textInput";
 import {BaseContainerView} from "../../../styles";
 import {useDispatch, useSelector} from "react-redux";
 import {useCallback} from "react";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 import {setCurrentUserBirthdaySuccess} from "@reduxShared/models/currentUser/actions";
+import ChooseMonth from "../../../../sharedComponents/inputs/autocompleteMultiSelector/chooseMonth";
 
 interface ChangeBirthdateProps {}
 const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
@@ -25,12 +26,12 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
         [dispatch, birthMonth, birthDay],
     );
     const setBirthMonth = useCallback(
-        (n) =>
+        (newMonth?: number) =>
             dispatch(
                 setCurrentUserBirthdaySuccess(
                     birthYear,
-                    n ? parseInt(n, 10) : undefined,
-                    birthDay,
+                    newMonth,
+                    newMonth ? birthDay : undefined,
                 ),
             ),
         [dispatch, birthYear, birthDay],
@@ -61,15 +62,7 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
                 clearButtonMode="always"
                 keyboardType="number-pad"
             />
-            {birthYear && (
-                <TextInput
-                    placeholder="Month"
-                    value={(birthMonth || "").toString()}
-                    onChangeText={setBirthMonth}
-                    clearButtonMode="always"
-                    keyboardType="number-pad"
-                />
-            )}
+            {birthYear && <ChooseMonth month={birthMonth} setMonth={setBirthMonth} />}
             {birthYear && birthMonth && (
                 <TextInput
                     placeholder="Day"

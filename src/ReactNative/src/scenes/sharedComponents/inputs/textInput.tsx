@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DefaultText, STYLE} from "../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../config/styleDefaults";
 import styled from "styled-components/native";
 import {Platform, TouchableWithoutFeedback} from "react-native";
 import {useCallback} from "react";

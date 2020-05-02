@@ -13,20 +13,29 @@ import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
 import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 import ManagePersonalInformation from "../appStack/appStack/userMenu/personallyIdentifiableInformation/managePersonalInformation";
+import AutocompleteMultiSelectorModal from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
     useAssessmentMonitor();
     return (
-        <PrimaryStack.Navigator>
+        <PrimaryStack.Navigator mode="modal">
             <PrimaryStack.Screen
                 name={APP_STACK_ROUTES.HOME.INDEX.path}
                 component={StackWithBottomTabs}
                 options={{headerShown: false}}
             />
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.ASSESSMENTS.NEW.path}
+                name={APP_STACK_ROUTES.MODALS.ASSESSMENTS.NEW.path}
                 component={Assessment}
+                options={{
+                    headerShown: false,
+                    gestureEnabled: false,
+                }}
+            />
+            <PrimaryStack.Screen
+                name={APP_STACK_ROUTES.MODALS.FORM.AUTOCOMPLETE_MULTI_SELECT.path}
+                component={AutocompleteMultiSelectorModal}
                 options={{
                     headerShown: false,
                     gestureEnabled: false,
@@ -116,7 +125,7 @@ const useAssessmentMonitor = (): void => {
     const assessmentUuid = useSelector(getCurrentAssessmentUuid);
     useEffect(() => {
         if (assessmentUuid) {
-            NavigationService.navigate(APP_STACK_ROUTES.ASSESSMENTS.NEW.path);
+            NavigationService.navigate(APP_STACK_ROUTES.MODALS.ASSESSMENTS.NEW.path);
         }
     });
 };
