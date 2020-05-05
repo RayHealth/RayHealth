@@ -96,11 +96,11 @@ export const STYLE = {
         INPUT: 3,
     },
     FONT_SIZES: {
-        H1: 50,
-        H2: 42,
-        DEFAULT: 22,
-        BUTTON_TEXT: 22,
-        INPUT: 22,
+        H1: 42,
+        H2: 32,
+        DEFAULT: 14,
+        BUTTON_TEXT: 14,
+        INPUT: 14,
         LINE_HEIGHT: 1.4,
     },
 };
