@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "rayhealth__wordmark-100x206.png",
+      "filename" : "SplashScreenIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "rayhealth__wordmark-100x206@2x.png",
+      "filename" : "SplashScreenIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "rayhealth__wordmark-100x206@3x.png",
+      "filename" : "SplashScreenIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
