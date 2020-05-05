@@ -6,9 +6,9 @@ import {NetworkProvider} from "react-native-offline";
 import {store, persistor} from "./store/rnStore";
 import RootStackComponent from "./scenes/router";
 import {PersistGate} from "redux-persist/integration/react";
+
 const App: React.FC = React.memo(() => {
     useEffect(() => {
-        // SplashScreen.hide();
         YellowBox.ignoreWarnings([
             "Setting a timer",
             "Warning: `-[RCTRootView cancelTouches]`",
