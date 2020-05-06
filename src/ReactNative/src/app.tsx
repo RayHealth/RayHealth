@@ -11,6 +11,7 @@ import {PersistGate} from "redux-persist/integration/react";
 const App: React.FC = React.memo(() => {
     useEffect(() => {
         SplashScreen.hide();
+        StatusBar.setHidden(false);
         YellowBox.ignoreWarnings([
             "Setting a timer",
             "Warning: `-[RCTRootView cancelTouches]`",
