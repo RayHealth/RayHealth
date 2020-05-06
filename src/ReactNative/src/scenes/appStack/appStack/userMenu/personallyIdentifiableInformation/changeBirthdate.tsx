@@ -2,7 +2,6 @@ import * as React from "react";
 import styled from "styled-components/native";
 
 import {DefaultH2Text, DefaultText} from "../../../../../config/styleDefaults";
-import TextInput from "../../../../sharedComponents/inputs/textInput";
 import {BaseContainerView} from "../../../styles";
 import {useDispatch, useSelector} from "react-redux";
 import {useCallback} from "react";
@@ -12,7 +11,6 @@ import ChooseMonth from "../../../../sharedComponents/inputs/autocompleteMultiSe
 import ChooseYear from "../../../../sharedComponents/inputs/autocompleteMultiSelector/preMade/chooseYear";
 import ChooseDayOfMonth from "../../../../sharedComponents/inputs/autocompleteMultiSelector/preMade/chooseDayOfMonth";
 import {dateIsInRange, getDaysRangeForMonth} from "../../../../utils/dateUtils";
-import {NumberRange} from "../../../../utils/genericTypes";
 
 interface ChangeBirthdateProps {}
 const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
