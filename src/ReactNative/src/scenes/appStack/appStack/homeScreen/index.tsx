@@ -1,9 +1,11 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
-import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
+import {
+    getAggregateUserData,
+    getCurrentUser,
+} from "@reduxShared/models/currentUser/selectors";
 import {BaseContainerView, PageContainerScrollView} from "../../styles";
-import SetName from "./SetName";
 import HowAreYouFeeling from "./HowAreYouFeeling";
 import {DefaultText} from "../../../../config/styleDefaults";
 import DevModeResetStore from "./devModeResetStore";
@@ -14,6 +16,7 @@ const Indent = styled.View`
 
 const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
+    const aggregateUserData = useSelector(getAggregateUserData);
     return (
         <PageContainerScrollView>
             <BaseContainerView>
@@ -56,10 +59,12 @@ const HomeIndex: React.FC = () => {
                 <DefaultText>&bull; test</DefaultText>*/}
             </BaseContainerView>
             <BaseContainerView>
+                <DefaultText>Your current account data:</DefaultText>
                 <DefaultText>{JSON.stringify(currentUser)}</DefaultText>
             </BaseContainerView>
             <BaseContainerView>
-                <SetName />
+                <DefaultText>How your data will be shared:</DefaultText>
+                <DefaultText>{JSON.stringify(aggregateUserData)}</DefaultText>
             </BaseContainerView>
             <DevModeResetStore />
         </PageContainerScrollView>
