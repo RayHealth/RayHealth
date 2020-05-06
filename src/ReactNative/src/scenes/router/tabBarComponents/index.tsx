@@ -106,7 +106,7 @@ const TabBarIconImage = styled.Image`
 
 const TabBarIconText = styled(DefaultText)`
     color: ${({isFocused}: ITabBarIconTextProps) =>
-        isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.SECONDARY};
+        isFocused ? STYLE.COLORS.BRAND : STYLE.COLORS.GREY5};
 `;
 
 export default AppTabBar;
