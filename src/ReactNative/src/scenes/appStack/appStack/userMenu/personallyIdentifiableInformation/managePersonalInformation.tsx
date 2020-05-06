@@ -7,7 +7,7 @@ import {
 import {SettingPageHeaderText} from "../styles";
 import {BaseContainerView, PageContainerScrollView} from "../../../styles";
 import ChangeName from "./changeName";
-import ChangeBirthDate from "./changeBirthDat";
+import ChangeBirthDate from "./changeBirthDate";
 
 interface ManagePersonalInformationProps {}
 const ManagePersonalInformation: React.FC<ManagePersonalInformationProps> = () => {
