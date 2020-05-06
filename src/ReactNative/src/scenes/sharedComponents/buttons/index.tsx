@@ -37,7 +37,7 @@ export const FullWidthButtonTouchableHighlight = styled.TouchableHighlight`
     padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: ${STYLE.BORDER_RADIUS.BUTTON}px;
     align-items: center;
 `;
 interface FullWidthButtonTextProps {
@@ -58,7 +58,19 @@ export const BrandFullWidthButton: React.FC<BaseFullWidthButtonOwnProps> = ({
         onPress={onPress}
         backgroundColor={STYLE.COLORS.BRAND}
         borderColor={STYLE.COLORS.BRAND}
-        color={STYLE.COLORS.BRANDh}>
+        color={STYLE.COLORS.BRANDi}>
+        {children}
+    </BaseFullWidthButton>
+);
+export const SecondaryFullWidthButton: React.FC<BaseFullWidthButtonOwnProps> = ({
+    children,
+    onPress,
+}) => (
+    <BaseFullWidthButton
+        onPress={onPress}
+        backgroundColor={STYLE.COLORS.WHITE}
+        borderColor={STYLE.COLORS.BRAND}
+        color={STYLE.COLORS.BRAND}>
         {children}
     </BaseFullWidthButton>
 );
@@ -72,18 +84,6 @@ export const WarningFullWidthButton: React.FC<BaseFullWidthButtonOwnProps> = ({
         borderColor={STYLE.COLORS.WARNING_YELLOW}
         color={STYLE.COLORS.GREY2}
         bold={true}>
-        {children}
-    </BaseFullWidthButton>
-);
-export const SecondaryFullWidthButton: React.FC<BaseFullWidthButtonOwnProps> = ({
-    children,
-    onPress,
-}) => (
-    <BaseFullWidthButton
-        onPress={onPress}
-        backgroundColor={STYLE.COLORS.BRANDi}
-        borderColor={STYLE.COLORS.BRAND}
-        color={STYLE.COLORS.BRAND}>
         {children}
     </BaseFullWidthButton>
 );

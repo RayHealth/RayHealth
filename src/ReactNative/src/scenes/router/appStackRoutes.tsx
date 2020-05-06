@@ -13,7 +13,10 @@ import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
 import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 import ManagePersonalInformation from "../appStack/appStack/userMenu/personallyIdentifiableInformation/managePersonalInformation";
-import AutocompleteMultiSelectorModal from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
+import AutocompleteMultiSelectorModal, {
+    OverrideBackButton,
+} from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
+import {StackHeaderLeftButtonProps} from "@react-navigation/stack/lib/typescript/src/types";
 
 const PrimaryStack = createStackNavigator();
 const AppStackNavigator = () => {
@@ -37,7 +40,11 @@ const AppStackNavigator = () => {
                 name={APP_STACK_ROUTES.MODALS.FORM.AUTOCOMPLETE_MULTI_SELECT.path}
                 component={AutocompleteMultiSelectorModal}
                 options={{
-                    headerShown: false,
+                    headerShown: true,
+                    headerLeft: (props: StackHeaderLeftButtonProps) => {
+                        console.log(props);
+                        return <OverrideBackButton />;
+                    },
                     gestureEnabled: false,
                 }}
             />

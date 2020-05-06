@@ -3,16 +3,30 @@ import styled from "styled-components/native";
 import {STYLE} from "../../../config/styleDefaults";
 
 interface RayHealthTextInputProps {
+    autoFocus?: boolean;
     value: string;
     onChange: (newText: string) => void;
+    placeholder?: string;
 }
 
-const RayHealthTextInput: React.FC<RayHealthTextInputProps> = ({value, onChange}) => {
+const RayHealthTextInput: React.FC<RayHealthTextInputProps> = ({
+    autoFocus,
+    value,
+    onChange,
+    placeholder,
+}) => {
     const oc = (text) => {
         console.log(text);
         onChange(text);
     };
-    return <StyledTextInput onChangeText={oc} value={value} />;
+    return (
+        <StyledTextInput
+            autoFocus={autoFocus}
+            onChangeText={oc}
+            value={value}
+            placeholder={placeholder}
+        />
+    );
 };
 
 export default RayHealthTextInput;
@@ -29,4 +43,5 @@ const StyledTextInput = styled.TextInput`
     margin-bottom: 10px;
     color: #111;
     font-size: ${STYLE.FONT_SIZES.INPUT}px;
+    background: ${STYLE.COLORS.WHITE};
 `;

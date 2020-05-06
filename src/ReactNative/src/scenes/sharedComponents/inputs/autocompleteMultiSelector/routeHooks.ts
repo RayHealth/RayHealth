@@ -60,3 +60,10 @@ export const useCloseAutocompleteMultiSelectorModal = () => {
         [backRoute, keyToMonitor],
     );
 };
+export const useAutocompleteMultiSelectorModalGoBack = () => {
+    const route = (useRoute() as unknown) as {
+        params: AutocompleteMultiSelectorModalParams;
+    };
+    const {backRoute} = route.params;
+    return React.useCallback(() => NavigationService.navigate(backRoute), [backRoute]);
+};
