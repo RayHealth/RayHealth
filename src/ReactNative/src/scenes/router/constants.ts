@@ -8,7 +8,7 @@ import {ImageSourcePropType} from "react-native";
 import {STYLE} from "../../config/styleDefaults";
 
 export interface RoutePath {
-    path: string;
+    path: PATHS;
     label: string;
     tabBarVisible?: false;
     icon?: ImageSourcePropType;
@@ -20,30 +20,40 @@ export interface RoutePath {
         footerBg?: string;
     };
 }
+export enum PATHS {
+    HOME_INDEX = "home/INDEX",
+    MODALS_ASSESSMENTS_NEW = "modal/assessments/NEW",
+    MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT = "modal/form/AUTOCOMPLETE_MULTI_SELECT",
+    USER_MENU = "user/MENU",
+    USER_MENU_PERSONAL_INFORMATION = "user/MENU/PERSONAL_INFORMATION",
+    USER_MENU_PAST_ASSESSMENTS_LIST = "user/MENU/PAST_ASSESSMENTS_LIST",
+    USER_MENU_SET_HEALTH_AUTHORITY = "user/MENU/SET_HEALTH_AUTHORITY",
+    USER_MENU_UPDATE_PRIVACY_SETTINGS = "user/MENU/UPDATE_PRIVACY_SETTINGS",
+}
 type AppStackRoutesObj = {[k: string]: RoutePath | AppStackRoutesObj};
 export const APP_STACK_ROUTES = {
     HOME: {
         INDEX: {
-            path: "home/INDEX",
+            path: PATHS.HOME_INDEX,
             label: "Home",
             icon: mdiHomeCCC,
             iconIsFocused: mdiHomeBrand,
-        } as RoutePath,
+        },
     },
     MODALS: {
         ASSESSMENTS: {
-            NEW: {path: "modal/assessments/NEW", label: "New assessment"},
+            NEW: {path: PATHS.MODALS_ASSESSMENTS_NEW, label: "New assessment"},
         },
         FORM: {
             AUTOCOMPLETE_MULTI_SELECT: {
-                path: "modal/form/AUTOCOMPLETE_MULTI_SELECT",
+                path: PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT,
                 label: "No label?",
             },
         },
     },
     USER: {
         MENU: {
-            path: "user/MENU",
+            path: PATHS.USER_MENU,
             label: "Menu",
             icon: mdiMenuCCC,
             iconIsFocused: mdiMenuBrand,
@@ -53,7 +63,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         PERSONAL_INFORMATION: {
-            path: "user/MENU/PERSONAL_INFORMATION",
+            path: PATHS.USER_MENU_PERSONAL_INFORMATION,
             label: "Personal information",
             tabBarVisible: false,
             style: {
@@ -63,7 +73,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         PAST_ASSESSMENTS_LIST: {
-            path: "user/MENU/PAST_ASSESSMENTS_LIST",
+            path: PATHS.USER_MENU_PAST_ASSESSMENTS_LIST,
             label: "Past assessments",
             tabBarVisible: false,
             style: {
@@ -73,7 +83,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         SET_HEALTH_AUTHORITY: {
-            path: "user/MENU/SET_HEALTH_AUTHORITY",
+            path: PATHS.USER_MENU_SET_HEALTH_AUTHORITY,
             label: "Set health authority",
             tabBarVisible: false,
             style: {
@@ -83,7 +93,7 @@ export const APP_STACK_ROUTES = {
             },
         } as RoutePath,
         SET_SHARE_SETTINGS: {
-            path: "user/MENU/UPDATE_PRIVACY_SETTINGS",
+            path: PATHS.USER_MENU_UPDATE_PRIVACY_SETTINGS,
             label: "Update privacy settings",
             tabBarVisible: false,
             style: {

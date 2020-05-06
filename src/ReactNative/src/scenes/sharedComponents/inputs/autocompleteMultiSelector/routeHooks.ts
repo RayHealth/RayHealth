@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {getCurrentScreenPath} from "../../../../store/models/appState/selectors";
 import {APP_STACK_ROUTES} from "../../../router/constants";
 import {AMSValue} from "./constants";
-import {AutocompleteMultiSelectorModalParams} from "./autocompleteMultiSelectorModal";
+import {AutocompleteMultiSelectorModalRouteProp} from "./autocompleteMultiSelectorModal";
 
 export const useOpenAutocompleteMultiSelectorModal = (
     keyToMonitor: string,
@@ -33,7 +33,7 @@ const areAMSValuesEqual = (a: AMSValue[], b: AMSValue[]): boolean =>
     amsValuesToString(a) === amsValuesToString(b);
 export const useDetectAutoCompleteMultiSelectorChange = (
     key2Monitor: string,
-    onChange: (newValues: AMSValue[]) => void,
+    onChange: (newValues: AMSValue[] | []) => void,
     currentValue?: AMSValue[],
 ): void => {
     const route = (useRoute() as unknown) as {
@@ -50,9 +50,7 @@ export const useDetectAutoCompleteMultiSelectorChange = (
 };
 
 export const useCloseAutocompleteMultiSelectorModal = () => {
-    const route = (useRoute() as unknown) as {
-        params: AutocompleteMultiSelectorModalParams;
-    };
+    const route = useRoute<AutocompleteMultiSelectorModalRouteProp>();
     const {keyToMonitor, backRoute} = route.params;
     return React.useCallback(
         (newValue: AMSValue[]) =>
@@ -61,9 +59,7 @@ export const useCloseAutocompleteMultiSelectorModal = () => {
     );
 };
 export const useAutocompleteMultiSelectorModalGoBack = () => {
-    const route = (useRoute() as unknown) as {
-        params: AutocompleteMultiSelectorModalParams;
-    };
+    const route = useRoute<AutocompleteMultiSelectorModalRouteProp>();
     const {backRoute} = route.params;
     return React.useCallback(() => NavigationService.navigate(backRoute), [backRoute]);
 };

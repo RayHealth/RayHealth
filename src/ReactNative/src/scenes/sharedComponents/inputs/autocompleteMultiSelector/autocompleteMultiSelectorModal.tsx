@@ -1,15 +1,13 @@
 import * as React from "react";
 import styled from "styled-components/native";
 
-import {BrandFullWidthButton, SecondaryFullWidthButton} from "../../buttons";
 import {
     useAutocompleteMultiSelectorModalGoBack,
     useCloseAutocompleteMultiSelectorModal,
 } from "./routeHooks";
-import {AMSValue} from "./constants";
-import {useRoute} from "@react-navigation/native";
+import {useRoute, RouteProp} from "@react-navigation/native";
 import {PageContainerScrollView} from "../../../appStack/styles";
-import {HeaderBackButton} from "@react-navigation/stack";
+import {HeaderBackButton, StackNavigationProp} from "@react-navigation/stack";
 import RayHealthTextInput from "../RayHealthTextInput";
 import {STYLE} from "../../../../config/styleDefaults";
 import {
@@ -21,8 +19,16 @@ import {
     Flex2ColumnFixedChild,
     Flex2ColumnFlexibleChild,
 } from "../../../utils/flex2Column1FixedWidth";
+import {PrimaryStackParamList} from "../../../router/appStackRoutes";
+import {PATHS} from "../../../router/constants";
+import {AMSValue} from "./constants";
 
-export interface AutocompleteMultiSelectorModalParams {
+export const OverrideBackButton: React.FC = React.memo(() => {
+    const goBack = useAutocompleteMultiSelectorModalGoBack();
+    return <HeaderBackButton onPress={goBack} />;
+});
+
+export interface AutocompleteMultiSelectorParams {
     keyToMonitor: string;
     backRoute: string;
     label: string;
@@ -30,15 +36,19 @@ export interface AutocompleteMultiSelectorModalParams {
     currentValue?: AMSValue[];
 }
 
-export const OverrideBackButton: React.FC = React.memo(() => {
-    const goBack = useAutocompleteMultiSelectorModalGoBack();
-    return <HeaderBackButton onPress={goBack} />;
-});
+type AutocompleteMultiSelectorModalNavigationProps = StackNavigationProp<
+    PrimaryStackParamList,
+    PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT
+>;
+export type AutocompleteMultiSelectorModalRouteProp = RouteProp<
+    PrimaryStackParamList,
+    PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT
+>;
 
-const AutocompleteMultiSelectorModal: React.FC<any> = React.memo(({navigation}) => {
-    const route = (useRoute() as unknown) as {
-        params: AutocompleteMultiSelectorModalParams;
-    };
+const AutocompleteMultiSelectorModal: React.FC<{
+    navigation: AutocompleteMultiSelectorModalNavigationProps;
+}> = React.memo(({navigation}) => {
+    const route = useRoute<AutocompleteMultiSelectorModalRouteProp>();
     const {label, staticData, currentValue} = route.params;
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -72,7 +82,7 @@ const AutocompleteMultiSelectorModal: React.FC<any> = React.memo(({navigation}) 
                         return (
                             <ResultTouchableHighlight
                                 key={option.value}
-                                onPress={() => onClose([option])}
+                                onPress={() => onClose(isSelected ? [] : [option])}
                                 underlayColor={STYLE.COLORS.GREYD}>
                                 <ResultView isSelected={isSelected}>
                                     <Flex2ColumnFlexibleChild>

@@ -23,6 +23,7 @@ const ChooseFromNumberRange: React.FC<ChooseYearProps> = React.memo(
         }, [range]);
         const handleChange = React.useCallback(
             (newValues: AMSValue[]) => {
+                console.log("HANDLE", newValues);
                 if (newValues.length < 1 || !newValues[0].value) onChange(undefined);
                 const {value} = newValues[0];
                 onChange([{value, label: value}]);

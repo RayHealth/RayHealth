@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath} from "./constants";
+import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath, PATHS} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeIndex from "../appStack/appStack/homeScreen";
 import AppTabBar from "./tabBarComponents";
@@ -14,22 +14,28 @@ import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/se
 import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 import ManagePersonalInformation from "../appStack/appStack/userMenu/personallyIdentifiableInformation/managePersonalInformation";
 import AutocompleteMultiSelectorModal, {
+    AutocompleteMultiSelectorParams,
     OverrideBackButton,
 } from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
 import {StackHeaderLeftButtonProps} from "@react-navigation/stack/lib/typescript/src/types";
 
-const PrimaryStack = createStackNavigator();
+export type PrimaryStackParamList = {
+    [PATHS.HOME_INDEX]: undefined;
+    [PATHS.MODALS_ASSESSMENTS_NEW]: undefined;
+    [PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT]: AutocompleteMultiSelectorParams;
+};
+const PrimaryStack = createStackNavigator<PrimaryStackParamList>();
 const AppStackNavigator = () => {
     useAssessmentMonitor();
     return (
         <PrimaryStack.Navigator mode="modal">
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.HOME.INDEX.path}
+                name={PATHS.HOME_INDEX}
                 component={StackWithBottomTabs}
                 options={{headerShown: false}}
             />
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.MODALS.ASSESSMENTS.NEW.path}
+                name={PATHS.MODALS_ASSESSMENTS_NEW}
                 component={Assessment}
                 options={{
                     headerShown: false,
@@ -37,7 +43,7 @@ const AppStackNavigator = () => {
                 }}
             />
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.MODALS.FORM.AUTOCOMPLETE_MULTI_SELECT.path}
+                name={PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT}
                 component={AutocompleteMultiSelectorModal}
                 options={{
                     headerShown: true,

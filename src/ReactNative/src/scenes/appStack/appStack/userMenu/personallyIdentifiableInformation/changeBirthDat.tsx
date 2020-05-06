@@ -12,8 +12,7 @@ import ChooseYear from "../../../../sharedComponents/inputs/autocompleteMultiSel
 import ChooseDayOfMonth from "../../../../sharedComponents/inputs/autocompleteMultiSelector/preMade/chooseDayOfMonth";
 import {dateIsInRange, getDaysRangeForMonth} from "../../../../utils/dateUtils";
 
-interface ChangeBirthdateProps {}
-const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
+const ChangeBirthDate: React.FC = () => {
     const {birthYear, birthMonth, birthDay} = useSelector(getCurrentUser);
     const dispatch = useDispatch();
     const setBirthYear = useCallback(
@@ -101,7 +100,7 @@ const ChangeBirthdate: React.FC<ChangeBirthdateProps> = () => {
     );
 };
 
-export default ChangeBirthdate;
+export default ChangeBirthDate;
 
 const BirthdayContainerView = styled.View`
     display: flex;
