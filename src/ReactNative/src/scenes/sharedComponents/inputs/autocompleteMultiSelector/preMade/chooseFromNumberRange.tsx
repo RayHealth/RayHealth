@@ -1,11 +1,12 @@
 import * as React from "react";
 import AutocompleteMultiSelectorButton from "../autocompleteMultiSelectorButton";
 import {AMSValue} from "../constants";
+import {NumberRange} from "../../../../utils/genericTypes";
 
 interface ChooseYearProps {
     keyToMonitor: string;
     label: string;
-    range: [number, number];
+    range: NumberRange;
     currentValue?: AMSValue;
     onChange: (newValues?: AMSValue[]) => void;
 }
