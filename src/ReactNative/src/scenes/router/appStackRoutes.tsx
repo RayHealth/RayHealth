@@ -19,6 +19,7 @@ import AutocompleteMultiSelectorModal, {
 } from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
 import WelcomeToRayHealth from "../appStack/welcomeStack/welcomeToRayHealth";
 import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
+import {currentTermsAndConditionsVersion} from "@reduxShared/models/currentUser/termsAndConditions";
 
 export type PrimaryStackParamList = {
     [PATHS.WELCOME_INDEX]: undefined;
@@ -141,9 +142,9 @@ const UserMenuStackNavigator = () => {
 };
 
 const useAgreementMonitor = (): void => {
-    const {acceptanceOfTermsAndConditions} = useSelector(getCurrentUser);
+    const {versionOfTermsAndConditionsVersion} = useSelector(getCurrentUser);
     useEffect(() => {
-        if (acceptanceOfTermsAndConditions) {
+        if (versionOfTermsAndConditionsVersion !== currentTermsAndConditionsVersion) {
             NavigationService.navigate(APP_STACK_ROUTES.WELCOME.INDEX.path);
         }
     });

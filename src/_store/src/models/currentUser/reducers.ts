@@ -35,7 +35,9 @@ const currentCurrentUserReducer = (
         case CURRENT_USER.ACCEPT_TAC_SUCCESS:
             return {
                 ...state,
-                acceptanceOfTermsAndConditions: action.acceptanceOfTermsAndConditions,
+                versionOfTermsAndConditionsAccepted: Date.now(),
+                versionOfTermsAndConditionsVersion:
+                    action.versionOfTermsAndConditionsAccepted,
             };
         default:
             return state;

@@ -32,7 +32,7 @@ const Toggle: React.FC<ToggleProps> = ({children, toggleFunc, value}) => {
         </ToggleActiveTouchableHighlight>
     ) : (
         <ToggleNotActiveTouchableHighlight onPress={onClick}>
-            <Flex2ColumnContainerView>
+            <Flex2ColumnContainerView alignItems="center">
                 <Flex2ColumnFixedChild width={35}>
                     <ToggleIcon source={mdiCheckBoxUnchecked} />
                 </Flex2ColumnFixedChild>

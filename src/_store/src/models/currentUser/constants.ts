@@ -7,6 +7,7 @@ import {
 } from "./actions";
 import {AssessmentInitialize} from "../assessments/actions";
 import {ResetStore} from "../resetStoreActions";
+import {TermsAndConditionsVersion} from "./termsAndConditions";
 
 export const DEFAULT_NAME = "Anonymous Corona Virus Fighter";
 
@@ -46,7 +47,8 @@ export interface CurrentUser {
     gender?: Gender;
     ethnicity?: string;
     privacy: PrivacySettings;
-    acceptanceOfTermsAndConditions: boolean;
+    versionOfTermsAndConditionsAccepted: undefined | number;
+    versionOfTermsAndConditionsVersion: undefined | TermsAndConditionsVersion;
 }
 export const defaultCurrentUser: CurrentUser = {
     name: DEFAULT_NAME,
@@ -59,7 +61,8 @@ export const defaultCurrentUser: CurrentUser = {
         shareTripsLocations: true,
         shareTripsDetailed: false,
     },
-    acceptanceOfTermsAndConditions: false,
+    versionOfTermsAndConditionsAccepted: undefined,
+    versionOfTermsAndConditionsVersion: undefined,
 };
 
 export type CurrentAccountActions =

@@ -1,4 +1,5 @@
 import {CURRENT_USER, Gender, PrivacySettings} from "./constants";
+import {TermsAndConditionsVersion} from "./termsAndConditions";
 
 export interface CurrentUserNameSuccess {
     type: CURRENT_USER.NAME_SUCCESS;
@@ -48,11 +49,11 @@ export const patchCurrentUserPrivacySettings = (
 
 export interface CurrentUserAcceptTacSuccess {
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS;
-    acceptanceOfTermsAndConditions: boolean;
+    versionOfTermsAndConditionsAccepted: TermsAndConditionsVersion;
 }
 export const setCurrentUserAcceptTacSuccess = (
-    acceptanceOfTermsAndConditions: boolean,
+    versionOfTermsAndConditionsAccepted: TermsAndConditionsVersion,
 ): CurrentUserAcceptTacSuccess => ({
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS,
-    acceptanceOfTermsAndConditions,
+    versionOfTermsAndConditionsAccepted,
 });

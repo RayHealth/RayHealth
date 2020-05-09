@@ -1,25 +1,36 @@
 import * as React from "react";
-import {DefaultText, DefaultView} from "../../../config/styleDefaults";
-import Toggle from "../toggle";
-import {useDispatch, useSelector} from "react-redux";
+import {DefaultH2Text} from "../../../config/styleDefaults";
+import {useDispatch} from "react-redux";
 import {useCallback} from "react";
 import {setCurrentUserAcceptTacSuccess} from "@reduxShared/models/currentUser/actions";
-import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
+import {BrandFullWidthButton} from "../../sharedComponents/buttons";
+import {currentTermsAndConditionsVersion} from "@reduxShared/models/currentUser/termsAndConditions";
+import {BaseContainerView} from "../styles";
+import AcceptAppTermsAndConditions from "./AcceptAppTermsAndConditions";
+import NavigationService from "../../../services/navigationService";
+import {APP_STACK_ROUTES} from "../../router/constants";
 
 interface WelcomeToRayHealthProps {}
 const WelcomeToRayHealth: React.FC<WelcomeToRayHealthProps> = () => {
-    const {acceptanceOfTermsAndConditions} = useSelector(getCurrentUser);
+    const [acceptToggle, setAcceptToggle] = React.useState<boolean>(false);
     const dispatch = useDispatch();
-    const toggleAcceptance = useCallback(() => {
-        dispatch(setCurrentUserAcceptTacSuccess(!acceptanceOfTermsAndConditions));
-    }, [dispatch, acceptanceOfTermsAndConditions]);
+    const acceptTermsAndConditions = useCallback(() => {
+        dispatch(setCurrentUserAcceptTacSuccess(currentTermsAndConditionsVersion));
+        NavigationService.navigate(APP_STACK_ROUTES.HOME.INDEX.path);
+    }, [dispatch]);
     return (
-        <DefaultView>
-            <DefaultText>WelcomeToRayHealth</DefaultText>
-            <Toggle toggleFunc={toggleAcceptance} value={acceptanceOfTermsAndConditions}>
-                I accept terms and conditions
-            </Toggle>
-        </DefaultView>
+        <BaseContainerView>
+            <DefaultH2Text>Welcome to Ray Health</DefaultH2Text>
+            <AcceptAppTermsAndConditions
+                acceptToggle={acceptToggle}
+                setAcceptToggle={setAcceptToggle}
+            />
+            {acceptToggle && (
+                <BrandFullWidthButton onPress={acceptTermsAndConditions}>
+                    Continue
+                </BrandFullWidthButton>
+            )}
+        </BaseContainerView>
     );
 };
 
