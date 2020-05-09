@@ -47,10 +47,9 @@ const AppStackNavigator = () => {
                 component={AutocompleteMultiSelectorModal}
                 options={{
                     headerShown: true,
-                    headerLeft: (props: StackHeaderLeftButtonProps) => {
-                        console.log(props);
-                        return <OverrideBackButton />;
-                    },
+                    headerLeft: (/*props: StackHeaderLeftButtonProps*/) => (
+                        <OverrideBackButton />
+                    ),
                     gestureEnabled: false,
                 }}
             />

@@ -15,10 +15,7 @@ const RayHealthTextInput: React.FC<RayHealthTextInputProps> = ({
     onChange,
     placeholder,
 }) => {
-    const oc = (text) => {
-        console.log(text);
-        onChange(text);
-    };
+    const oc = (text) => onChange(text);
     return (
         <StyledTextInput
             autoFocus={autoFocus}

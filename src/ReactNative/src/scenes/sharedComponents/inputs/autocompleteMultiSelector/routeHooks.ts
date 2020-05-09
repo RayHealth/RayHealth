@@ -40,7 +40,7 @@ export const useDetectAutoCompleteMultiSelectorChange = (
         params: {newValue: AMSValue[]; keyToMonitor: string};
     };
     const {newValue, keyToMonitor} = route.params;
-    console.log(keyToMonitor, key2Monitor);
+    // console.log(keyToMonitor, key2Monitor);
     if (newValue && keyToMonitor === key2Monitor) {
         if (!currentValue || !areAMSValuesEqual(currentValue, newValue)) {
             onChange(newValue);

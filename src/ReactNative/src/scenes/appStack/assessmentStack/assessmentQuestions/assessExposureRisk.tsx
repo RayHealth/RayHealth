@@ -19,15 +19,16 @@ const AssessExposureRisk: React.FC<AssessmentQuestionsProps> = ({assessment}) =>
         boolean
     >(!!assessment.contactWithPositiveCovid19Case);
     const dispatch = useDispatch();
-    const onContinue = useCallback(() => {
-        console.log("Was not out of country");
-        dispatch(
-            saveExposureRisk(
-                outOfCountryWithinLast14Days,
-                contactWithPositiveCovid19Case,
+    const onContinue = useCallback(
+        () =>
+            dispatch(
+                saveExposureRisk(
+                    outOfCountryWithinLast14Days,
+                    contactWithPositiveCovid19Case,
+                ),
             ),
-        );
-    }, [dispatch, outOfCountryWithinLast14Days, contactWithPositiveCovid19Case]);
+        [dispatch, outOfCountryWithinLast14Days, contactWithPositiveCovid19Case],
+    );
 
     const allFalse = !outOfCountryWithinLast14Days && !contactWithPositiveCovid19Case;
     return (

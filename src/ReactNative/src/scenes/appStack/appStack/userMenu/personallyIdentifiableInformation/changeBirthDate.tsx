@@ -33,7 +33,6 @@ const ChangeBirthDate: React.FC = () => {
     );
     const setBirthMonth = useCallback(
         (newMonth?: number) => {
-            console.log("blah", newMonth);
             return dispatch(
                 setCurrentUserBirthdaySuccess(
                     birthYear,
