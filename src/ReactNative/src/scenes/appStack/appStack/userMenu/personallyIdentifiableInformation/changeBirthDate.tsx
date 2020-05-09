@@ -16,31 +16,34 @@ const ChangeBirthDate: React.FC = () => {
     const {birthYear, birthMonth, birthDay} = useSelector(getCurrentUser);
     const dispatch = useDispatch();
     const setBirthYear = useCallback(
-        (newYear?: number) =>
-            dispatch(
+        (newYear?: string) => {
+            const year = newYear ? parseInt(newYear, 10) : undefined;
+            return dispatch(
                 setCurrentUserBirthdaySuccess(
-                    newYear,
-                    newYear ? birthMonth : undefined,
-                    newYear &&
+                    year,
+                    year ? birthMonth : undefined,
+                    year &&
                         birthMonth &&
                         birthDay &&
-                        dateIsInRange(getDaysRangeForMonth(newYear, birthMonth), birthDay)
+                        dateIsInRange(getDaysRangeForMonth(year, birthMonth), birthDay)
                         ? birthDay
                         : undefined,
                 ),
-            ),
+            );
+        },
         [dispatch, birthMonth, birthDay],
     );
     const setBirthMonth = useCallback(
-        (newMonth?: number) => {
+        (newMonth?: string) => {
+            const month = newMonth ? parseInt(newMonth, 10) : undefined;
             return dispatch(
                 setCurrentUserBirthdaySuccess(
                     birthYear,
-                    newMonth,
+                    month,
                     birthYear &&
-                        newMonth &&
+                        month &&
                         birthDay &&
-                        dateIsInRange(getDaysRangeForMonth(birthYear, newMonth), birthDay)
+                        dateIsInRange(getDaysRangeForMonth(birthYear, month), birthDay)
                         ? birthDay
                         : undefined,
                 ),
@@ -49,14 +52,15 @@ const ChangeBirthDate: React.FC = () => {
         [dispatch, birthYear, birthDay],
     );
     const setBirthDay = useCallback(
-        (n) =>
-            dispatch(
+        (n?: string) => {
+            return dispatch(
                 setCurrentUserBirthdaySuccess(
                     birthYear,
                     birthMonth,
                     n ? parseInt(n, 10) : undefined,
                 ),
-            ),
+            );
+        },
         [dispatch, birthMonth, birthYear],
     );
     return (

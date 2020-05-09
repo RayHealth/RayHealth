@@ -22,6 +22,11 @@ const currentCurrentUserReducer = (
                 birthDay: action.birthDay,
                 birthYear: action.birthYear,
             };
+        case CURRENT_USER.GENDER_SUCCESS:
+            return {
+                ...state,
+                gender: action.gender,
+            };
         case CURRENT_USER.PATCH_PRIVACY_SETTINGS:
             return {
                 ...state,

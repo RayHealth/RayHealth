@@ -4,14 +4,14 @@ import NavigationService from "../../../../services/navigationService";
 import {useSelector} from "react-redux";
 import {getCurrentScreenPath} from "../../../../store/models/appState/selectors";
 import {APP_STACK_ROUTES} from "../../../router/constants";
-import {AMSValue} from "./constants";
+import {AMSPayload} from "./utils";
 import {AutocompleteMultiSelectorModalRouteProp} from "./autocompleteMultiSelectorModal";
 
 export const useOpenAutocompleteMultiSelectorModal = (
     keyToMonitor: string,
     label: string,
-    staticData: AMSValue[],
-    currentValue?: AMSValue[],
+    staticData: AMSPayload[],
+    currentValue?: AMSPayload[],
 ) => {
     const backRoute = useSelector(getCurrentScreenPath);
     return React.useCallback(
@@ -24,20 +24,20 @@ export const useOpenAutocompleteMultiSelectorModal = (
     );
 };
 
-const amsValuesToString = (amsValues: AMSValue[]) =>
+const amsValuesToString = (amsValues: AMSPayload[]) =>
     amsValues
         .map((o) => o.value)
         .sort()
         .join("~");
-const areAMSValuesEqual = (a: AMSValue[], b: AMSValue[]): boolean =>
+const areAMSValuesEqual = (a: AMSPayload[], b: AMSPayload[]): boolean =>
     amsValuesToString(a) === amsValuesToString(b);
 export const useDetectAutoCompleteMultiSelectorChange = (
     key2Monitor: string,
-    onChange: (newValues: AMSValue[] | []) => void,
-    currentValue?: AMSValue[],
+    onChange: (newValues: AMSPayload[] | []) => void,
+    currentValue?: AMSPayload[],
 ): void => {
     const route = (useRoute() as unknown) as {
-        params: {newValue: AMSValue[]; keyToMonitor: string};
+        params: {newValue: AMSPayload[]; keyToMonitor: string};
     };
     const {newValue, keyToMonitor} = route.params;
     // console.log(keyToMonitor, key2Monitor);
@@ -53,7 +53,7 @@ export const useCloseAutocompleteMultiSelectorModal = () => {
     const route = useRoute<AutocompleteMultiSelectorModalRouteProp>();
     const {keyToMonitor, backRoute} = route.params;
     return React.useCallback(
-        (newValue: AMSValue[]) =>
+        (newValue: AMSPayload[]) =>
             NavigationService.navigate(backRoute, {keyToMonitor, newValue}),
         [backRoute, keyToMonitor],
     );

@@ -1,8 +1,8 @@
 import * as React from "react";
 import AutocompleteMultiSelectorButton from "../autocompleteMultiSelectorButton";
-import {AMSValue} from "../constants";
+import {AMSPayload, useHandleASMValueChange} from "../utils";
 
-const staticMonths: AMSValue[] = [
+const staticMonths: AMSPayload[] = [
     {value: "1", label: "January"},
     {value: "2", label: "February"},
     {value: "3", label: "March"},
@@ -19,17 +19,11 @@ const staticMonths: AMSValue[] = [
 interface ChooseMonthProps {
     keyToMonitor: string;
     month?: number;
-    setMonth: (newMonth?: number) => void;
+    setMonth: (newMonth?: string) => void;
 }
 const ChooseMonth: React.FC<ChooseMonthProps> = React.memo(
     ({keyToMonitor, month, setMonth}) => {
-        const handleChange = React.useCallback(
-            (newValues: AMSValue[]) => {
-                if (newValues.length < 1 || !newValues[0].value) setMonth(undefined);
-                setMonth(parseInt(newValues[0].value, 10));
-            },
-            [setMonth],
-        );
+        const handleChange = useHandleASMValueChange(setMonth);
         return (
             <AutocompleteMultiSelectorButton
                 keyToMonitor={keyToMonitor}

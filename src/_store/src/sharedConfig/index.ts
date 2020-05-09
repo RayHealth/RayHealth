@@ -12,7 +12,7 @@ const apiDomain = (): string => {
     // REACT_APP_API_BASE_URL=//localhost:5000              // for web development
     // REACT_APP_API_BASE_URL=http://localhost:5000         // for iOS development
     // REACT_APP_API_BASE_URL=http://10.0.2.2:5000          // for android development
-    if (isDevMode) return devMachineAddress;
+    // if (isDevMode) return devMachineAddress;
     return "https://ray-health-demo.herokuapp.com";
 };
 

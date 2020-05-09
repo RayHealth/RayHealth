@@ -5,14 +5,14 @@ import {
     useDetectAutoCompleteMultiSelectorChange,
     useOpenAutocompleteMultiSelectorModal,
 } from "./routeHooks";
-import {AMSValue} from "./constants";
+import {AMSPayload} from "./utils";
 
 interface AutocompleteMultiSelectorInputProps {
     keyToMonitor: string;
     label: string;
-    staticData: AMSValue[];
-    currentValue?: AMSValue[];
-    onChange: (newValues: AMSValue[]) => void;
+    staticData: AMSPayload[];
+    currentValue?: AMSPayload[];
+    onChange: (newValues: AMSPayload[]) => void;
 }
 const AutocompleteMultiSelectorButton: React.FC<AutocompleteMultiSelectorInputProps> = React.memo(
     ({keyToMonitor, currentValue, label, staticData, onChange}) => {

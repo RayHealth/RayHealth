@@ -1,6 +1,7 @@
 import {
     CurrentUserAcceptTacSuccess,
     CurrentUserBirthdaySuccess,
+    CurrentUserGenderSuccess,
     CurrentUserNameSuccess,
     PatchCurrentUserPrivacySettings,
 } from "./actions";
@@ -12,6 +13,7 @@ export const DEFAULT_NAME = "Anonymous Corona Virus Fighter";
 export enum CURRENT_USER {
     NAME_SUCCESS = "currentUser/CURRENT_USER_SET_NAME",
     BIRTHDAY_SUCCESS = "currentUser/CURRENT_USER_BIRTH_DATE",
+    GENDER_SUCCESS = "currentUser/GENDER_SUCCESS",
     PATCH_PRIVACY_SETTINGS = "currentUser/PATCH_PRIVACY_SETTINGS",
     ACCEPT_TAC_SUCCESS = "currentUser/CURRENT_USER_ACCEPT_TAC_SUCCESS",
 }
@@ -28,10 +30,12 @@ export interface PrivacySettings {
     shareTripsLocations: boolean;
     shareTripsDetailed: boolean;
 }
+export type Gender = "male" | "female" | "other";
+export const availableGenders: Gender[] = ["female", "male", "other"];
 export interface AggregatedPrivateInformation {
     age?: number;
     ageRange?: string;
-    gender?: string;
+    gender?: Gender;
     ethnicity?: string;
 }
 export interface CurrentUser {
@@ -39,7 +43,7 @@ export interface CurrentUser {
     birthMonth?: number;
     birthDay?: number;
     birthYear?: number;
-    gender?: string;
+    gender?: Gender;
     ethnicity?: string;
     privacy: PrivacySettings;
     acceptanceOfTermsAndConditions: boolean;
@@ -62,6 +66,7 @@ export type CurrentAccountActions =
     | ResetStore
     | CurrentUserNameSuccess
     | CurrentUserBirthdaySuccess
+    | CurrentUserGenderSuccess
     | PatchCurrentUserPrivacySettings
     | CurrentUserAcceptTacSuccess
     | AssessmentInitialize;

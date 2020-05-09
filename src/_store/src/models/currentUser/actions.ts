@@ -1,4 +1,4 @@
-import {CURRENT_USER, PrivacySettings} from "./constants";
+import {CURRENT_USER, Gender, PrivacySettings} from "./constants";
 
 export interface CurrentUserNameSuccess {
     type: CURRENT_USER.NAME_SUCCESS;
@@ -23,6 +23,16 @@ export const setCurrentUserBirthdaySuccess = (
     birthYear,
     birthMonth,
     birthDay,
+});
+export interface CurrentUserGenderSuccess {
+    type: CURRENT_USER.GENDER_SUCCESS;
+    gender?: Gender;
+}
+export const setCurrentUserGenderSuccess = (
+    gender?: Gender,
+): CurrentUserGenderSuccess => ({
+    type: CURRENT_USER.GENDER_SUCCESS,
+    gender,
 });
 
 export interface PatchCurrentUserPrivacySettings {

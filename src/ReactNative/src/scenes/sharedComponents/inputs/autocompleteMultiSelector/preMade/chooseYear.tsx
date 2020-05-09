@@ -1,23 +1,16 @@
 import * as React from "react";
-import {AMSValue} from "../constants";
+import {useHandleASMValueChange} from "../utils";
 import ChooseFromNumberRange from "./chooseFromNumberRange";
 
 interface ChooseYearProps {
     keyToMonitor: string;
     year?: number;
-    setYear: (newYear?: number) => void;
+    setYear: (newYear?: string) => void;
 }
 const range: [number, number] = [1900, 2019]; // we may need to agnosticize this in the future
 const ChooseYear: React.FC<ChooseYearProps> = React.memo(
     ({keyToMonitor, year, setYear}) => {
-        const handleChange = React.useCallback(
-            (newValues?: AMSValue[]) => {
-                if (!newValues || newValues.length < 1 || !newValues[0].value)
-                    return setYear(undefined);
-                setYear(parseInt(newValues[0].value, 10));
-            },
-            [setYear],
-        );
+        const handleChange = useHandleASMValueChange(setYear);
         const currentValue = year
             ? {value: year.toString(), label: year.toString()}
             : undefined;

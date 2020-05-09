@@ -21,7 +21,7 @@ import {
 } from "../../../utils/flex2Column1FixedWidth";
 import {PrimaryStackParamList} from "../../../router/appStackRoutes";
 import {PATHS} from "../../../router/constants";
-import {AMSValue} from "./constants";
+import {AMSPayload} from "./utils";
 
 export const OverrideBackButton: React.FC = React.memo(() => {
     const goBack = useAutocompleteMultiSelectorModalGoBack();
@@ -32,8 +32,8 @@ export interface AutocompleteMultiSelectorParams {
     keyToMonitor: string;
     backRoute: string;
     label: string;
-    staticData: AMSValue[];
-    currentValue?: AMSValue[];
+    staticData: AMSPayload[];
+    currentValue?: AMSPayload[];
 }
 
 type AutocompleteMultiSelectorModalNavigationProps = StackNavigationProp<
@@ -78,7 +78,8 @@ const AutocompleteMultiSelectorModal: React.FC<{
                             return null;
                         }
                         const isSelected =
-                            currentValue && currentValue.some((v) => v === option);
+                            currentValue &&
+                            currentValue.some((v) => v.value === option.value);
                         return (
                             <ResultTouchableHighlight
                                 key={option.value}
