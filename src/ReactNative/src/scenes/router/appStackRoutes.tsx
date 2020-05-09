@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath} from "./constants";
+import {APP_STACK_ROUTES, getRouteOptionsFromPath, RoutePath, PATHS} from "./constants";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeIndex from "../appStack/appStack/homeScreen";
 import AppTabBar from "./tabBarComponents";
@@ -13,22 +13,52 @@ import PastAssessments from "../appStack/appStack/userMenu/pastAssessments";
 import SetHealthAuthority from "../appStack/appStack/userMenu/healthAuthority/setHealthAuthority";
 import ManagePrivacySettings from "../appStack/appStack/userMenu/privacySettings/managePrivacySettings";
 import ManagePersonalInformation from "../appStack/appStack/userMenu/personallyIdentifiableInformation/managePersonalInformation";
+import AutocompleteMultiSelectorModal, {
+    AutocompleteMultiSelectorParams,
+    OverrideBackButton,
+} from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
+import WelcomeToRayHealth from "../appStack/welcomeStack/welcomeToRayHealth";
+import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
+import {currentTermsAndConditionsVersion} from "@reduxShared/models/currentUser/termsAndConditions";
 
-const PrimaryStack = createStackNavigator();
+export type PrimaryStackParamList = {
+    [PATHS.WELCOME_INDEX]: undefined;
+    [PATHS.HOME_INDEX]: undefined;
+    [PATHS.MODALS_ASSESSMENTS_NEW]: undefined;
+    [PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT]: AutocompleteMultiSelectorParams;
+};
+const PrimaryStack = createStackNavigator<PrimaryStackParamList>();
 const AppStackNavigator = () => {
+    useAgreementMonitor();
     useAssessmentMonitor();
     return (
-        <PrimaryStack.Navigator>
+        <PrimaryStack.Navigator mode="modal">
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.HOME.INDEX.path}
+                name={PATHS.WELCOME_INDEX}
+                component={WelcomeToRayHealth}
+                options={{headerShown: false}}
+            />
+            <PrimaryStack.Screen
+                name={PATHS.HOME_INDEX}
                 component={StackWithBottomTabs}
                 options={{headerShown: false}}
             />
             <PrimaryStack.Screen
-                name={APP_STACK_ROUTES.ASSESSMENTS.NEW.path}
+                name={PATHS.MODALS_ASSESSMENTS_NEW}
                 component={Assessment}
                 options={{
                     headerShown: false,
+                    gestureEnabled: false,
+                }}
+            />
+            <PrimaryStack.Screen
+                name={PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT}
+                component={AutocompleteMultiSelectorModal}
+                options={{
+                    headerShown: true,
+                    headerLeft: (/*props: StackHeaderLeftButtonProps*/) => (
+                        <OverrideBackButton />
+                    ),
                     gestureEnabled: false,
                 }}
             />
@@ -77,7 +107,6 @@ const setOptionsFromRoute = (routePath: RoutePath): StackNavigationOptions => ({
     title: routePath.label,
 });
 const UserMenuStackNavigator = () => {
-    useAssessmentMonitor();
     return (
         <UserMenuStack.Navigator>
             <UserMenuStack.Screen
@@ -112,11 +141,19 @@ const UserMenuStackNavigator = () => {
     );
 };
 
+const useAgreementMonitor = (): void => {
+    const {versionOfTermsAndConditionsVersion} = useSelector(getCurrentUser);
+    useEffect(() => {
+        if (versionOfTermsAndConditionsVersion !== currentTermsAndConditionsVersion) {
+            NavigationService.navigate(APP_STACK_ROUTES.WELCOME.INDEX.path);
+        }
+    });
+};
 const useAssessmentMonitor = (): void => {
     const assessmentUuid = useSelector(getCurrentAssessmentUuid);
     useEffect(() => {
         if (assessmentUuid) {
-            NavigationService.navigate(APP_STACK_ROUTES.ASSESSMENTS.NEW.path);
+            NavigationService.navigate(APP_STACK_ROUTES.MODALS.ASSESSMENTS.NEW.path);
         }
     });
 };

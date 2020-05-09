@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DefaultText, STYLE} from "../../config/styleDefaults";
+import {DefaultText, STYLE} from "../../../config/styleDefaults";
 import styled from "styled-components/native";
 import {Platform, TouchableWithoutFeedback} from "react-native";
 import {useCallback} from "react";
@@ -133,10 +133,10 @@ const TextInputContainer = styled.View`
     border-width: 1px;
     border-color: ${STYLE.COLORS.BRAND};
     border-radius: ${STYLE.BORDER_RADIUS.INPUT}px;
-    padding-top: ${STYLE.FONT_SIZES.INPUT * 0.5}px;
-    padding-right: ${STYLE.FONT_SIZES.INPUT * 0.5}px;
-    padding-left: ${STYLE.FONT_SIZES.INPUT * 0.5}px;
-    padding-bottom: ${STYLE.FONT_SIZES.INPUT * 0.5}px;
+    padding-top: ${STYLE.FONT_SIZES.INPUT * 0.9}px;
+    padding-right: ${STYLE.FONT_SIZES.INPUT * 0.9}px;
+    padding-left: ${STYLE.FONT_SIZES.INPUT * 0.9}px;
+    padding-bottom: ${STYLE.FONT_SIZES.INPUT * 0.9}px;
     justify-content: center;
 `;
 const TextInputClearButtonAndroidOnlyContainer = styled.View`
