@@ -7,7 +7,6 @@ import {DefaultH2Text, DefaultText} from "../../../../../config/styleDefaults";
 import {BaseContainerView} from "../../../styles";
 import AutocompleteMultiSelectorButton from "../../../../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorButton";
 import {
-    AMSPayload,
     convertStringToAMSValue,
     useHandleASMValueChange,
 } from "../../../../sharedComponents/inputs/autocompleteMultiSelector/utils";
@@ -35,8 +34,8 @@ const ChangeGender: React.FC<ChangeGenderProps> = () => {
             <AutocompleteMultiSelectorButton
                 keyToMonitor="gender"
                 onChange={onChange}
-                label="Gender"
-                currentValue={gender ? [convertStringToAMSValue(gender)] : []}
+                label="Select gender"
+                currentValue={gender ? [convertStringToAMSValue(gender)] : undefined}
                 staticData={genders}
             />
         </BaseContainerView>
