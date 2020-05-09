@@ -18,6 +18,8 @@ const navigate = (routeName: string, params: {[k: string]: any} = {}) => {
         }),
     );
 };
+const setParams = (newParams: {[k: string]: any} = {}): void =>
+    topLevelNavigatorRef.current.dispatch(CommonActions.setParams(newParams));
 // const navigateWithParams = (routeSpec: RouteSpec) => {
 //     topLevelNavigatorRef.current.dispatch(
 //         CommonActions.navigate({
@@ -36,21 +38,22 @@ const navigate = (routeName: string, params: {[k: string]: any} = {}) => {
 //     );
 // };
 //
-// const goBack = () => {
-//     topLevelNavigatorRef.current.dispatch(
-//         // this does optionally take a key
-//         // https://reactnavigation.org/docs/en/navigation-actions.html#back
-//         CommonActions.goBack(),
-//     );
-// };
+const goBack = () => {
+    topLevelNavigatorRef.current.dispatch(
+        // this does optionally take a key
+        // https://reactnavigation.org/docs/en/navigation-actions.html#back
+        CommonActions.goBack(),
+    );
+};
 
 const NavigationService = {
     navigate,
     // navigateWithParams,
     // push,
     // pushWithParams,
+    setParams,
     topLevelNavigatorRef,
-    // goBack,
+    goBack,
 };
 
 export default NavigationService;

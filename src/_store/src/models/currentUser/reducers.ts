@@ -14,13 +14,18 @@ const currentCurrentUserReducer = (
         case APP.RESET_STORE:
             return defaultCurrentUser;
         case CURRENT_USER.NAME_SUCCESS:
-            return {...state, givenName: action.givenName, familyName: action.familyName};
+            return {...state, name: action.name};
         case CURRENT_USER.BIRTHDAY_SUCCESS:
             return {
                 ...state,
                 birthMonth: action.birthMonth,
                 birthDay: action.birthDay,
                 birthYear: action.birthYear,
+            };
+        case CURRENT_USER.GENDER_SUCCESS:
+            return {
+                ...state,
+                gender: action.gender,
             };
         case CURRENT_USER.PATCH_PRIVACY_SETTINGS:
             return {
@@ -30,7 +35,9 @@ const currentCurrentUserReducer = (
         case CURRENT_USER.ACCEPT_TAC_SUCCESS:
             return {
                 ...state,
-                acceptanceOfTermsAndConditions: action.acceptanceOfTermsAndConditions,
+                versionOfTermsAndConditionsAccepted: Date.now(),
+                versionOfTermsAndConditionsVersion:
+                    action.versionOfTermsAndConditionsAccepted,
             };
         default:
             return state;

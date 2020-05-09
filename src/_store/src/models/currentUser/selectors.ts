@@ -3,19 +3,27 @@ import {AggregatedPrivateInformation, CurrentUser} from "./constants";
 import {PrivacySettings} from "./constants";
 
 export const getCurrentUser = (state: IAppSharedState): CurrentUser => state.currentUser;
+
 export const getPrivacySettings = (state: IAppSharedState): PrivacySettings =>
     getCurrentUser(state).privacy;
 
 const twoDigitsOnly = (num: number): number => Math.round(num * 100) / 100;
+
 const epochToYears = (msSinceEpoch: number): number =>
     twoDigitsOnly(msSinceEpoch / 1000 / 60 / 60 / 24 / 365.25);
-const getCurrentAgeInYears = (user: CurrentUser): number =>
-    epochToYears(
-        Date.now() -
-            new Date(
-                `${user.birthYear}-${user.birthMonth || "01"}-${user.birthDay || "01"}`,
-            ).getTime(),
-    );
+
+const getCurrentAgeInYears = (user: CurrentUser): number | undefined =>
+    user.birthYear
+        ? epochToYears(
+              new Date().getTime() -
+                  new Date(
+                      user.birthYear,
+                      user.birthMonth ? user.birthMonth - 1 : 0,
+                      user.birthDay || 1,
+                  ).getTime(),
+          )
+        : undefined;
+
 const whatAgeRange = (age: number) => {
     if (age < 10) return "<10";
     if (age < 20) return "10-19";

@@ -52,10 +52,7 @@ const addRoutes = (router) => {
                                       ...acc.failedMessage,
                                       {
                                           id: item[1],
-                                          message: (() => {
-                                              console.log(item);
-                                              return JSON.stringify(item[2]);
-                                          })(),
+                                          message: JSON.stringify(item[2]),
                                       },
                                   ]
                                 : [],

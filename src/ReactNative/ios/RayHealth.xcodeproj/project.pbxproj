@@ -12,17 +12,17 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2769CF192EB53981718F8E3D /* libPods-RayHealth-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51470D96EA9DBE897B2D344 /* libPods-RayHealth-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* RayHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RayHealthTests.m */; };
-		339DDD28832CDC0BCE965729 /* libPods-RayHealth-RayHealthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF45A278059CDD78B33E2E1 /* libPods-RayHealth-RayHealthTests.a */; };
 		495859CC245A838F00CB92FD /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 495859CB245A838E00CB92FD /* assets */; };
 		496B4D59244BE8B700D6E187 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B4D58244BE8B700D6E187 /* Dummy.swift */; };
 		497EA6702456CCFC00359C08 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
-		B7A4887CC41EF31307B2A4D1 /* libPods-RayHealth-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C8E59AFF8F7C6D8E46C4FC /* libPods-RayHealth-tvOS.a */; };
-		D92EF70B8FF3F7882B318D69 /* libPods-RayHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9C35A16063F15BC4C2E2D5 /* libPods-RayHealth.a */; };
+		4B24012D1CBA319604A4A0BA /* libPods-RayHealth-RayHealthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E4AB63A1D1255550602AC6 /* libPods-RayHealth-RayHealthTests.a */; };
+		AA97079E2C39A9BA5A0C9DA4 /* libPods-RayHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 544D3663F5B7EB9FF7BA4797 /* libPods-RayHealth.a */; };
+		CF6F232E9FF7724F9EB7393A /* libPods-RayHealth-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A240D4FBD3FBE7AC4E7658B /* libPods-RayHealth-tvOS.a */; };
+		D9850AFDF2602365FBD4E611 /* libPods-RayHealth-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D2AA14E090F20DB022142C /* libPods-RayHealth-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,6 @@
 		00E356EE1AD99517003FC87E /* RayHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RayHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RayHealthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RayHealthTests.m; sourceTree = "<group>"; };
-		10C94A57953025B59E752161 /* Pods-RayHealth-RayHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-RayHealthTests.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-RayHealthTests/Pods-RayHealth-RayHealthTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RayHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RayHealth/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = RayHealth/AppDelegate.m; sourceTree = "<group>"; };
@@ -55,24 +54,25 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RayHealth/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RayHealth/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RayHealth/main.m; sourceTree = "<group>"; };
-		1486F7D47E735FE0745667E4 /* Pods-RayHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth/Pods-RayHealth.debug.xcconfig"; sourceTree = "<group>"; };
-		29C8E59AFF8F7C6D8E46C4FC /* libPods-RayHealth-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* RayHealth-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RayHealth-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* RayHealth-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RayHealth-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C7CBCED6AB9D39686E5B5F3 /* Pods-RayHealth-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOSTests/Pods-RayHealth-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3CF45A278059CDD78B33E2E1 /* libPods-RayHealth-RayHealthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-RayHealthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A233A28D9B5CAADD4B25372 /* Pods-RayHealth-RayHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-RayHealthTests.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-RayHealthTests/Pods-RayHealth-RayHealthTests.release.xcconfig"; sourceTree = "<group>"; };
+		43300313C36F3709EE1F5DBB /* Pods-RayHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth.release.xcconfig"; path = "Target Support Files/Pods-RayHealth/Pods-RayHealth.release.xcconfig"; sourceTree = "<group>"; };
 		495859CB245A838E00CB92FD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		496B4D58244BE8B700D6E187 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		49F92081244BE09A00879139 /* RayHealth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RayHealth-Bridging-Header.h"; sourceTree = "<group>"; };
-		5A9C35A16063F15BC4C2E2D5 /* libPods-RayHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F72BB3E4FDE6EA9960A9D07 /* Pods-RayHealth-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOSTests/Pods-RayHealth-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		A989C63B5226D7AD032A3951 /* Pods-RayHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth.release.xcconfig"; path = "Target Support Files/Pods-RayHealth/Pods-RayHealth.release.xcconfig"; sourceTree = "<group>"; };
-		B51470D96EA9DBE897B2D344 /* libPods-RayHealth-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C60D3E2396A22233CD08B5C8 /* Pods-RayHealth-RayHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-RayHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-RayHealthTests/Pods-RayHealth-RayHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D2CD0A54BDD8115D70D227E2 /* Pods-RayHealth-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOS.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOS/Pods-RayHealth-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		544D3663F5B7EB9FF7BA4797 /* libPods-RayHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E4AB63A1D1255550602AC6 /* libPods-RayHealth-RayHealthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-RayHealthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65858E12433605DCDD2C0854 /* Pods-RayHealth-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOSTests/Pods-RayHealth-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A0E5EB88EE248C4D63B332F /* Pods-RayHealth-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOS.release.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOS/Pods-RayHealth-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		6A240D4FBD3FBE7AC4E7658B /* libPods-RayHealth-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D2AA14E090F20DB022142C /* libPods-RayHealth-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RayHealth-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E5EDED2C4398437D7332130 /* Pods-RayHealth-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOSTests/Pods-RayHealth-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D11791A45A71C4CEE7F393FE /* Pods-RayHealth-RayHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-RayHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-RayHealthTests/Pods-RayHealth-RayHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8D1C3D24DD28CC9841284FB /* Pods-RayHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth/Pods-RayHealth.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F3BDA57AA633A63A78B66C11 /* Pods-RayHealth-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOS/Pods-RayHealth-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F29874626374177A5F0CC028 /* Pods-RayHealth-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RayHealth-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-RayHealth-tvOS/Pods-RayHealth-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339DDD28832CDC0BCE965729 /* libPods-RayHealth-RayHealthTests.a in Frameworks */,
+				4B24012D1CBA319604A4A0BA /* libPods-RayHealth-RayHealthTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D92EF70B8FF3F7882B318D69 /* libPods-RayHealth.a in Frameworks */,
+				AA97079E2C39A9BA5A0C9DA4 /* libPods-RayHealth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A4887CC41EF31307B2A4D1 /* libPods-RayHealth-tvOS.a in Frameworks */,
+				CF6F232E9FF7724F9EB7393A /* libPods-RayHealth-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2769CF192EB53981718F8E3D /* libPods-RayHealth-tvOSTests.a in Frameworks */,
+				D9850AFDF2602365FBD4E611 /* libPods-RayHealth-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,14 +131,14 @@
 		0C163492B16EB0BF6C9CE4A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1486F7D47E735FE0745667E4 /* Pods-RayHealth.debug.xcconfig */,
-				A989C63B5226D7AD032A3951 /* Pods-RayHealth.release.xcconfig */,
-				C60D3E2396A22233CD08B5C8 /* Pods-RayHealth-RayHealthTests.debug.xcconfig */,
-				10C94A57953025B59E752161 /* Pods-RayHealth-RayHealthTests.release.xcconfig */,
-				F3BDA57AA633A63A78B66C11 /* Pods-RayHealth-tvOS.debug.xcconfig */,
-				D2CD0A54BDD8115D70D227E2 /* Pods-RayHealth-tvOS.release.xcconfig */,
-				3C7CBCED6AB9D39686E5B5F3 /* Pods-RayHealth-tvOSTests.debug.xcconfig */,
-				5F72BB3E4FDE6EA9960A9D07 /* Pods-RayHealth-tvOSTests.release.xcconfig */,
+				D8D1C3D24DD28CC9841284FB /* Pods-RayHealth.debug.xcconfig */,
+				43300313C36F3709EE1F5DBB /* Pods-RayHealth.release.xcconfig */,
+				D11791A45A71C4CEE7F393FE /* Pods-RayHealth-RayHealthTests.debug.xcconfig */,
+				3A233A28D9B5CAADD4B25372 /* Pods-RayHealth-RayHealthTests.release.xcconfig */,
+				F29874626374177A5F0CC028 /* Pods-RayHealth-tvOS.debug.xcconfig */,
+				6A0E5EB88EE248C4D63B332F /* Pods-RayHealth-tvOS.release.xcconfig */,
+				9E5EDED2C4398437D7332130 /* Pods-RayHealth-tvOSTests.debug.xcconfig */,
+				65858E12433605DCDD2C0854 /* Pods-RayHealth-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -164,10 +164,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				5A9C35A16063F15BC4C2E2D5 /* libPods-RayHealth.a */,
-				3CF45A278059CDD78B33E2E1 /* libPods-RayHealth-RayHealthTests.a */,
-				29C8E59AFF8F7C6D8E46C4FC /* libPods-RayHealth-tvOS.a */,
-				B51470D96EA9DBE897B2D344 /* libPods-RayHealth-tvOSTests.a */,
+				544D3663F5B7EB9FF7BA4797 /* libPods-RayHealth.a */,
+				59E4AB63A1D1255550602AC6 /* libPods-RayHealth-RayHealthTests.a */,
+				6A240D4FBD3FBE7AC4E7658B /* libPods-RayHealth-tvOS.a */,
+				86D2AA14E090F20DB022142C /* libPods-RayHealth-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RayHealthTests" */;
 			buildPhases = (
-				D4C67F7992C8170CEAD7394A /* [CP] Check Pods Manifest.lock */,
+				04A8D9FF812328FB851F4DE6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -232,7 +232,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RayHealth" */;
 			buildPhases = (
-				23F257E4260DDB21E6D59B01 /* [CP] Check Pods Manifest.lock */,
+				610066D6981D15FB9ED11EBE /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -252,7 +252,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "RayHealth-tvOS" */;
 			buildPhases = (
-				E2B508C018E1B2B55E9B9A38 /* [CP] Check Pods Manifest.lock */,
+				82774CC657FE2EAE4F196DBF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -272,7 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "RayHealth-tvOSTests" */;
 			buildPhases = (
-				257E1AC76FAEDDB86A0E85F2 /* [CP] Check Pods Manifest.lock */,
+				0645B7ACE1EE7387829FDB0A /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -388,7 +388,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		23F257E4260DDB21E6D59B01 /* [CP] Check Pods Manifest.lock */ = {
+		04A8D9FF812328FB851F4DE6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,14 +403,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RayHealth-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RayHealth-RayHealthTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		257E1AC76FAEDDB86A0E85F2 /* [CP] Check Pods Manifest.lock */ = {
+		0645B7ACE1EE7387829FDB0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,7 +446,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		D4C67F7992C8170CEAD7394A /* [CP] Check Pods Manifest.lock */ = {
+		610066D6981D15FB9ED11EBE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -461,14 +461,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RayHealth-RayHealthTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RayHealth-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E2B508C018E1B2B55E9B9A38 /* [CP] Check Pods Manifest.lock */ = {
+		82774CC657FE2EAE4F196DBF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,7 +596,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C60D3E2396A22233CD08B5C8 /* Pods-RayHealth-RayHealthTests.debug.xcconfig */;
+			baseConfigurationReference = D11791A45A71C4CEE7F393FE /* Pods-RayHealth-RayHealthTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -620,7 +620,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10C94A57953025B59E752161 /* Pods-RayHealth-RayHealthTests.release.xcconfig */;
+			baseConfigurationReference = 3A233A28D9B5CAADD4B25372 /* Pods-RayHealth-RayHealthTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -641,12 +641,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1486F7D47E735FE0745667E4 /* Pods-RayHealth.debug.xcconfig */;
+			baseConfigurationReference = D8D1C3D24DD28CC9841284FB /* Pods-RayHealth.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6SFUPZVU56;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -672,12 +672,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A989C63B5226D7AD032A3951 /* Pods-RayHealth.release.xcconfig */;
+			baseConfigurationReference = 43300313C36F3709EE1F5DBB /* Pods-RayHealth.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6SFUPZVU56;
 				INFOPLIST_FILE = RayHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -697,7 +697,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3BDA57AA633A63A78B66C11 /* Pods-RayHealth-tvOS.debug.xcconfig */;
+			baseConfigurationReference = F29874626374177A5F0CC028 /* Pods-RayHealth-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -725,7 +725,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2CD0A54BDD8115D70D227E2 /* Pods-RayHealth-tvOS.release.xcconfig */;
+			baseConfigurationReference = 6A0E5EB88EE248C4D63B332F /* Pods-RayHealth-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -753,7 +753,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C7CBCED6AB9D39686E5B5F3 /* Pods-RayHealth-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 9E5EDED2C4398437D7332130 /* Pods-RayHealth-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -780,7 +780,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F72BB3E4FDE6EA9960A9D07 /* Pods-RayHealth-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 65858E12433605DCDD2C0854 /* Pods-RayHealth-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

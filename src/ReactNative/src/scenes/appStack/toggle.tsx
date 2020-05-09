@@ -21,7 +21,7 @@ const Toggle: React.FC<ToggleProps> = ({children, toggleFunc, value}) => {
     }, [toggleFunc, value]);
     return value ? (
         <ToggleActiveTouchableHighlight onPress={onClick}>
-            <Flex2ColumnContainerView>
+            <Flex2ColumnContainerView alignItems="center">
                 <Flex2ColumnFixedChild width={35}>
                     <ToggleIcon source={mdiCheckBoxChecked} />
                 </Flex2ColumnFixedChild>
@@ -32,7 +32,7 @@ const Toggle: React.FC<ToggleProps> = ({children, toggleFunc, value}) => {
         </ToggleActiveTouchableHighlight>
     ) : (
         <ToggleNotActiveTouchableHighlight onPress={onClick}>
-            <Flex2ColumnContainerView>
+            <Flex2ColumnContainerView alignItems="center">
                 <Flex2ColumnFixedChild width={35}>
                     <ToggleIcon source={mdiCheckBoxUnchecked} />
                 </Flex2ColumnFixedChild>
@@ -67,7 +67,6 @@ const ToggleActiveTouchableHighlight = styled.TouchableHighlight`
 const ToggleActiveText = styled(DefaultText)`
     font-size: ${STYLE.FONT_SIZES.BUTTON_TEXT}px;
     color: ${STYLE.COLORS.BRAND3};
-    min-height: 5px;
 `;
 
 const ToggleNotActiveTouchableHighlight = styled(ToggleActiveTouchableHighlight)`

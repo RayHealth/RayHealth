@@ -1,48 +1,19 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import styled from "styled-components/native";
-import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
-import {HeaderView, BaseContainerView, PageContainerScrollView} from "../../styles";
-import SetName from "./SetName";
-import HowAreYouFeeling from "./HowAreYouFeeling";
 import {
-    DefaultText,
-    HeaderText,
-    ShareIcon,
-    NotificationIcon,
-} from "../../../../config/styleDefaults";
+    getAggregateUserData,
+    getCurrentUser,
+} from "@reduxShared/models/currentUser/selectors";
+import {BaseContainerView, HeaderView, PageContainerScrollView} from "../../styles";
+import HowAreYouFeeling from "./HowAreYouFeeling";
+import {DefaultText, HeaderText} from "../../../../config/styleDefaults";
 import DevModeResetStore from "./devModeResetStore";
-import {mdiShare} from "../../../../services/staticImages";
-import {mdiNotification} from "../../../../services/staticImages";
-
-const Indent = styled.View`
-    margin-left: 10px;
-`;
-
-const ShareIconView = styled.View`
-    position: absolute;
-    top: 75px;
-    right: 70px;
-`;
-
-const HeaderShareImage = styled.Image`
-    width: 25px;
-    height: 25px;
-`;
-
-const NotificationIconView = styled.View`
-    position: absolute;
-    top: 75px;
-    right: 20px;
-`;
-
-const HeaderNotificationImage = styled.Image`
-    width: 25px;
-    height: 25px;
-`;
+import {mdiNotification, mdiShare} from "../../../../services/staticImages";
 
 const HomeIndex: React.FC = () => {
     const currentUser = useSelector(getCurrentUser);
+    const aggregateUserData = useSelector(getAggregateUserData);
     return (
         <PageContainerScrollView>
             <HeaderView>
@@ -85,16 +56,18 @@ const HomeIndex: React.FC = () => {
                         </DefaultText>
                     </Indent>
                 </Indent>
-                <DefaultText>&bull; Add ability to track user</DefaultText>
+                <DefaultText>&bull; Add ability to location track user</DefaultText>
                 {/*<DefaultText>&bull; test</DefaultText>
                 <DefaultText>&bull; re-add version.json tracking for api</DefaultText>
                 <DefaultText>&bull; test</DefaultText>*/}
             </BaseContainerView>
             <BaseContainerView>
+                <DefaultText>Your current account data:</DefaultText>
                 <DefaultText>{JSON.stringify(currentUser)}</DefaultText>
             </BaseContainerView>
             <BaseContainerView>
-                <SetName />
+                <DefaultText>How your data will be shared:</DefaultText>
+                <DefaultText>{JSON.stringify(aggregateUserData)}</DefaultText>
             </BaseContainerView>
             <DevModeResetStore />
         </PageContainerScrollView>
@@ -102,3 +75,25 @@ const HomeIndex: React.FC = () => {
 };
 
 export default HomeIndex;
+
+const Indent = styled.View`
+    margin-left: 10px;
+`;
+const ShareIconView = styled.View`
+    position: absolute;
+    top: 75px;
+    right: 70px;
+`;
+const HeaderShareImage = styled.Image`
+    width: 25px;
+    height: 25px;
+`;
+const NotificationIconView = styled.View`
+    position: absolute;
+    top: 75px;
+    right: 20px;
+`;
+const HeaderNotificationImage = styled.Image`
+    width: 25px;
+    height: 25px;
+`;

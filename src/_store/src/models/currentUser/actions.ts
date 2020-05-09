@@ -1,17 +1,13 @@
-import {CURRENT_USER, PrivacySettings} from "./constants";
+import {CURRENT_USER, Gender, PrivacySettings} from "./constants";
+import {TermsAndConditionsVersion} from "./termsAndConditions";
 
 export interface CurrentUserNameSuccess {
     type: CURRENT_USER.NAME_SUCCESS;
-    givenName?: string;
-    familyName?: string;
+    name: string;
 }
-export const setCurrentUserNameSuccess = (
-    givenName?: string,
-    familyName?: string,
-): CurrentUserNameSuccess => ({
+export const setCurrentUserNameSuccess = (name: string): CurrentUserNameSuccess => ({
     type: CURRENT_USER.NAME_SUCCESS,
-    givenName,
-    familyName,
+    name,
 });
 export interface CurrentUserBirthdaySuccess {
     type: CURRENT_USER.BIRTHDAY_SUCCESS;
@@ -20,14 +16,24 @@ export interface CurrentUserBirthdaySuccess {
     birthYear?: number;
 }
 export const setCurrentUserBirthdaySuccess = (
+    birthYear?: number,
     birthMonth?: number,
     birthDay?: number,
-    birthYear?: number,
 ): CurrentUserBirthdaySuccess => ({
     type: CURRENT_USER.BIRTHDAY_SUCCESS,
+    birthYear,
     birthMonth,
     birthDay,
-    birthYear,
+});
+export interface CurrentUserGenderSuccess {
+    type: CURRENT_USER.GENDER_SUCCESS;
+    gender?: Gender;
+}
+export const setCurrentUserGenderSuccess = (
+    gender?: Gender,
+): CurrentUserGenderSuccess => ({
+    type: CURRENT_USER.GENDER_SUCCESS,
+    gender,
 });
 
 export interface PatchCurrentUserPrivacySettings {
@@ -43,11 +49,11 @@ export const patchCurrentUserPrivacySettings = (
 
 export interface CurrentUserAcceptTacSuccess {
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS;
-    acceptanceOfTermsAndConditions: boolean;
+    versionOfTermsAndConditionsAccepted: TermsAndConditionsVersion;
 }
 export const setCurrentUserAcceptTacSuccess = (
-    acceptanceOfTermsAndConditions: boolean,
+    versionOfTermsAndConditionsAccepted: TermsAndConditionsVersion,
 ): CurrentUserAcceptTacSuccess => ({
     type: CURRENT_USER.ACCEPT_TAC_SUCCESS,
-    acceptanceOfTermsAndConditions,
+    versionOfTermsAndConditionsAccepted,
 });

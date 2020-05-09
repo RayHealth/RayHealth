@@ -40,13 +40,12 @@ export const HowAreYouFeelingHeaderText = styled.Text`
 const HowAreYouFeeling: React.FC = () => {
     const dispatch = useDispatch();
     const uuid = useUuid();
-    const secretKey = useUuid();
     const isFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(uuid, secretKey, true));
-    }, [dispatch, uuid, secretKey]);
+        dispatch(initializeAssessment(uuid, true));
+    }, [dispatch, uuid]);
     const isNotFeelingGood = useCallback(() => {
-        dispatch(initializeAssessment(uuid, secretKey, false));
-    }, [dispatch, uuid, secretKey]);
+        dispatch(initializeAssessment(uuid, false));
+    }, [dispatch, uuid]);
     return (
         <FeelingContainerView>
             <HowAreYouFeelingHeaderView>

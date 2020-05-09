@@ -6,7 +6,7 @@ import NavigationService from "../../services/navigationService";
 import {trackRouteChanges} from "../utils/trackRouteChanges";
 import useInitialState from "../../services/useInitialState";
 import {KeyboardAvoidingView} from "react-native";
-import {getBackgroundColors} from "../../store/models/appState/accessors";
+import {getBackgroundColors} from "../../store/models/appState/selectors";
 import styled from "styled-components/native";
 
 const KeyboardAvoidingViewStyle = {

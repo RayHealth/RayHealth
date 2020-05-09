@@ -33,6 +33,6 @@ export const BaseContainerView = styled.View`
     padding-bottom: 15px;
     color: ${STYLE.COLORS.GREY1};
     background: ${STYLE.COLORS.WHITE};
-    border-radius: ${STYLE.BORDER_RADIUS}px;
+    border-radius: ${STYLE.BORDER_RADIUS.VIEW}px;
     box-shadow: 0px 10px 30px rgba(147, 147, 147, 0.16);
 `;
