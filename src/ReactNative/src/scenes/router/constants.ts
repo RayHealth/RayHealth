@@ -21,6 +21,7 @@ export interface RoutePath {
     };
 }
 export enum PATHS {
+    WELCOME_INDEX = "welcome/INDEX",
     HOME_INDEX = "home/INDEX",
     MODALS_ASSESSMENTS_NEW = "modal/assessments/NEW",
     MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT = "modal/form/AUTOCOMPLETE_MULTI_SELECT",
@@ -32,6 +33,12 @@ export enum PATHS {
 }
 type AppStackRoutesObj = {[k: string]: RoutePath | AppStackRoutesObj};
 export const APP_STACK_ROUTES = {
+    WELCOME: {
+        INDEX: {
+            path: PATHS.WELCOME_INDEX,
+            label: "Welcome",
+        },
+    },
     HOME: {
         INDEX: {
             path: PATHS.HOME_INDEX,

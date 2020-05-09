@@ -4,7 +4,7 @@ interface Flex2ColumnContainerViewProps {
     alignItems: "center" | "flex-start";
 }
 export const Flex2ColumnContainerView = styled.View`
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     flex-direction: row;
     align-items: ${({alignItems}: Flex2ColumnContainerViewProps) =>

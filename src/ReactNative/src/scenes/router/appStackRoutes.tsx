@@ -17,18 +17,26 @@ import AutocompleteMultiSelectorModal, {
     AutocompleteMultiSelectorParams,
     OverrideBackButton,
 } from "../sharedComponents/inputs/autocompleteMultiSelector/autocompleteMultiSelectorModal";
-import {StackHeaderLeftButtonProps} from "@react-navigation/stack/lib/typescript/src/types";
+import WelcomeToRayHealth from "../appStack/welcomeStack/welcomeToRayHealth";
+import {getCurrentUser} from "@reduxShared/models/currentUser/selectors";
 
 export type PrimaryStackParamList = {
+    [PATHS.WELCOME_INDEX]: undefined;
     [PATHS.HOME_INDEX]: undefined;
     [PATHS.MODALS_ASSESSMENTS_NEW]: undefined;
     [PATHS.MODALS_FORM_AUTOCOMPLETE_MULTI_SELECT]: AutocompleteMultiSelectorParams;
 };
 const PrimaryStack = createStackNavigator<PrimaryStackParamList>();
 const AppStackNavigator = () => {
+    useAgreementMonitor();
     useAssessmentMonitor();
     return (
         <PrimaryStack.Navigator mode="modal">
+            <PrimaryStack.Screen
+                name={PATHS.WELCOME_INDEX}
+                component={WelcomeToRayHealth}
+                options={{headerShown: false}}
+            />
             <PrimaryStack.Screen
                 name={PATHS.HOME_INDEX}
                 component={StackWithBottomTabs}
@@ -98,7 +106,6 @@ const setOptionsFromRoute = (routePath: RoutePath): StackNavigationOptions => ({
     title: routePath.label,
 });
 const UserMenuStackNavigator = () => {
-    useAssessmentMonitor();
     return (
         <UserMenuStack.Navigator>
             <UserMenuStack.Screen
@@ -133,6 +140,14 @@ const UserMenuStackNavigator = () => {
     );
 };
 
+const useAgreementMonitor = (): void => {
+    const {acceptanceOfTermsAndConditions} = useSelector(getCurrentUser);
+    useEffect(() => {
+        if (acceptanceOfTermsAndConditions) {
+            NavigationService.navigate(APP_STACK_ROUTES.WELCOME.INDEX.path);
+        }
+    });
+};
 const useAssessmentMonitor = (): void => {
     const assessmentUuid = useSelector(getCurrentAssessmentUuid);
     useEffect(() => {
