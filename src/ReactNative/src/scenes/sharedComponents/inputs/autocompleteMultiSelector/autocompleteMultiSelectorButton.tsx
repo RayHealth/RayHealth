@@ -1,11 +1,12 @@
 import * as React from "react";
 import {DefaultView} from "../../../../config/styleDefaults";
-import {BrandFullWidthButton} from "../../buttons";
+import {SecondaryFullWidthButton} from "../../buttons";
 import {
     useDetectAutoCompleteMultiSelectorChange,
     useOpenAutocompleteMultiSelectorModal,
 } from "./routeHooks";
 import {AMSPayload} from "./utils";
+import {mdiMenuDownBrand, mdiMenuDownDisabled} from "../../../../services/staticImages";
 
 interface AutocompleteMultiSelectorInputProps {
     keyToMonitor: string;
@@ -28,9 +29,12 @@ const AutocompleteMultiSelectorButton: React.FC<AutocompleteMultiSelectorInputPr
             : label;
         return (
             <DefaultView>
-                <BrandFullWidthButton onPress={onOpen}>
+                <SecondaryFullWidthButton
+                    onPress={onOpen}
+                    rightIcon={mdiMenuDownBrand}
+                    rightIconDisabled={mdiMenuDownDisabled}>
                     {buttonLabel}
-                </BrandFullWidthButton>
+                </SecondaryFullWidthButton>
             </DefaultView>
         );
     },
